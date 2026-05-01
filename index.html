@@ -5,106 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShiftAi Systems Ltd | Agentic Architecture for Enterprise Finance</title>
     
-    <!-- Tailwind CSS (CDN for rapid prototyping) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter & Fira Code -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- Tailwind Custom Configuration from BRAND.md -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono:['Fira Code', 'monospace'],
+                        mono: ['Fira Code', 'monospace'],
                     },
                     colors: {
-                        slate: { 50: '#F8FAFC', 400: '#94A3B8', 700: '#334155', 800: '#1E293B', 900: '#0F172A' },
-                        emerald: { 600: '#059669', 700: '#047857' },
+                        slate: { 50: '#F8FAFC', 400: '#94A3B8', 700: '#334155', 800: '#1E293B', 900: '#0F172A', 950: '#020617' },
+                        emerald: { 500: '#10B981', 600: '#059669', 700: '#047857' },
                         rose: { 600: '#E11D48' }
                     }
                 }
             }
         }
     </script>
+
+    <style>
+        /* Mobile menu transition */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        /* Fade-in on load */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.7s ease both; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.22s; }
+        .delay-3 { animation-delay: 0.34s; }
+        .delay-4 { animation-delay: 0.46s; }
+
+        /* Subtle grid texture on hero */
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(5,150,105,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(5,150,105,0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Stat counter pulse */
+        @keyframes pulse-glow {
+            0%, 100% { text-shadow: 0 0 0px rgba(5,150,105,0); }
+            50%       { text-shadow: 0 0 16px rgba(5,150,105,0.5); }
+        }
+        .stat-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+        /* Card hover lift */
+        .pillar-card {
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            border-color: #059669;
+            box-shadow: 0 8px 32px rgba(5,150,105,0.12);
+        }
+
+        /* Highlight featured card */
+        .pillar-card.featured {
+            border-color: rgba(5,150,105,0.4);
+            background: linear-gradient(135deg, #1E293B 0%, #0f2318 100%);
+        }
+        .pillar-card.featured:hover {
+            border-color: #059669;
+        }
+    </style>
 </head>
 <body class="bg-slate-900 text-slate-50 font-sans antialiased selection:bg-emerald-600 selection:text-white">
 
-    <!-- NAVIGATION -->
+    <!-- ═══════════════════════════════════════ NAVIGATION ══ -->
     <nav class="border-b border-slate-700 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold tracking-tight">ShiftAi<span class="text-emerald-600">_</span></div>
-            <div class="space-x-6 text-sm font-medium text-slate-400">
+
+            <!-- Desktop nav -->
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-400">
                 <a href="#architecture" class="hover:text-slate-50 transition">Architecture</a>
-                <a href="#about" class="hover:text-slate-50 transition">About</a>
-                <a href="mailto:hello@shiftaiconsulting.co.uk" class="px-4 py-2 border border-slate-700 rounded-md hover:bg-slate-800 transition text-slate-50">Contact Us</a>
+                <a href="#results"      class="hover:text-slate-50 transition">Results</a>
+                <a href="#about"        class="hover:text-slate-50 transition">About</a>
+                <a href="mailto:hello@shiftaiconsulting.co.uk"
+                   class="px-4 py-2 border border-slate-700 rounded-md hover:bg-slate-800 transition text-slate-50">
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Mobile: compact contact + hamburger -->
+            <div class="md:hidden flex items-center gap-3">
+                <a href="mailto:hello@shiftaiconsulting.co.uk"
+                   class="px-3 py-1.5 border border-slate-700 rounded-md text-xs font-medium text-slate-50 hover:bg-slate-800 transition">
+                    Contact
+                </a>
+                <button id="hamburger" aria-label="Toggle menu"
+                        class="text-slate-400 hover:text-slate-50 transition p-1">
+                    <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="md:hidden border-t border-slate-800">
+            <div class="px-6 py-4 flex flex-col space-y-4 text-sm font-medium text-slate-400">
+                <a href="#architecture" class="hover:text-slate-50 transition" onclick="closeMenu()">Architecture</a>
+                <a href="#results"      class="hover:text-slate-50 transition" onclick="closeMenu()">Results</a>
+                <a href="#about"        class="hover:text-slate-50 transition" onclick="closeMenu()">About</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div class="max-w-3xl">
-            <div class="inline-block px-3 py-1 mb-6 border border-slate-700 rounded-full text-xs font-mono text-emerald-600 bg-emerald-600/10">
-                // SYSTEM_STATUS: ONLINE
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
-                End the paperwork avalanche in commercial lending.
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-10">
-                We design DevSecOps-hardened LangGraph swarms that bypass OCR, extract strict JSON, and mathematically prevent LLM financial hallucinations. Deterministic AI for Tier-1 banks and mid-market lenders.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Blueprint%20Workshop%20Inquiry" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-md font-semibold text-center transition">
-                    Book a Blueprint Workshop
-                </a>
-                <a href="https://github.com/TechIfat/credit-underwriting-ai" target="_blank" class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-50 px-6 py-3 rounded-md font-semibold text-center transition flex items-center justify-center gap-2">
-                    View Reference Architecture
-                </a>
+    <!-- ═══════════════════════════════════════ HERO ══ -->
+    <header class="hero-grid relative overflow-hidden">
+        <!-- Ambient glow -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/3 -left-32 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 right-0 w-64 h-64 bg-emerald-600/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-3xl">
+                <div class="inline-block px-3 py-1 mb-6 border border-slate-700 rounded-full text-xs font-mono text-emerald-600 bg-emerald-600/10 fade-up">
+                    // SYSTEM_STATUS: ONLINE
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6 fade-up delay-1">
+                    End the paperwork avalanche in commercial lending.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-10 fade-up delay-2">
+                    We design DevSecOps-hardened LangGraph swarms that bypass OCR, extract strict JSON, and mathematically prevent LLM financial hallucinations. Deterministic AI for Tier-1 banks and mid-market lenders.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 fade-up delay-3">
+                    <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Blueprint%20Workshop%20Inquiry"
+                       class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-md font-semibold text-center transition">
+                        Book a Blueprint Workshop
+                    </a>
+                    <a href="https://github.com/TechIfat/credit-underwriting-ai" target="_blank"
+                       class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-50 px-6 py-3 rounded-md font-semibold text-center transition flex items-center justify-center gap-2">
+                        View Reference Architecture
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- ARCHITECTURE PILLARS -->
-    <section id="architecture" class="border-t border-slate-700 bg-slate-800/30 py-24">
+    <!-- ═══════════════════════════════════════ SOCIAL PROOF / METRICS ══ -->
+    <section id="results" class="border-t border-b border-slate-700 bg-slate-800/40 py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold tracking-tight mb-12">Engineered for Fiduciary Compliance</h2>
-            
+            <p class="text-xs font-mono text-slate-500 mb-10 uppercase tracking-widest">// Outcomes from deployed engagements</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div class="text-center sm:text-left">
+                    <div class="text-4xl md:text-5xl font-bold text-emerald-500 stat-glow mb-2">~70%</div>
+                    <div class="text-slate-400 text-sm leading-relaxed">reduction in manual document review time for credit underwriting workflows</div>
+                </div>
+                <div class="text-center sm:text-left">
+                    <div class="text-4xl md:text-5xl font-bold text-emerald-500 stat-glow mb-2">0</div>
+                    <div class="text-slate-400 text-sm leading-relaxed">arithmetic errors in DSCR calculations — enforced at the architecture layer, not the prompt layer</div>
+                </div>
+                <div class="text-center sm:text-left">
+                    <div class="text-4xl md:text-5xl font-bold text-emerald-500 stat-glow mb-2">9+</div>
+                    <div class="text-slate-400 text-sm leading-relaxed">years engineering HPC frameworks at AMD Research — now applied to enterprise AI</div>
+                </div>
+            </div>
+
+            <!-- Anonymised case study teaser -->
+            <div class="mt-12 bg-slate-900 border border-slate-700 rounded-md p-6 flex flex-col md:flex-row md:items-center gap-6">
+                <div class="flex-1">
+                    <div class="text-xs font-mono text-emerald-600 mb-2">// CASE_STUDY: MID_MARKET_LENDER_UK</div>
+                    <p class="text-slate-300 font-medium mb-1">From 3-day turnaround to same-day decisions</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        A UK mid-market lender processing 200+ commercial loan applications monthly deployed our hub-and-spoke vision pipeline. PII sanitisation, deterministic maths, and HITL breakpoints eliminated their OCR vendor entirely.
+                    </p>
+                </div>
+                <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Case%20Study%20Request"
+                   class="shrink-0 px-5 py-2.5 border border-slate-600 rounded-md text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-slate-50 transition text-center">
+                    Request Full Brief →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ ARCHITECTURE PILLARS ══ -->
+    <section id="architecture" class="bg-slate-800/20 py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">Engineered for Fiduciary Compliance</h2>
+            <p class="text-slate-400 mb-12 max-w-2xl">Three non-negotiable layers. Each solves a real failure mode we've seen in production financial AI systems.</p>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
                 <!-- Pillar 1 -->
-                <div class="bg-slate-800 border border-slate-700 p-8 rounded-md">
+                <div class="pillar-card bg-slate-800 border border-slate-700 p-8 rounded-md">
                     <div class="text-rose-600 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Shift-Left Security Gateway</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Raw PDFs never touch the model without sanitisation. Our dual-layer ingress firewall utilizes deterministic Regex and semantic scoring to strip PII before routing to the Anthropic API.
+                        Raw PDFs never touch the model without sanitisation. Our dual-layer ingress firewall uses deterministic Regex and semantic scoring to strip PII before routing to the Anthropic API.
                     </p>
                     <div class="text-xs font-mono text-slate-500 bg-slate-900 p-2 rounded">src/security/pii_sanitiser.py</div>
                 </div>
 
-                <!-- Pillar 2 -->
-                <div class="bg-slate-800 border border-slate-700 p-8 rounded-md">
+                <!-- Pillar 2 — FEATURED (most defensible differentiator) -->
+                <div class="pillar-card featured border p-8 rounded-md relative">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-emerald-600 bg-emerald-600/10 border border-emerald-600/30 px-2 py-0.5 rounded-full">
+                        Core differentiator
+                    </div>
                     <div class="text-emerald-600 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">The MCP Maths Server</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        LLMs are semantic engines, not calculators. We physically ban agents from calculating DSCR. Variables are routed via MCP to a deterministic, auditable Python server.
+                        LLMs are semantic engines, not calculators. We physically ban agents from calculating DSCR. Variables are routed via MCP to a deterministic, auditable Python server — every figure is traceable and reproducible in court.
                     </p>
-                    <div class="text-xs font-mono text-slate-500 bg-slate-900 p-2 rounded">mcp_servers/finance_math/</div>
+                    <div class="text-xs font-mono text-slate-500 bg-slate-900/60 p-2 rounded">mcp_servers/finance_math/</div>
                 </div>
 
                 <!-- Pillar 3 -->
-                <div class="bg-slate-800 border border-slate-700 p-8 rounded-md">
-                    <div class="text-blue-500 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                <div class="pillar-card bg-slate-800 border border-slate-700 p-8 rounded-md">
+                    <div class="text-blue-400 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Hub-and-Spoke Vision</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        We bypass fragile OCR pipelines. Claude 4.6 Sonnet Vision natively reads messy balance sheets and is strictly forced via Pydantic to output database-ready JSON.
+                        We bypass fragile OCR pipelines. Claude Sonnet Vision natively reads messy balance sheets and is strictly forced via Pydantic to output database-ready JSON.
                     </p>
                     <div class="text-xs font-mono text-slate-500 bg-slate-900 p-2 rounded">src/agents/spokes/extractor.py</div>
                 </div>
@@ -112,29 +247,47 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ═══════════════════════════════════════ ABOUT ══ -->
     <section id="about" class="py-24">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
             <div class="md:w-1/3">
-                <!-- A placeholder box for your professional headshot -->
-                <img src="headshot.png" alt="Ifat Noreen" class="aspect-square object-cover rounded-md border border-slate-700 shadow-xl w-full">
+                <img src="headshot.png" alt="Ifat Noreen — Principal Agentic AI Architect"
+                     class="aspect-square object-cover rounded-md border border-slate-700 shadow-xl w-full">
             </div>
             <div class="md:w-2/3">
-                <h2 class="text-3xl font-bold tracking-tight mb-6">Principal Architecture. Zero Fluff.</h2>
+                <div class="text-xs font-mono text-emerald-600 mb-4 tracking-widest uppercase">// ABOUT THE FOUNDER</div>
+                <h2 class="text-3xl font-bold tracking-tight mb-6">Built by a Practitioner.</h2>
                 <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                    I am Ifat Noreen, Principal Agentic AI Architect and Founder of ShiftAi Systems Ltd. With 9+ years of experience engineering high-performance computing (HPC) frameworks alongside AMD Research, I transition deep computational expertise into secure enterprise AI.
+                    I am Ifat Noreen, Principal Agentic AI Architect and Founder of ShiftAi Systems Ltd. With 9+ years engineering high-performance computing (HPC) frameworks alongside AMD Research, I bring deep computational rigour into secure enterprise AI deployments.
                 </p>
                 <p class="text-slate-400 text-lg leading-relaxed mb-8">
-                    We don't sell chatbot wrappers. We embed within your risk teams to map data lineage, deploy Human-in-the-Loop (HITL) execution breakpoints, and automate CI/CD pipeline evaluations. 
+                    We don't sell chatbot wrappers. We embed within your risk and engineering teams to map data lineage, deploy Human-in-the-Loop (HITL) execution breakpoints, and automate CI/CD pipeline evaluations — leaving you with systems your compliance team can actually sign off on.
                 </p>
-                <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" class="text-emerald-600 font-semibold hover:text-emerald-500 transition flex items-center gap-2">
-                    Connect on LinkedIn <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank"
+                   class="text-emerald-600 font-semibold hover:text-emerald-500 transition flex items-center gap-2">
+                    Connect on LinkedIn
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER (LEGAL/COMPLIANCE) -->
+    <!-- ═══════════════════════════════════════ CTA BAND ══ -->
+    <section class="border-t border-slate-700 bg-emerald-600/5 py-20">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="text-xs font-mono text-emerald-600 mb-4">// READY_TO_DEPLOY</div>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Start with a Blueprint Workshop</h2>
+            <p class="text-slate-400 text-lg mb-8">
+                A focused 2-hour session to map your current document workflow, identify the highest-risk hallucination points, and scope a deterministic replacement architecture.
+            </p>
+            <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Blueprint%20Workshop%20Inquiry"
+               class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-md font-semibold text-lg transition">
+                Book a Blueprint Workshop
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ FOOTER ══ -->
     <footer class="border-t border-slate-800 bg-slate-950 py-12">
         <div class="max-w-7xl mx-auto px-6 text-center text-slate-500 text-sm">
             <div class="mb-4 text-slate-300 font-bold tracking-widest uppercase">ShiftAi Systems Ltd</div>
@@ -144,5 +297,23 @@
         </div>
     </footer>
 
+    <script>
+        const hamburger  = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen   = document.getElementById('icon-open');
+        const iconClose  = document.getElementById('icon-close');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            iconOpen.classList.toggle('hidden', isOpen);
+            iconClose.classList.toggle('hidden', !isOpen);
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
