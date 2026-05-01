@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiftAi Systems Ltd | Agentic Architecture for Enterprise Finance</title>
+    
+    <!-- Tailwind CSS (CDN for rapid prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Configuration from BRAND.md -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono:['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        slate: { 50: '#F8FAFC', 400: '#94A3B8', 700: '#334155', 800: '#1E293B', 900: '#0F172A' },
+                        emerald: { 600: '#059669', 700: '#047857' },
+                        rose: { 600: '#E11D48' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-900 text-slate-50 font-sans antialiased selection:bg-emerald-600 selection:text-white">
+
+    <!-- NAVIGATION -->
+    <nav class="border-b border-slate-700 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tight">ShiftAi<span class="text-emerald-600">_</span></div>
+            <div class="space-x-6 text-sm font-medium text-slate-400">
+                <a href="#architecture" class="hover:text-slate-50 transition">Architecture</a>
+                <a href="#about" class="hover:text-slate-50 transition">About</a>
+                <a href="mailto:hello@shiftaiconsulting.co.uk" class="px-4 py-2 border border-slate-700 rounded-md hover:bg-slate-800 transition text-slate-50">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+        <div class="max-w-3xl">
+            <div class="inline-block px-3 py-1 mb-6 border border-slate-700 rounded-full text-xs font-mono text-emerald-600 bg-emerald-600/10">
+                // SYSTEM_STATUS: ONLINE
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+                End the paperwork avalanche in commercial lending.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-10">
+                We design DevSecOps-hardened LangGraph swarms that bypass OCR, extract strict JSON, and mathematically prevent LLM financial hallucinations. Deterministic AI for Tier-1 banks and mid-market lenders.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Blueprint%20Workshop%20Inquiry" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-md font-semibold text-center transition">
+                    Book a Blueprint Workshop
+                </a>
+                <a href="https://github.com/TechIfat/credit-underwriting-ai" target="_blank" class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-50 px-6 py-3 rounded-md font-semibold text-center transition flex items-center justify-center gap-2">
+                    View Reference Architecture
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARCHITECTURE PILLARS -->
+    <section id="architecture" class="border-t border-slate-700 bg-slate-800/30 py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold tracking-tight mb-12">Engineered for Fiduciary Compliance</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-slate-800 border border-slate-700 p-8 rounded-md">
+                    <div class="text-rose-600 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Shift-Left Security Gateway</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Raw PDFs never touch the model without sanitisation. Our dual-layer ingress firewall utilizes deterministic Regex and semantic scoring to strip PII before routing to the Anthropic API.
+                    </p>
+                    <div class="text-xs font-mono text-slate-500 bg-slate-900 p-2 rounded">src/security/pii_sanitiser.py</div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-slate-800 border border-slate-700 p-8 rounded-md">
+                    <div class="text-emerald-600 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">The MCP Maths Server</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        LLMs are semantic engines, not calculators. We physically ban agents from calculating DSCR. Variables are routed via MCP to a deterministic, auditable Python server.
+                    </p>
+                    <div class="text-xs font-mono text-slate-500 bg-slate-900 p-2 rounded">mcp_servers/finance_math/</div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-slate-800 border border-slate-700 p-8 rounded-md">
+                    <div class="text-blue-500 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Hub-and-Spoke Vision</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        We bypass fragile OCR pipelines. Claude 4.6 Sonnet Vision natively reads messy balance sheets and is strictly forced via Pydantic to output database-ready JSON.
+                    </p>
+                    <div class="text-xs font-mono text-slate-500 bg-slate-900 p-2 rounded">src/agents/spokes/extractor.py</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
+            <div class="md:w-1/3">
+                <!-- A placeholder box for your professional headshot -->
+                <img src="headshot.png" alt="Ifat Noreen" class="aspect-square object-cover rounded-md border border-slate-700 shadow-xl w-full">
+            </div>
+            <div class="md:w-2/3">
+                <h2 class="text-3xl font-bold tracking-tight mb-6">Principal Architecture. Zero Fluff.</h2>
+                <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                    I am Ifat Noreen, Principal Agentic AI Architect and Founder of ShiftAi Systems Ltd. With 9+ years of experience engineering high-performance computing (HPC) frameworks alongside AMD Research, I transition deep computational expertise into secure enterprise AI.
+                </p>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                    We don't sell chatbot wrappers. We embed within your risk teams to map data lineage, deploy Human-in-the-Loop (HITL) execution breakpoints, and automate CI/CD pipeline evaluations. 
+                </p>
+                <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" class="text-emerald-600 font-semibold hover:text-emerald-500 transition flex items-center gap-2">
+                    Connect on LinkedIn <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (LEGAL/COMPLIANCE) -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-slate-500 text-sm">
+            <div class="mb-4 text-slate-300 font-bold tracking-widest uppercase">ShiftAi Systems Ltd</div>
+            <p class="mb-2">Registered in England and Wales. Company Registration Number: 15487606</p>
+            <p class="mb-6">Registered Office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom</p>
+            <p>&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
