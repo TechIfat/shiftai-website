@@ -37,8 +37,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
 /* Nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:0.01em;text-decoration:none}
-.nav-logo em{color:var(--brass);font-style:normal}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:36px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-links a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.15s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--ink);transition:width 0.2s}
@@ -211,8 +210,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
-.footer-logo{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--bg);margin-bottom:6px}
-.footer-logo em{color:rgba(196,119,58,0.85);font-style:normal}
+.footer-logo{margin-bottom:6px;display:flex;align-items:center}.footer-logo img{height:32px;width:auto}
 .footer-tagline{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(244,243,239,0.35)}
 .footer-links{display:flex;align-items:center;gap:20px}
 .footer-link{color:rgba(244,243,239,0.4);transition:color 0.15s;display:flex;align-items:center}
@@ -251,7 +249,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <!-- Nav -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Shift<em>Ai</em> Systems</a>
+    <a href="#" class="nav-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
     <div class="nav-links">
       <a href="#solutions">Solutions</a>
       <a href="#results">Results</a>
@@ -597,7 +595,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo">Shift<em>Ai</em> Systems</div>
+        <div class="footer-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></div>
         <div class="footer-tagline">Agentic Architecture for Enterprise Finance</div>
       </div>
       <div class="footer-links">
