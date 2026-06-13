@@ -960,6 +960,13 @@ updateROI();
 @media(max-width:420px){
   #sa-chat-panel{width:calc(100vw - 32px);right:-8px}
 }
+/* Markdown in assistant bubbles */
+.sa-msg.assistant p{margin:0 0 6px}.sa-msg.assistant p:last-child{margin-bottom:0}
+.sa-msg.assistant ul,.sa-msg.assistant ol{margin:4px 0 6px;padding-left:18px}.sa-msg.assistant li{margin-bottom:2px}
+.sa-msg.assistant code{font-family:'DM Mono',monospace;font-size:12px;background:rgba(45,53,97,0.08);padding:1px 5px;border-radius:3px}
+.sa-msg.assistant pre{background:rgba(45,53,97,0.06);border:1px solid var(--border);border-radius:6px;padding:10px 12px;overflow-x:auto;margin:6px 0}
+.sa-msg.assistant pre code{background:none;padding:0;font-size:11.5px}
+.sa-msg.assistant a{color:var(--ink2);text-decoration:underline;text-underline-offset:2px}
 </style>
 
 <div id="sa-chat-widget">
@@ -988,10 +995,17 @@ updateROI();
   </button>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
 <script>
+marked.use({
+  breaks: true,
+  renderer: {
+    link({ href, text }) { return `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`; }
+  }
+});
 (function(){
   /* ---- Config ---- */
-  const API_BASE_URL = "http://localhost:8000";
+  const API_BASE_URL = "https://shiftaiconsultancy.onrender.com";
   const WELCOME_MSG = "Hello — I'm the ShiftAi Discovery Agent. I can answer questions about our DevSecAI architecture for UK banks, our reference builds, or how an engagement works. What would you like to know?";
 
   /* ---- State ---- */
@@ -1039,7 +1053,8 @@ updateROI();
   function appendMsg(role, text){
     const div = document.createElement('div');
     div.className = 'sa-msg ' + role;
-    div.textContent = text;
+    if(role === 'assistant') div.innerHTML = marked.parse(text);
+    else div.textContent = text;
     messagesEl.appendChild(div);
     scrollBottom();
     if(role === 'assistant' && !isOpen){
@@ -1156,6 +1171,7 @@ updateROI();
       isBusy = false; sendBtn.disabled = false; return;
     }
 
+    if(assistantDiv) assistantDiv.innerHTML = marked.parse(assistantText);
     if(assistantText){
       history.push({ role: 'assistant', content: assistantText });
     }
