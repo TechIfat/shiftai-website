@@ -1000,9 +1000,22 @@ updateROI();
 marked.use({
   breaks: true,
   renderer: {
-    link({ href, text }) { return `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`; }
+    link({ href, text }) {
+      const safeHref = href || '';
+      const safeText = text || safeHref;
+      if (!safeHref) return safeText;
+      return `<a href="${safeHref}" target="_blank" rel="noopener noreferrer">${safeText}</a>`;
+    }
   }
 });
+
+/* Linkify bare URLs in plain text before passing to marked */
+function linkifyText(text) {
+  return text.replace(
+    /(https?:\/\/[^\s<>"]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+}
 (function(){
   /* ---- Config ---- */
   const API_BASE_URL = "https://shiftaiconsultancy.onrender.com";
@@ -1053,7 +1066,7 @@ marked.use({
   function appendMsg(role, text){
     const div = document.createElement('div');
     div.className = 'sa-msg ' + role;
-    if(role === 'assistant') div.innerHTML = marked.parse(text);
+    if(role === 'assistant') div.innerHTML = marked.parse(linkifyText(text));
     else div.textContent = text;
     messagesEl.appendChild(div);
     scrollBottom();
@@ -1171,7 +1184,7 @@ marked.use({
       isBusy = false; sendBtn.disabled = false; return;
     }
 
-    if(assistantDiv) assistantDiv.innerHTML = marked.parse(assistantText);
+    if(assistantDiv) assistantDiv.innerHTML = marked.parse(linkifyText(assistantText));
     if(assistantText){
       history.push({ role: 'assistant', content: assistantText });
     }
