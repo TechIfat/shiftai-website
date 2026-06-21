@@ -35,6 +35,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
 
 /* Nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2)}
+#includes,#faq{scroll-margin-top:84px}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:36px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px}
@@ -134,12 +135,9 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
     <div class="nav-links">
-      <a href="index.html#about">About</a>
-      <a href="index.html#process">How We Work</a>
-      <a href="index.html#solutions">Solutions</a>
-      <a href="index.html#teardown">4 Hours to 4 Minutes</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="ai-for-good.html">AI for Good</a>
+      <a href="index.html">Home</a>
+      <a href="#includes">What We Offer</a>
+      <a href="#faq">FAQ</a>
       <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="nav-cta">Book a free call</a>
     </div>
     <button id="hamburger" class="hamburger" aria-label="Toggle menu">
@@ -149,12 +147,9 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   </div>
   <div id="mobile-menu">
     <div class="mobile-links">
-      <a href="index.html#about" onclick="closeMenu()">About</a>
-      <a href="index.html#process" onclick="closeMenu()">How We Work</a>
-      <a href="index.html#solutions" onclick="closeMenu()">Solutions</a>
-      <a href="index.html#teardown" onclick="closeMenu()">4 Hours to 4 Minutes</a>
-      <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-      <a href="ai-for-good.html" onclick="closeMenu()">AI for Good</a>
+      <a href="index.html" onclick="closeMenu()">Home</a>
+      <a href="#includes" onclick="closeMenu()">What We Offer</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
       <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" onclick="closeMenu()">Book a free call</a>
     </div>
   </div>
@@ -189,7 +184,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 </section>
 
 <!-- What this includes -->
-<section class="section" style="padding-top:0">
+<section id="includes" class="section" style="padding-top:0">
   <div class="section-inner reveal">
     <p class="section-eyebrow">What this includes</p>
     <h2 class="section-heading">Practical help. Not a sales pitch.</h2>
@@ -215,7 +210,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 </section>
 
 <!-- FAQ -->
-<section class="faq-section">
+<section id="faq" class="faq-section">
   <div class="faq-inner">
     <div class="reveal" style="margin-bottom:48px">
       <p class="section-eyebrow">Frequently asked questions</p>
