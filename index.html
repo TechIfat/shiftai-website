@@ -172,7 +172,9 @@ input[type=range]::-webkit-slider-thumb{height:24px;width:24px;border-radius:50%
 .process-start h3{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:10px}
 .process-start p{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:16px;max-width:680px}
 .process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:24px}
-.process-step{background:var(--bg);padding:36px 30px}
+.process-step{background-color:var(--bg);padding:36px 30px}
+.process-step.brass{background-color:var(--bg);background-image:linear-gradient(rgba(196,119,58,0.08),rgba(196,119,58,0.08))}
+.process-step.ink{background-color:var(--bg);background-image:linear-gradient(rgba(45,53,97,0.08),rgba(45,53,97,0.08))}
 .step-num{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:700;color:var(--brass);margin-bottom:20px;line-height:1;letter-spacing:-0.02em}
 .process-step h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
 .process-step p{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:16px}
@@ -185,10 +187,16 @@ input[type=range]::-webkit-slider-thumb{height:24px;width:24px;border-radius:50%
 .solutions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .sol-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:28px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
 .sol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
+.sol-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
+.sol-card.ink{background:rgba(45,53,97,0.05);border-color:rgba(45,53,97,0.18)}
+.sol-card.rose{background:rgba(192,70,58,0.05);border-color:rgba(192,70,58,0.18)}
 .sol-card.brass-card::before{background:var(--brass)}
 .sol-card.ink::before{background:var(--ink)}
 .sol-card.rose::before{background:#c0463a}
 .sol-card:hover{transform:translateY(-3px);border-color:var(--border3)}
+.sol-card.brass-card:hover{border-color:rgba(196,119,58,0.4)}
+.sol-card.ink:hover{border-color:rgba(45,53,97,0.4)}
+.sol-card.rose:hover{border-color:rgba(192,70,58,0.4)}
 .sol-card:hover::before{opacity:1}
 .sol-card.span2{grid-column:1/-1}
 .sol-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);margin-bottom:20px;letter-spacing:0.06em}
@@ -256,6 +264,8 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 .footer-link{color:rgba(244,243,239,0.4);transition:color 0.15s;display:flex;align-items:center}
 .footer-link:hover{color:var(--bg)}
 .footer-bottom{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:rgba(244,243,239,0.3)}
+.footer-bottom a{color:rgba(244,243,239,0.5);text-decoration:none;transition:color 0.15s}
+.footer-bottom a:hover{color:var(--bg)}
 
 /* Responsive */
 @media(max-width:1024px) and (min-width:769px){
@@ -300,6 +310,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       <a href="#solutions">Solutions</a>
       <a href="#results">Results</a>
       <a href="#about">About</a>
+      <a href="ai-for-good.html">AI for Good</a>
       <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="nav-cta">Book a free call</a>
     </div>
     <button id="hamburger" class="hamburger" aria-label="Toggle menu">
@@ -312,6 +323,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       <a href="#solutions" onclick="closeMenu()">Solutions</a>
       <a href="#results" onclick="closeMenu()">Results</a>
       <a href="#about" onclick="closeMenu()">About</a>
+      <a href="ai-for-good.html" onclick="closeMenu()">AI for Good</a>
       <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" onclick="closeMenu()">Book a free call</a>
     </div>
   </div>
@@ -380,23 +392,36 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   </div>
 </div>
 
-<!-- Results -->
-<section id="results" class="section results-bg">
+<!-- About -->
+<section id="about" class="section">
   <div class="section-inner">
-    <div class="reveal">
-      <p class="section-eyebrow">Measured outcomes</p>
-      <h2 class="section-heading" style="color:var(--bg)">The numbers your board<br>will actually ask about.</h2>
-      <p class="section-sub">Every build is measured against what matters in UK regulated finance: cost saved, risk removed, and compliance maintained. Not benchmark scores on a test dataset.</p>
-    </div>
-    <div class="results-grid reveal">
-      <div class="result-item"><div class="result-val">£4,620<small><em>per night recovered</em></small></div><div class="result-label">Analyst cost recovered by AML batch triage engine, every single night</div></div>
-      <div class="result-item"><div class="result-val">500<em>+</em></div><div class="result-label">Transactions evaluated per nightly batch run at 50% compute cost discount</div></div>
-      <div class="result-item"><div class="result-val">12<em> wk</em></div><div class="result-label">From blank repo to production-grade platform, fully documented</div></div>
-      <div class="result-item"><div class="result-val">100<em>%</em></div><div class="result-label">Deterministic JSON output: zero hallucinated entities or financial figures</div></div>
-    </div>
-    <div class="brief-card reveal">
-      <div class="brief-text"><strong>Every design decision is documented and reviewable.</strong> Your CTO, CISO, and compliance team receive a full record of what was built, why each architectural choice was made, and how risk was controlled at every layer.</div>
-      <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Full%20Brief%20Request" class="btn-outline-light">Request Full Brief &rarr;</a>
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="about-photo-frame"></div>
+        <img src="headshot.png" alt="Ifat Noreen, Principal Agentic AI Architect">
+        <div class="badges">
+          <span class="badge">AMD Research · 9+ yrs</span>
+          <span class="badge">Regulated Finance AI</span>
+          <span class="badge">Enterprise AI</span>
+          <span class="badge">DevSecOps</span>
+        </div>
+      </div>
+      <div class="about-content reveal rd2">
+        <p class="section-eyebrow">About the founder</p>
+        <h2>Built by an engineer.<br><em>Designed for compliance.</em></h2>
+        <p>I am Ifat Noreen, founder of ShiftAi Systems Ltd. Before building AI systems I spent 9 years designing high-performance computing infrastructure at AMD Research, where the standard was not good enough but provably correct. I apply that same standard to every AI system I build for banks and lenders.</p>
+        <p>We do not sell software licences or retainer contracts. We embed within your team, build the system alongside your engineers, and hand it over completely. Your compliance team gets a system they can explain to the FCA. Your engineering team gets code they understand and can maintain.</p>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" class="about-link primary">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Connect on LinkedIn
+          </a>
+          <a href="https://github.com/TechIfat" target="_blank" class="about-link secondary">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            View GitHub repos
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -407,7 +432,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="case-study-card reveal">
       <p class="case-eyebrow">Architecture Teardown</p>
       <h2>From 4 hours per credit application<br>to 4 minutes.</h2>
-      
+
       <div class="case-insight">
         <h4>Technical Insight: Eliminating Hallucination Risk</h4>
         <p>Large Language Models are excellent at semantic extraction, but they cannot do math reliably. In this build, we completely locked Claude out of arithmetic. Claude extracts the raw figures from scanned balance sheets into strict JSON, then passes those variables to our deterministic Python Model Context Protocol (MCP) server. The Python server calculates DSCR and LTV, returning mathematically perfect results. The FCA gets an auditable process; the bank gets zero hallucination risk.</p>
@@ -443,6 +468,27 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       </div>
 
       <a href="https://github.com/TechIfat/credit-underwriting-ai" target="_blank" class="case-cta">Read the full technical teardown on GitHub <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results" class="section results-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Measured outcomes</p>
+      <h2 class="section-heading" style="color:var(--bg)">The numbers your board<br>will actually ask about.</h2>
+      <p class="section-sub">Every build is measured against what matters in UK regulated finance: cost saved, risk removed, and compliance maintained. Not benchmark scores on a test dataset.</p>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-item"><div class="result-val">£4,620<small><em>per night recovered</em></small></div><div class="result-label">Analyst cost recovered by AML batch triage engine, every single night</div></div>
+      <div class="result-item"><div class="result-val">500<em>+</em></div><div class="result-label">Transactions evaluated per nightly batch run at 50% compute cost discount</div></div>
+      <div class="result-item"><div class="result-val">12<em> wk</em></div><div class="result-label">From blank repo to production-grade platform, fully documented</div></div>
+      <div class="result-item"><div class="result-val">100<em>%</em></div><div class="result-label">Deterministic JSON output: zero hallucinated entities or financial figures</div></div>
+    </div>
+    <div class="brief-card reveal">
+      <div class="brief-text"><strong>Every design decision is documented and reviewable.</strong> Your CTO, CISO, and compliance team receive a full record of what was built, why each architectural choice was made, and how risk was controlled at every layer.</div>
+      <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Full%20Brief%20Request" class="btn-outline-light">Request Full Brief &rarr;</a>
     </div>
   </div>
 </section>
@@ -504,7 +550,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     </div>
 
     <div class="process-steps reveal">
-      <div class="process-step">
+      <div class="process-step brass">
         <div class="step-num">01</div>
         <h3>AI Readiness and Governance Assessment</h3>
         <p>A 2-3 week paid engagement mapping your current AI posture against FCA/PRA requirements. Deliverables include:</p>
@@ -517,7 +563,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         <p>Your CTO, CRO, and CISO leave with a document they can act on.</p>
         <div class="step-fee">From £5,000. Fully credited against your Tier 2 build if you proceed within 30 days.</div>
       </div>
-      <div class="process-step">
+      <div class="process-step ink">
         <div class="step-num">02</div>
         <h3>Architecture Sprint or POC</h3>
         <p>A 4-week contracted proof of concept or an 8-12 week full architecture sprint, scoped at the assessment stage. Deliverables include:</p>
@@ -530,7 +576,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         <p>No black boxes. No vendor dependency.</p>
         <div class="step-fee">Scoped and priced at assessment stage</div>
       </div>
-      <div class="process-step">
+      <div class="process-step brass">
         <div class="step-num">03</div>
         <h3>Sustained Adoption Programme</h3>
         <p>Once Claude is in production, we stand up your AI Centre of Excellence. Deliverables include:</p>
@@ -573,12 +619,12 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         <a href="https://github.com/TechIfat/aml-batch-processor" target="_blank" class="sol-link ink">View codebase &amp; ADRs <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
 
-      <div class="sol-card brass-card reveal rd3">
+      <div class="sol-card ink reveal rd3">
         <div class="sol-num">03 /</div>
-        <div class="sol-icon brass-icon"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div>
+        <div class="sol-icon ink"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div>
         <h3>Regulatory Gap Analyzer</h3>
         <p>Cuts regulatory gap analysis from months to minutes. Reads new FCA or PRA policy updates alongside your internal policies and produces a structured report with exact citations from both documents. No paraphrasing. No invented references.</p>
-        <a href="https://github.com/TechIfat/regulatory-gap-analyzer" target="_blank" class="sol-link brass-link">View codebase &amp; ADRs <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+        <a href="https://github.com/TechIfat/regulatory-gap-analyzer" target="_blank" class="sol-link ink">View codebase &amp; ADRs <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
 
       <div class="sol-card rose reveal rd4">
@@ -621,40 +667,6 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   </div>
 </section>
 
-<!-- About -->
-<section id="about" class="section">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-photo reveal">
-        <div class="about-photo-frame"></div>
-        <img src="headshot.png" alt="Ifat Noreen, Principal Agentic AI Architect">
-        <div class="badges">
-          <span class="badge">AMD Research · 9+ yrs</span>
-          <span class="badge">Regulated Finance AI</span>
-          <span class="badge">Enterprise AI</span>
-          <span class="badge">DevSecOps</span>
-        </div>
-      </div>
-      <div class="about-content reveal rd2">
-        <p class="section-eyebrow">About the founder</p>
-        <h2>Built by an engineer.<br><em>Designed for compliance.</em></h2>
-        <p>I am Ifat Noreen, founder of ShiftAi Systems Ltd. Before building AI systems I spent 9 years designing high-performance computing infrastructure at AMD Research, where the standard was not good enough but provably correct. I apply that same standard to every AI system I build for banks and lenders.</p>
-        <p>We do not sell software licences or retainer contracts. We embed within your team, build the system alongside your engineers, and hand it over completely. Your compliance team gets a system they can explain to the FCA. Your engineering team gets code they understand and can maintain.</p>
-        <div class="about-links">
-          <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" class="about-link primary">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            Connect on LinkedIn
-          </a>
-          <a href="https://github.com/TechIfat" target="_blank" class="about-link secondary">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            View GitHub repos
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner reveal">
@@ -687,7 +699,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
       </button>
       <div class="faq-answer" role="region">
-        <div class="faq-answer-inner">No. As covered in the data handling question above, the system runs on your own Anthropic API account and your own infrastructure, not ours, so ShiftAi never holds your data at all. Under Anthropic's standard commercial terms, API inputs and outputs are not used to train its models. Where your organisation requires a Zero Data Retention agreement with Anthropic directly, we can build to that requirement and confirm it as part of the AI Readiness Assessment.</div>
+        <div class="faq-answer-inner">No. The system runs on your own Anthropic API account and your own infrastructure, not ours, so ShiftAi never holds your data at all. Under Anthropic's standard commercial terms, API inputs and outputs are not used to train its models. Where your organisation requires a Zero Data Retention agreement with Anthropic directly, we can build to that requirement and confirm it as part of the AI Readiness Assessment.</div>
       </div>
     </div>
 
@@ -826,6 +838,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       </div>
     </div>
     <div class="footer-bottom">
+      <p><a href="ai-for-good.html">AI for Good Programme</a></p>
       <p>Registered in England and Wales · Company No. 15487606</p>
       <p>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</p>
       <p style="margin-top:6px">&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
