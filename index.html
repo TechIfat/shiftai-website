@@ -74,16 +74,16 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .hero-problems li{font-size:14px;color:var(--ink);line-height:1.5;padding-left:18px;position:relative}
 .hero-problems li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--brass)}
 .hero-problems strong{font-weight:700}
-.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:64px}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .btn-primary{background:var(--ink);color:var(--bg);font-family:'Syne',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;border-radius:6px;text-decoration:none;transition:background 0.15s,transform 0.15s;display:inline-block;letter-spacing:0.01em;cursor:pointer;border:none;}
 .btn-primary:hover{background:var(--ink2);transform:translateY(-1px)}
 .btn-secondary{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
 .btn-secondary:hover{color:var(--brass);border-color:var(--brass)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:680px}
-.stat{background:var(--bg2);padding:22px 24px}
-.stat-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;color:var(--ink);margin-bottom:4px}
-.stat-val span{color:var(--brass)}
-.stat-label{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* ComplyAI layer chips */
+.layer-chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.layer-chip{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);background:var(--brass-bg);border:1px solid var(--brass-border);padding:5px 14px;border-radius:20px;letter-spacing:0.03em}
+.layer-chip .chip-num{color:var(--brass);margin-right:6px}
 
 /* Credentials */
 .credentials-section{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 32px}
@@ -121,7 +121,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .results-bg .section-eyebrow{color:rgba(196,119,58,0.9)}
 .results-bg .section-heading{color:var(--bg)}
 .results-bg .section-sub{color:rgba(244,243,239,0.55)}
-.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;margin-bottom:48px}
+.results-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;margin-bottom:48px}
 .result-item{background:var(--ink);padding:32px 28px}
 .result-val{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--bg);margin-bottom:8px;line-height:1.1;word-break:break-word}
 .result-val em{color:rgba(196,119,58,0.85);font-style:normal}
@@ -137,6 +137,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .case-study-section{background:var(--bg3);padding:80px 32px}
 .case-study-card{background:var(--ink);border-radius:12px;padding:52px 56px}
 .case-eyebrow{font-family:'DM Mono',monospace;font-size:10px;color:var(--brass);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px}
+.case-bridge{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.2rem;color:rgba(244,243,239,0.65);line-height:1.5;margin-bottom:18px;max-width:640px}
 .case-study-card h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;color:var(--bg);letter-spacing:-0.02em;margin-bottom:24px}
 .case-insight{background:rgba(255,255,255,0.04);border-left:3px solid var(--brass);padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:40px}
 .case-insight h4{font-size:15px;color:var(--bg);margin-bottom:8px}
@@ -281,14 +282,13 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 /* Responsive */
 @media(max-width:1024px) and (min-width:769px){
   .results-grid{grid-template-columns:repeat(2,1fr)}
+  .results-grid .result-item:last-child{grid-column:1/-1}
 }
 
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:block}
   .hero{padding:60px 20px 56px}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hero-stats .stat:last-child{grid-column:1/-1}
   .solutions-grid{grid-template-columns:1fr}
   .sol-card.span2{grid-column:auto}
   .about-grid{grid-template-columns:1fr}
@@ -320,10 +320,10 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div class="nav-inner">
     <a href="#" class="nav-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
     <div class="nav-links">
+      <a href="complyai.html">ComplyAI</a>
       <a href="index.html#about">About</a>
       <a href="index.html#process">How We Work</a>
       <a href="index.html#solutions">Solutions</a>
-      <a href="complyai.html">ComplyAI</a>
       <a href="index.html#teardown">4 Hours to 4 Minutes</a>
       <a href="index.html#faq">FAQ</a>
       <a href="ai-for-good.html">AI for Good</a>
@@ -336,10 +336,10 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   </div>
   <div id="mobile-menu">
     <div class="mobile-links">
+      <a href="complyai.html" onclick="closeMenu()">ComplyAI</a>
       <a href="index.html#about" onclick="closeMenu()">About</a>
       <a href="index.html#process" onclick="closeMenu()">How We Work</a>
       <a href="index.html#solutions" onclick="closeMenu()">Solutions</a>
-      <a href="complyai.html" onclick="closeMenu()">ComplyAI</a>
       <a href="index.html#teardown" onclick="closeMenu()">4 Hours to 4 Minutes</a>
       <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
       <a href="ai-for-good.html" onclick="closeMenu()">AI for Good</a>
@@ -352,34 +352,40 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <header>
   <div class="hero">
     <div class="hero-rule fu fu1"></div>
-    <p class="hero-eyebrow fu fu1">AI for UK Banking · Compliance-Ready · No Vendor Lock-in</p>
-    <h1 class="fu fu2">Deterministic AI for banks<br>that cannot afford to <em>hallucinate.</em></h1>
-    <p class="hero-sub fu fu3">Production-grade AI systems for UK banking and lending. Full audit trail for your regulators. Code your team owns outright.</p>
+    <p class="hero-eyebrow fu fu1">ComplyAI · AI Governance for UK Banking · No Vendor Lock-in</p>
+    <h1 class="fu fu2">Your bank is deploying AI<br>faster than it can <em>govern it.</em></h1>
+    <p class="hero-sub fu fu3">ComplyAI closes that gap: four compliance layers making AI-assisted decisions traceable, explainable, and accountable under UK financial regulation.</p>
     <ul class="hero-problems fu fu3">
-      <li><strong>Underwriting</strong> drowning in scanned PDFs and balance sheets</li>
-      <li><strong>Compliance</strong> clearing AML false positives by hand, every night</li>
-      <li><strong>Legal</strong> losing months to regulatory gap analysis</li>
+      <li><strong>AI-assisted decisions</strong> with no traceable evidence of how they were made</li>
+      <li><strong>No audit trail</strong> your compliance team or the FCA can rely on</li>
+      <li><strong>No named individual</strong> accountable when an AI-assisted decision is challenged</li>
     </ul>
     <div class="hero-actions fu fu4">
-      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a free 45-minute call</a>
-      <a href="#solutions" class="btn-secondary">View reference architectures <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
-    </div>
-    <div class="hero-stats fu fu4">
-      <div class="stat">
-        <div class="stat-val">£4,620</div>
-        <div class="stat-label">analyst cost recovered per night by AML triage engine</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">90<span>%</span></div>
-        <div class="stat-label">token cost reduction via prompt caching on 50-page documents</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">0</div>
-        <div class="stat-label">hallucinated financial figures across all production deployments</div>
-      </div>
+      <a href="complyai.html" class="btn-primary">See how ComplyAI works</a>
+      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-secondary">Book a free 45-minute call <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
   </div>
 </header>
+
+<!-- ComplyAI Introduction -->
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">ComplyAI</p>
+      <h2 class="section-heading">Four layers between your AI<br>and an unanswerable question.</h2>
+      <p class="section-sub" style="margin-bottom:24px">When the FCA asks how a specific AI-assisted decision was made, ComplyAI is the evidence. Four compliance layers, deployed on your own infrastructure, in code your team owns outright.</p>
+    </div>
+    <ul class="layer-chips reveal">
+      <li class="layer-chip"><span class="chip-num">01 /</span>Source Tracing</li>
+      <li class="layer-chip"><span class="chip-num">02 /</span>Immutable Audit Log</li>
+      <li class="layer-chip"><span class="chip-num">03 /</span>Explainability Record</li>
+      <li class="layer-chip"><span class="chip-num">04 /</span>SMCR Accountability Gate</li>
+    </ul>
+    <div class="reveal" style="margin-top:24px">
+      <a href="complyai.html" class="btn-secondary">Read how each layer works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+  </div>
+</section>
 
 <!-- Credentials -->
 <section class="credentials-section">
@@ -465,6 +471,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div class="section-inner">
     <div class="case-study-card reveal">
       <p class="case-eyebrow">Architecture Teardown</p>
+      <p class="case-bridge">One of the reference architectures ComplyAI's governance layer wraps, examined in technical depth.</p>
       <h2>From 4 hours per credit application<br>to 4 minutes.</h2>
 
       <div class="case-insight">
@@ -517,6 +524,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="results-grid reveal">
       <div class="result-item"><div class="result-val">£4,620<small><em>per night recovered</em></small></div><div class="result-label">Analyst cost recovered by AML batch triage engine, every single night</div></div>
       <div class="result-item"><div class="result-val">500<em>+</em></div><div class="result-label">Transactions evaluated per nightly batch run at 50% compute cost discount</div></div>
+      <div class="result-item"><div class="result-val">90<em>%</em></div><div class="result-label">Token cost reduction via prompt caching on 50-page documents</div></div>
       <div class="result-item"><div class="result-val">12<em> wk</em></div><div class="result-label">From blank repo to production-grade platform, fully documented</div></div>
       <div class="result-item"><div class="result-val">100<em>%</em></div><div class="result-label">Deterministic JSON output: zero hallucinated entities or financial figures</div></div>
     </div>
@@ -631,9 +639,9 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <section id="solutions" class="section">
   <div class="section-inner">
     <div class="reveal">
-      <p class="section-eyebrow">What we build</p>
-      <h2 class="section-heading">Seven ways we help UK financial services<br>deploy Claude safely.</h2>
-      <p class="section-sub">Five open-source reference architectures plus two new service offerings. Every build targets a specific operational cost or regulatory risk in UK banking and lending.</p>
+      <p class="section-eyebrow">Proof of capability</p>
+      <h2 class="section-heading">The engineering underneath<br>ComplyAI's governance layer.</h2>
+      <p class="section-sub">Five open-source reference architectures plus two service offerings. Each build proves the engineering capability that sits underneath ComplyAI, and each is a workflow its governance layer can wrap. Every one targets a specific operational cost or regulatory risk in UK banking and lending.</p>
     </div>
     <div class="solutions-grid">
 
@@ -724,6 +732,57 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="reveal" style="margin-bottom:48px">
       <p class="section-eyebrow">Frequently asked questions</p>
       <h2 class="section-heading">Common questions,<br>straight answers.</h2>
+    </div>
+
+    <p class="faq-category">ComplyAI and governance</p>
+    <div class="faq-item reveal rd1">
+      <button class="faq-question" aria-expanded="false">
+        How is ComplyAI different from just adding logging to our existing AI system?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Logging records that something happened. ComplyAI verifies what happened. Source Tracing checks every figure against source documents and rejects fabricated citations, not just logs them. The Immutable Audit Log is hash-chained, so tampering with a historical entry is cryptographically detectable, not just discouraged by access controls. Standard logging cannot make either claim.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd2">
+      <button class="faq-question" aria-expanded="false">
+        Has ComplyAI actually been tested, or is this a concept?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Built, tested, and audited. Every layer has its own test suite. The system has been through two independent review rounds, each finding fixed and verified before being considered closed, and validated against live Claude API behaviour twice, not just automated tests. The current build has a documented, bounded list of production-readiness items, covered honestly on the ComplyAI page.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd3">
+      <button class="faq-question" aria-expanded="false">
+        Can ComplyAI work alongside an AI platform we already use?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Yes. For banks with an existing AI platform, ComplyAI can run as an independent, parallel system on the same source documents for a bounded trial period, producing a direct comparison of accuracy, audit completeness, and cost against your current system. It does not require access inside your existing platform.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd4">
+      <button class="faq-question" aria-expanded="false">
+        What does ComplyAI's audit trail actually contain?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">For every decision, ComplyAI records the source documents referenced, the verification outcome for every figure, the plain-language explanation generated, and the named individual who reviewed and signed off before the decision was finalised. This is hash-chained so no historical entry can be silently altered.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd1">
+      <button class="faq-question" aria-expanded="false">
+        Who is accountable for a ComplyAI-reviewed decision if something goes wrong?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">A named individual, not a department. The SMCR Accountability Gate requires a specific person to review and sign off before a consequential decision is finalised, and once signed off, that decision cannot be silently overwritten by a second reviewer. This is designed specifically to answer the SMCR accountability question regulators are asking UK banks directly.</div>
+      </div>
     </div>
 
     <p class="faq-category">Security and architecture</p>
