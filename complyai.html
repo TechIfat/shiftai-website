@@ -35,7 +35,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
 
 /* Nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2)}
-#problem,#layers,#proven,#deploy{scroll-margin-top:84px}
+#problem,#layers,#proven,#deploy,#process,#faq{scroll-margin-top:84px}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:36px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px}
@@ -135,6 +135,34 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .deploy-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
 .deploy-card p{font-size:14px;color:var(--muted);line-height:1.72}
 
+/* How We Work */
+.process-section{background:var(--bg)}
+.process-start{border:1.5px solid var(--brass);border-radius:10px;padding:32px 30px;margin-top:48px;background:var(--bg)}
+.process-start-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--brass);background:rgba(196,119,58,0.1);border-radius:20px;padding:4px 12px;margin-bottom:14px}
+.process-start h3{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.process-start p{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:16px;max-width:680px}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:24px}
+.process-step{background-color:var(--bg);padding:36px 30px}
+.process-step.brass{background-color:var(--bg);background-image:linear-gradient(rgba(196,119,58,0.08),rgba(196,119,58,0.08))}
+.process-step.ink{background-color:var(--bg);background-image:linear-gradient(rgba(45,53,97,0.08),rgba(45,53,97,0.08))}
+.step-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;color:var(--brass);margin-bottom:20px;line-height:1;letter-spacing:-0.01em}
+.process-step h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
+.process-step p{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:16px}
+.step-list{list-style:none;margin-bottom:16px;padding:0}
+.step-list li{position:relative;padding-left:14px;font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:6px}
+.step-list li::before{content:'•';position:absolute;left:0;color:var(--brass)}
+.step-fee{font-family:'DM Mono',monospace;font-size:12px;color:var(--brass);letter-spacing:0.04em;border-top:1px solid var(--border2);padding-top:14px}
+
+/* FAQ */
+.faq-section{background:var(--bg);padding:80px 32px}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border2)}
+.faq-question{width:100%;background:none;border:none;text-align:left;padding:22px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1.35}
+.faq-indicator{width:20px;height:20px;flex-shrink:0;color:var(--brass);transition:transform 0.25s ease}
+.faq-item.open .faq-indicator{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+.faq-answer-inner{padding-bottom:24px;font-size:15px;color:var(--muted);line-height:1.78}
+
 /* CTA */
 .cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .cta-inner{max-width:720px;margin:0 auto;text-align:center;padding:80px 32px}
@@ -169,6 +197,8 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   .section{padding:56px 20px}
   .layers-grid{grid-template-columns:repeat(2,1fr)}
   .deploy-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .faq-section{padding:56px 20px}
   .proven-story{padding:32px 24px}
   .proven-open{padding:22px 22px}
 }
@@ -322,6 +352,143 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   </div>
 </section>
 
+<!-- How We Work -->
+<section id="process" class="section process-section">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">How we work</p>
+      <h2 class="section-heading">Three tiers. No retainers.<br>You own everything.</h2>
+      <p class="section-sub">Both deployment models above are delivered through the same Tier 0 to Tier 3 engagement. Tier 0 is a free discovery call. Tier 1 scores your governance gap. Tier 2 deploys ComplyAI. Tier 3 keeps it running. Start at Tier 0. Stop whenever the case is not proven.</p>
+    </div>
+
+    <div class="process-start reveal">
+      <div class="process-start-badge">TIER 0 · FREE</div>
+      <h3>45-Minute Discovery Call</h3>
+      <p>A free video call on Zoom or Teams with your risk and engineering leads. We talk through your current AI-assisted decision workflows, identify where the governance gap actually sits, and tell you honestly whether a ComplyAI assessment is the right next step.</p>
+      <ul class="step-list">
+        <li>Video call on Zoom or Teams, whichever you prefer</li>
+        <li>Your current governance posture mapped at a high level</li>
+        <li>Immediate FCA/SMCR risk points identified</li>
+        <li>Clear, honest recommendation on next steps</li>
+      </ul>
+      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book your free call</a>
+    </div>
+
+    <div class="process-steps reveal">
+      <div class="process-step brass">
+        <div class="step-num">TIER 1</div>
+        <h3>ComplyAI Governance Readiness Assessment</h3>
+        <p>A 2-3 week paid engagement scoring your current AI-assisted decisions against the four questions ComplyAI answers. Deliverables include:</p>
+        <ul class="step-list">
+          <li>Governance Gap Register scored across provenance, audit, explainability, and accountability</li>
+          <li>The reconstruction drill: timed evidence trail reconstruction for one historical decision</li>
+          <li>Draft policy configuration ready for deployment</li>
+          <li>Fixed-price roadmap for closing the gaps found</li>
+        </ul>
+        <p>Your CRO, CCO, and CTO leave with a document they can act on.</p>
+        <div class="step-fee">From £5,000. Fully credited against your Tier 2 deployment if you proceed within 30 days.</div>
+      </div>
+      <div class="process-step ink">
+        <div class="step-num">TIER 2</div>
+        <h3>ComplyAI Deployment Sprint</h3>
+        <p>Deployment, integration, and pilot of the built, tested, four-layer ComplyAI system, scoped at the assessment stage. This is not a build from scratch, ComplyAI already exists. Deliverables include:</p>
+        <ul class="step-list">
+          <li>One decision traced end to end from day one, not week six</li>
+          <li>Policy configuration workshop and data integration</li>
+          <li>Prediction-first parallel trial rounds on your own decisions</li>
+          <li>Reviewer onboarding and production storage setup</li>
+          <li>Integrity operations wired into your monitoring, including scheduled chain verification and off-host anchoring</li>
+        </ul>
+        <p>No black boxes. No vendor dependency.</p>
+        <div class="step-fee">Scoped and priced at assessment stage.</div>
+      </div>
+      <div class="process-step brass">
+        <div class="step-num">TIER 3</div>
+        <h3>Sustained Governance Programme</h3>
+        <p>Once ComplyAI is in production, ongoing operation and assurance. Deliverables include:</p>
+        <ul class="step-list">
+          <li>Monthly governance review sessions</li>
+          <li>Retention, redaction, and incident response support</li>
+          <li>Config and model version fingerprint monitoring</li>
+          <li>Quarterly model risk review against FCA/PRA guidance</li>
+        </ul>
+        <p>Full IP transfer at handover. You retain complete control.</p>
+        <div class="step-fee">Ongoing retainer. Priced per engagement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="faq-inner">
+    <div class="reveal" style="margin-bottom:48px">
+      <p class="section-eyebrow">Common questions</p>
+      <h2 class="section-heading">Straight answers on how this actually works.</h2>
+    </div>
+
+    <div class="faq-item reveal rd1">
+      <button class="faq-question" aria-expanded="false">
+        What does the reconstruction drill actually measure?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">During the Tier 1 assessment, we pick one real historical AI-assisted decision from your records and time how long it takes your team to produce a complete evidence trail for it, which documents were used, what figures were relied on, who reviewed it, and why it was approved. Most teams have never measured this. The result becomes the baseline the rest of the engagement is measured against.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd2">
+      <button class="faq-question" aria-expanded="false">
+        What happens if ComplyAI finds a figure it cannot verify?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">It is marked as one of two honest states, either genuinely unsupported by any document provided, or reliant on a data source outside what we were given access to. Either way, the finding is surfaced in the explainability record and automatically routed for human review, never silently approved.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd3">
+      <button class="faq-question" aria-expanded="false">
+        Do you need access inside our existing AI platform?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">No. For banks running an existing platform, ComplyAI operates independently, on the same source documents you supply, without requiring any access to your platform's internals, prompts, or proprietary data. It runs alongside your system, not inside it.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd4">
+      <button class="faq-question" aria-expanded="false">
+        What does the audit chain actually contain?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">For every decision, a tamper-evident record of the source documents referenced, the verification outcome for every figure traced, the plain-language explanation generated, the configuration and model version in force at the time, and the named individual who reviewed and signed off. Any attempt to alter a historical entry breaks the chain and is detectable.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd1">
+      <button class="faq-question" aria-expanded="false">
+        Has this actually been tested against a real model, not just automated tests?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Yes. The system has been validated across four separate recorded live runs against real Claude API behaviour, each with predicted outcomes stated before the run and the actual results compared and documented afterwards, not just a passing automated test suite.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd2">
+      <button class="faq-question" aria-expanded="false">
+        What is genuinely not ready yet?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">The current build is a tested, audited reference architecture, not yet a production deployment. Before any client goes live, a production database backend, scheduled off-host anchoring for the audit chain, and a reviewer-facing interface are built as part of the Tier 2 deployment sprint, scoped to that specific engagement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner reveal">
@@ -372,6 +539,25 @@ function closeMenu(){mobileMenu.classList.remove('open');iconOpen.classList.remo
 // Reveal Animation Logic
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// FAQ Logic
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      i.querySelector('.faq-answer').style.maxHeight=null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+      const answer=item.querySelector('.faq-answer');
+      answer.style.maxHeight=answer.scrollHeight+'px';
+    }
+  });
+});
 </script>
 </body>
 </html>
