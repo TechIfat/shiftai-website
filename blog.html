@@ -293,7 +293,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     </div>
     <div id="sa-messages" aria-live="polite" aria-atomic="false"></div>
     <div id="sa-input-area">
-      <textarea id="sa-input" rows="1" placeholder="Ask about our AI architecture…" maxlength="1000" aria-label="Chat message"></textarea>
+      <textarea id="sa-input" rows="1" placeholder="Ask about ComplyAI or our architecture…" maxlength="1000" aria-label="Chat message"></textarea>
       <button id="sa-send" aria-label="Send message" disabled>
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
       </button>
@@ -332,7 +332,7 @@ function linkifyText(text) {
 (function(){
   /* ---- Config ---- */
   const API_BASE_URL = "https://shiftaiconsultancy.onrender.com";
-  const WELCOME_MSG = "Hello, I'm the ShiftAi Discovery Agent. I can answer questions about our DevSecAI architecture for UK banks, our reference builds, or how an engagement works. What would you like to know?";
+  const WELCOME_MSG = "Hello, I'm the ShiftAi Discovery Agent. I can answer questions about ComplyAI, our governance architecture for UK banks, or how an engagement works. What would you like to know?";
 
   /* ---- State ---- */
   const widget   = document.getElementById('sa-chat-widget');
