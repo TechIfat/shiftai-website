@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shiftaiconsulting.co.uk/sitemap.xml

@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | ShiftAi Systems Ltd</title>
-<meta name="description" content="Get in touch with ShiftAi Systems Ltd. Book a free discovery call, ask our Discovery Agent a question, or send us a message directly.">
-<meta name="keywords" content="contact ShiftAi, book a call, AI consulting enquiry, UK banking AI">
+<title>Blog | ShiftAi Systems Ltd</title>
+<meta name="description" content="Governance, audit, and engineering notes from building AI for UK regulated finance, written by ShiftAi Systems Ltd founder Ifat Noreen.">
 <meta name="author" content="Ifat Noreen, ShiftAi Systems Ltd">
-<link rel="canonical" href="https://shiftaiconsulting.co.uk/contact.html">
+<link rel="canonical" href="https://shiftaiconsulting.co.uk/blog.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://shiftaiconsulting.co.uk/contact.html">
-<meta property="og:title" content="Contact Us | ShiftAi Systems Ltd">
-<meta property="og:description" content="Three ways to reach ShiftAi Systems Ltd, whichever suits you.">
+<meta property="og:url" content="https://shiftaiconsulting.co.uk/blog.html">
+<meta property="og:title" content="Blog | ShiftAi Systems Ltd">
+<meta property="og:description" content="Governance, audit, and engineering notes from building AI for UK regulated finance.">
 <meta property="og:image" content="https://shiftaiconsulting.co.uk/headshot.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Us | ShiftAi Systems Ltd">
-<meta name="twitter:description" content="Three ways to reach ShiftAi Systems Ltd, whichever suits you.">
+<meta name="twitter:title" content="Blog | ShiftAi Systems Ltd">
+<meta name="twitter:description" content="Governance, audit, and engineering notes from building AI for UK regulated finance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -46,7 +45,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .nav-cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--ink)}
 #mobile-menu{max-height:0;overflow:hidden;transition:max-height 0.3s ease,opacity 0.3s;opacity:0;border-top:1px solid var(--border)}
-#mobile-menu.open{max-height:300px;opacity:1}
+#mobile-menu.open{max-height:400px;opacity:1}
 .mobile-links{padding:20px 32px;display:flex;flex-direction:column;gap:18px}
 .mobile-links a{font-size:15px;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.15s}
 .mobile-links a:hover{color:var(--ink)}
@@ -54,7 +53,6 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:none}
-.rd1{transition-delay:0.08s}.rd2{transition-delay:0.16s}.rd3{transition-delay:0.24s}
 
 /* Fade-up on load */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
@@ -62,42 +60,28 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .fu1{animation-delay:0.05s}.fu2{animation-delay:0.18s}.fu3{animation-delay:0.32s}
 
 /* Hero */
-.hero{padding:96px 32px 80px;max-width:1200px;margin:0 auto;position:relative}
+.hero{padding:96px 32px 64px;max-width:1200px;margin:0 auto;position:relative}
 .hero-rule{width:40px;height:3px;background:var(--brass);border-radius:2px;margin-bottom:28px}
-.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:24px;max-width:780px}
-.hero-sub{font-size:1.15rem;color:var(--muted);max-width:560px;line-height:1.7}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--brass);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:600px;line-height:1.7}
 
 /* Section shared */
-.section{padding:0 32px 80px}
-.section-inner{max-width:1200px;margin:0 auto}
+.section{padding:0 32px 96px}
+.section-inner{max-width:800px;margin:0 auto}
 
-/* Contact cards */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.contact-card{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:12px;padding:32px 30px}
-.contact-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
-.contact-card.ink{background:rgba(45,53,97,0.05);border-color:rgba(45,53,97,0.18)}
-.contact-card.rose{background:rgba(192,70,58,0.05);border-color:rgba(192,70,58,0.18)}
-.contact-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0}
-.contact-card.brass-card .contact-icon{background:var(--brass-bg);color:var(--brass)}
-.contact-card.ink .contact-icon{background:rgba(45,53,97,0.08);color:var(--ink)}
-.contact-card.rose .contact-icon{background:rgba(192,70,58,0.08);color:#c0463a}
-.contact-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em}
-.contact-card p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:20px}
-.contact-card .btn-primary{margin-top:auto;width:100%;text-align:center}
-.btn-primary{background:var(--ink);color:var(--bg);font-family:'Syne',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;border-radius:6px;text-decoration:none;transition:background 0.15s,transform 0.15s;display:inline-block;letter-spacing:0.01em;cursor:pointer;border:none}
-.btn-primary:hover{background:var(--ink2);transform:translateY(-1px)}
-.btn-primary:disabled{opacity:0.6;cursor:not-allowed;transform:none}
-
-/* Contact form */
-.contact-form{display:flex;flex-direction:column;gap:12px}
-.contact-form label{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;display:block}
-.contact-form input,.contact-form textarea{width:100%;border:1px solid var(--border2);border-radius:7px;padding:10px 12px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg2);outline:none;transition:border-color 0.15s}
-.contact-form input:focus,.contact-form textarea:focus{border-color:var(--ink3)}
-.contact-form textarea{resize:vertical;min-height:90px;font-family:inherit}
-.form-status{font-size:13px;line-height:1.5;display:none}
-.form-status.visible{display:block}
-.form-status.success{color:#2f8f5b}
-.form-status.error{color:#c0463a}
+/* Post card */
+.post-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:36px 40px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
+.post-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.post-card:hover{transform:translateY(-2px);border-color:var(--border3)}
+.post-card:hover::before{opacity:1}
+.post-date{font-family:'DM Mono',monospace;font-size:12px;color:var(--brass);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px}
+.post-title{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;margin-bottom:14px;line-height:1.25}
+.post-title a{color:inherit;text-decoration:none}
+.post-title a:hover{color:var(--brass)}
+.post-excerpt{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:20px}
+.post-link{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
+.post-link:hover{color:var(--brass);border-color:var(--brass)}
 
 /* Footer */
 footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px}
@@ -116,9 +100,10 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:block}
-  .hero{padding:60px 20px 56px}
+  .hero{padding:60px 20px 48px}
   .section{padding:0 20px 56px}
-  .contact-grid{grid-template-columns:1fr}
+  .post-card{padding:26px 24px}
+  .post-title{font-size:1.25rem}
 }
 </style>
 </head>
@@ -163,56 +148,21 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <header>
   <div class="hero">
     <div class="hero-rule fu fu1"></div>
-    <h1 class="fu fu2">Get in touch</h1>
-    <p class="hero-sub fu fu3">Three ways to reach us, whichever suits you.</p>
+    <p class="hero-eyebrow fu fu1">Blog</p>
+    <h1 class="fu fu2">Blog</h1>
+    <p class="hero-sub fu fu3">Governance, audit, and engineering notes from building AI for UK regulated finance.</p>
   </div>
 </header>
 
-<!-- Contact options -->
+<!-- Posts -->
 <section class="section">
   <div class="section-inner">
-    <div class="contact-grid">
-
-      <div class="contact-card brass-card reveal rd1">
-        <div class="contact-icon"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <h3>Book a free call</h3>
-        <p>45 minutes on Zoom or Teams. The fastest way to find out if there is a fit.</p>
-        <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book your call</a>
-      </div>
-
-      <div class="contact-card ink reveal rd2">
-        <div class="contact-icon"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
-        <h3>Ask the Discovery Agent</h3>
-        <p>Get an instant answer from our AI assistant, available in the bottom right corner of this page.</p>
-        <button type="button" id="open-chat-btn" class="btn-primary">Open chat</button>
-      </div>
-
-      <div class="contact-card rose reveal rd3">
-        <div class="contact-icon"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-        <h3>Send a message</h3>
-        <p>Not ready for a call? Send a few details and we will get back to you by email.</p>
-        <form id="contact-form" class="contact-form">
-          <div>
-            <label for="contact-name">Name</label>
-            <input type="text" id="contact-name" name="name" required maxlength="200">
-          </div>
-          <div>
-            <label for="contact-email">Email</label>
-            <input type="email" id="contact-email" name="email" required maxlength="200">
-          </div>
-          <div>
-            <label for="contact-organisation">Organisation</label>
-            <input type="text" id="contact-organisation" name="organisation" required maxlength="200">
-          </div>
-          <div>
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" required maxlength="2000"></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send message</button>
-          <p id="contact-form-status" class="form-status" role="status"></p>
-        </form>
-      </div>
-
+    <!-- New entries go above this line, newest first -->
+    <div class="post-card reveal">
+      <p class="post-date">8 July 2026</p>
+      <h2 class="post-title"><a href="blog/ai-governance-gap.html">The AI Governance Gap: UK Banks Are Deploying AI Faster Than They Can Govern It</a></h2>
+      <p class="post-excerpt">Ten. That is how many banks the FCA has fined for financial crime control failings in the last four years. Monzo, £21 million. Starling, £29 million. Metro Bank, £16.7 million. Different banks, different products, different years. Read the final notices side by side and one pattern holds across all of them.</p>
+      <a href="blog/ai-governance-gap.html" class="post-link">Read more <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
   </div>
 </section>
@@ -255,61 +205,6 @@ function closeMenu(){mobileMenu.classList.remove('open');iconOpen.classList.remo
 // Reveal Animation Logic
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// Open chat widget from the Discovery Agent card
-document.getElementById('open-chat-btn').addEventListener('click', () => {
-  const toggle = document.getElementById('sa-chat-toggle');
-  if (toggle) toggle.click();
-});
-
-// Contact form submission
-(function(){
-  const CONTACT_API_URL = "https://shiftaiconsultancy.onrender.com/contact";
-  const form = document.getElementById('contact-form');
-  const statusEl = document.getElementById('contact-form-status');
-  const submitBtn = form.querySelector('button[type="submit"]');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    statusEl.className = 'form-status';
-    statusEl.textContent = '';
-
-    const payload = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      organisation: form.organisation.value.trim(),
-      message: form.message.value.trim(),
-    };
-
-    try {
-      const res = await fetch(CONTACT_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        const errMsg = res.status === 429
-          ? "You have reached the message limit for now. Please email hello@shiftaiconsulting.co.uk directly."
-          : "Something went wrong sending your message. Please try again, or email hello@shiftaiconsulting.co.uk directly.";
-        statusEl.textContent = errMsg;
-        statusEl.className = 'form-status error visible';
-        submitBtn.disabled = false;
-        return;
-      }
-
-      statusEl.textContent = "Thank you. Your message has been sent and we will get back to you by email.";
-      statusEl.className = 'form-status success visible';
-      form.reset();
-    } catch (err) {
-      statusEl.textContent = "Connection error. Please check your network and try again, or email hello@shiftaiconsulting.co.uk directly.";
-      statusEl.className = 'form-status error visible';
-    } finally {
-      submitBtn.disabled = false;
-    }
-  });
-})();
 </script>
 
 <!-- ============================================================
@@ -614,5 +509,6 @@ function linkifyText(text) {
 
 })();
 </script>
+
 </body>
 </html>
