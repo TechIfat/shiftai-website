@@ -208,7 +208,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 <!-- ============================================================
-     ShiftAi Discovery Agent — Chat Widget
+     ShiftAi Discovery Agent: Chat Widget
      API_BASE_URL: update to your deployed backend URL after deployment
      ============================================================ -->
 <style>
@@ -332,7 +332,7 @@ function linkifyText(text) {
 (function(){
   /* ---- Config ---- */
   const API_BASE_URL = "https://shiftaiconsultancy.onrender.com";
-  const WELCOME_MSG = "Hello — I'm the ShiftAi Discovery Agent. I can answer questions about our DevSecAI architecture for UK banks, our reference builds, or how an engagement works. What would you like to know?";
+  const WELCOME_MSG = "Hello, I'm the ShiftAi Discovery Agent. I can answer questions about our DevSecAI architecture for UK banks, our reference builds, or how an engagement works. What would you like to know?";
 
   /* ---- State ---- */
   const widget   = document.getElementById('sa-chat-widget');
@@ -462,7 +462,7 @@ function linkifyText(text) {
           if(payload === '[DONE]') break;
 
           if(payload === '[RESET]'){
-            // Server intercepted a forbidden output — clear current streaming bubble
+            // Server intercepted a forbidden output: clear current streaming bubble
             resetPending = true;
             if(assistantDiv){ assistantDiv.remove(); assistantDiv = null; }
             assistantText = '';
