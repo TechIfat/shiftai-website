@@ -566,7 +566,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         </div>
       </div>
       <div class="roi-disclaimer">
-        *Based on an industry average of 45 minutes (£25 internal cost) per manual check vs ShiftAi's API & compute cost.
+        *Based on an industry average of 45 minutes (£25 internal cost) per manual check vs ShiftAi's estimated Claude Sonnet 4.6 API cost. Checks are batched (up to 10 figures per model call) with prompt caching to cut repeat-document cost. This is a model-and-infrastructure estimate, not measured data from a live client deployment.
       </div>
     </div>
   </div>
@@ -979,7 +979,13 @@ const costSavings = document.getElementById('cost-savings');
 
 // Assumptions
 const costPerManualCheck = 25; // £25 (approx 45 mins of underwriter time)
-const costPerShiftAiCheck = 1.5; // £1.50 (API tokens + infra)
+// £0.45 (API tokens + infra). Derived from a bottom-up model of ShiftAi's
+// governance-layer pipeline: Claude Sonnet 4.6 pricing ($3/$15 per MTok),
+// figure-tracing batched at 10 figures/call with prompt caching on repeat
+// document reads, plus one explainability-layer call per check. That model
+// lands at ~£0.144-0.182/check; £0.45 adds a buffer for infra/hosting
+// overhead and volume/document-size variance not captured by the model.
+const costPerShiftAiCheck = 0.45;
 
 function formatGBP(num) {
   return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(num);
