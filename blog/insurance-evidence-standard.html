@@ -3,18 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | ShiftAi Systems Ltd</title>
-<meta name="description" content="Governance, audit, and engineering notes from building AI for UK regulated finance, written by ShiftAi Systems Ltd founder Ifat Noreen.">
+<title>Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions | ShiftAi Systems</title>
+<meta name="description" content="The FCA's new insurance director just raised the evidence bar. AI-assisted underwriting and claims decisions are where it is hardest to clear.">
 <meta name="author" content="Ifat Noreen, ShiftAi Systems Ltd">
-<link rel="canonical" href="https://shiftaiconsulting.co.uk/blog.html">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://shiftaiconsulting.co.uk/blog.html">
-<meta property="og:title" content="Blog | ShiftAi Systems Ltd">
-<meta property="og:description" content="Governance, audit, and engineering notes from building AI for UK regulated finance.">
-<meta property="og:image" content="https://shiftaiconsulting.co.uk/headshot.png">
+<link rel="canonical" href="https://shiftaiconsulting.co.uk/blog/insurance-evidence-standard.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shiftaiconsulting.co.uk/blog/insurance-evidence-standard.html">
+<meta property="og:title" content="Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions">
+<meta property="og:description" content="The FCA's new insurance director just raised the evidence bar. AI-assisted underwriting and claims decisions are where it is hardest to clear.">
+<meta property="og:image" content="https://shiftaiconsulting.co.uk/insurance-evidence-standard-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog | ShiftAi Systems Ltd">
-<meta name="twitter:description" content="Governance, audit, and engineering notes from building AI for UK regulated finance.">
+<meta name="twitter:title" content="Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions">
+<meta name="twitter:description" content="The FCA's new insurance director just raised the evidence bar. AI-assisted underwriting and claims decisions are where it is hardest to clear.">
+<meta name="twitter:image" content="https://shiftaiconsulting.co.uk/insurance-evidence-standard-card.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions","author":{"@type":"Person","name":"Ifat Noreen"},"publisher":{"@type":"Organization","name":"ShiftAi Systems Ltd","logo":{"@type":"ImageObject","url":"https://shiftaiconsulting.co.uk/shiftai-logo.png"}},"datePublished":"2026-07-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://shiftaiconsulting.co.uk/blog/insurance-evidence-standard.html"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -59,32 +61,37 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .fu{animation:fadeUp 0.7s ease both}
 .fu1{animation-delay:0.05s}.fu2{animation-delay:0.18s}.fu3{animation-delay:0.32s}
 
-/* Hero */
-.hero{padding:96px 32px 64px;max-width:1200px;margin:0 auto;position:relative}
+/* Article hero */
+.article-hero{padding:72px 32px 40px;max-width:1200px;margin:0 auto}
 .hero-rule{width:40px;height:3px;background:var(--brass);border-radius:2px;margin-bottom:28px}
 .hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--brass);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
-.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px}
-.hero-sub{font-size:1.05rem;color:var(--muted);max-width:600px;line-height:1.7}
+.article-hero h1{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:28px;max-width:900px}
+.byline{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted);border-top:1px solid var(--border2);padding-top:20px;max-width:68ch}
+.byline .byline-name{font-family:'Syne',sans-serif;font-weight:700;color:var(--ink);font-size:15px}
+.byline .byline-role{color:var(--muted)}
+.byline .byline-date{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted2);margin-top:6px;letter-spacing:0.02em}
 
-/* Section shared */
-.section{padding:0 32px 96px}
-.section-inner{max-width:800px;margin:0 auto}
+/* Article body */
+.article-body{padding:8px 32px 24px}
+.prose-col{max-width:68ch;margin:0 auto}
+.prose-col p{font-size:18px;color:var(--ink3);line-height:1.8;margin-bottom:22px}
+.prose-col p strong{color:var(--ink);font-weight:700}
+.prose-col a{color:var(--brass);text-decoration:underline;text-decoration-color:var(--brass-border);text-underline-offset:2px;transition:text-decoration-color 0.15s}
+.prose-col a:hover{text-decoration-color:var(--brass)}
+.prose-col h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin:52px 0 22px}
 
-/* Post card */
-.post-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:36px 40px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
-.post-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
-.post-card:hover{transform:translateY(-2px);border-color:var(--border3)}
-.post-card:hover::before{opacity:1}
-.post-date{font-family:'DM Mono',monospace;font-size:12px;color:var(--brass);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px}
-.post-title{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;margin-bottom:14px;line-height:1.25}
-.post-title a{color:inherit;text-decoration:none}
-.post-title a:hover{color:var(--brass)}
-.post-excerpt{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:20px}
-.post-link{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
-.post-link:hover{color:var(--brass);border-color:var(--brass)}
+/* Author footer card */
+.author-card{max-width:68ch;margin:56px auto 0;background:var(--ink);border-radius:12px;padding:36px 40px}
+.author-card p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:rgba(244,243,239,0.82);line-height:1.7}
+.author-card a{color:var(--brass);text-decoration-color:rgba(196,119,58,0.5)}
+.author-card a:hover{text-decoration-color:var(--brass)}
+
+.article-footer-nav{max-width:68ch;margin:40px auto 0;padding-bottom:8px}
+.article-footer-nav a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
+.article-footer-nav a:hover{color:var(--brass);border-color:var(--brass)}
 
 /* Footer */
-footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px}
+footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px;margin-top:64px}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
 .footer-logo{margin-bottom:6px;display:flex;align-items:center}.footer-logo img{height:32px;width:auto}
@@ -100,10 +107,11 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:block}
-  .hero{padding:60px 20px 48px}
-  .section{padding:0 20px 56px}
-  .post-card{padding:26px 24px}
-  .post-title{font-size:1.25rem}
+  .article-hero{padding:48px 20px 32px}
+  .article-body{padding:8px 20px 24px}
+  .prose-col p{font-size:16.5px}
+  .author-card{padding:28px 26px}
+  .author-card p{font-size:1.05rem}
 }
 </style>
 </head>
@@ -112,17 +120,17 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <!-- Nav -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
+    <a href="../index.html" class="nav-logo"><img src="../shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
     <div class="nav-links">
-      <a href="complyai.html">ComplyAI</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#process">How We Work</a>
-      <a href="index.html#solutions">Solutions</a>
-      <a href="index.html#teardown">4 Hours to 4 Minutes</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="ai-for-good.html">AI for Good</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html" class="nav-cta">Contact us</a>
+      <a href="../complyai.html">ComplyAI</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#process">How We Work</a>
+      <a href="../index.html#solutions">Solutions</a>
+      <a href="../index.html#teardown">4 Hours to 4 Minutes</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../ai-for-good.html">AI for Good</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html" class="nav-cta">Contact us</a>
     </div>
     <button id="hamburger" class="hamburger" aria-label="Toggle menu">
       <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -131,45 +139,81 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   </div>
   <div id="mobile-menu">
     <div class="mobile-links">
-      <a href="complyai.html" onclick="closeMenu()">ComplyAI</a>
-      <a href="index.html#about" onclick="closeMenu()">About</a>
-      <a href="index.html#process" onclick="closeMenu()">How We Work</a>
-      <a href="index.html#solutions" onclick="closeMenu()">Solutions</a>
-      <a href="index.html#teardown" onclick="closeMenu()">4 Hours to 4 Minutes</a>
-      <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-      <a href="ai-for-good.html" onclick="closeMenu()">AI for Good</a>
-      <a href="blog.html" onclick="closeMenu()">Blog</a>
-      <a href="contact.html" onclick="closeMenu()">Contact us</a>
+      <a href="../complyai.html" onclick="closeMenu()">ComplyAI</a>
+      <a href="../index.html#about" onclick="closeMenu()">About</a>
+      <a href="../index.html#process" onclick="closeMenu()">How We Work</a>
+      <a href="../index.html#solutions" onclick="closeMenu()">Solutions</a>
+      <a href="../index.html#teardown" onclick="closeMenu()">4 Hours to 4 Minutes</a>
+      <a href="../index.html#faq" onclick="closeMenu()">FAQ</a>
+      <a href="../ai-for-good.html" onclick="closeMenu()">AI for Good</a>
+      <a href="../blog.html" onclick="closeMenu()">Blog</a>
+      <a href="../contact.html" onclick="closeMenu()">Contact us</a>
     </div>
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- Article hero -->
 <header>
-  <div class="hero">
+  <div class="article-hero">
     <div class="hero-rule fu fu1"></div>
     <p class="hero-eyebrow fu fu1">Blog</p>
-    <h1 class="fu fu2">Blog</h1>
-    <p class="hero-sub fu fu3">Governance, audit, and engineering notes from building AI for UK regulated finance.</p>
+    <h1 class="fu fu2">Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions</h1>
+    <div class="byline fu fu3">
+      <span class="byline-name">Ifat Noreen</span>
+      <span class="byline-role">Founder and Principal Agentic AI Architect, ShiftAi Systems Ltd</span>
+      <span class="byline-date">24 July 2026</span>
+    </div>
   </div>
 </header>
 
-<!-- Posts -->
-<section class="section">
-  <div class="section-inner">
-    <!-- New entries go above this line, newest first -->
-    <div class="post-card reveal">
-      <p class="post-date">24 July 2026</p>
-      <h2 class="post-title"><a href="blog/insurance-evidence-standard.html">Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions</a></h2>
-      <p class="post-excerpt">"Disclosure alone is not enough." The FCA's new insurance director just raised the bar for evidence. AI-assisted decisions are where that bar is hardest to clear.</p>
-      <a href="blog/insurance-evidence-standard.html" class="post-link">Read more <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
-    </div>
-    <div class="post-card reveal">
-      <p class="post-date">8 July 2026</p>
-      <h2 class="post-title"><a href="blog/ai-governance-gap.html">The AI Governance Gap: UK Banks Are Deploying AI Faster Than They Can Govern It</a></h2>
-      <p class="post-excerpt">Ten. That is how many banks the FCA has fined for financial crime control failings in the last four years. Monzo, £21 million. Starling, £29 million. Metro Bank, £16.7 million. Different banks, different products, different years. Read the final notices side by side and one pattern holds across all of them.</p>
-      <a href="blog/ai-governance-gap.html" class="post-link">Read more <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
-    </div>
+<!-- Article body -->
+<section class="article-body">
+  <div class="prose-col reveal">
+
+    <p>"Disclosure alone is not enough." The FCA's new insurance director just raised the bar for evidence. AI-assisted decisions are where that bar is hardest to clear.</p>
+
+    <p>This week, Chris Knight published his first blog post as the FCA's Director of Insurance. It is about conflicts of interest in vertically integrated insurance models. It is not about AI. Not one mention of it.</p>
+
+    <p>Read it anyway, because the standard he sets applies to every consequential decision an insurer makes, however that decision is produced.</p>
+
+    <p>Three lines stand out.</p>
+
+    <p>First: firms must "actively identify, manage and evidence" conflicts. Not assess. Not disclose. Evidence.</p>
+
+    <p>Second: "disclosure alone is not enough. Simply telling customers about a conflict doesn't remove your obligation to manage it properly."</p>
+
+    <p>Third: firms need "controls that actually work in practice, not just on paper," with "clear senior management accountability," and should expect to "show us how your arrangements deliver good outcomes."</p>
+
+    <p>Identify. Manage. Evidence. Show, don't assert. Named accountability. Controls proven in practice, not described in policy documents.</p>
+
+    <p>Now apply that standard to a different corner of the same industry.</p>
+
+    <p>A growing share of underwriting, pricing and claims decisions are AI-assisted. Ask a firm running them three questions in Knight's own register. Can you evidence where every figure in this decision came from? Can you show that the record of the decision has not been quietly altered since it was made? Can you name the individual who signed it off, and prove it was them?</p>
+
+    <p>For most firms the honest answers are: partially, no, and it depends who you ask.</p>
+
+    <p>That is not because insurers are careless. It is because AI systems produce fluent, confident output, and fluent, confident output is precisely the thing that is hardest to evidence after the fact. A model states that a claimant's declared income was £48,200. Where did that number come from? Was it in the source documents, or was it plausibly invented? By the time a regulator, an ombudsman or a complainant asks, the answer has to be reconstructed. Reconstruction is the paper-based control Knight is warning about: it exists in policy, and fails in practice.</p>
+
+    <p>The alternative is to <a href="../complyai.html">produce the evidence at the moment the decision is made</a>. Verify each cited figure against the source document before it passes. Write the decision into a record that proves it has not been tampered with. Generate the customer explanation from verified facts, so nothing adverse can be quietly left out. Require a named person to sign off, with their identity committed to the record in a way that cannot be rewritten later.</p>
+
+    <p>None of this is a new regulatory demand. It is the same Consumer Duty and the same senior management accountability that already apply. What Knight's post signals, in his first week in the role, is where the supervisory emphasis sits: the FCA does not want to hear that your governance exists. It wants you to be able to show it working, decision by decision.</p>
+
+    <p>Here is the detail worth sitting with: no UK insurer has yet been fined by the FCA for AI-assisted decisioning. Not one. In the US, the same questions are already in court, as ongoing lawsuits over claims and coverage algorithms, allegations rather than findings, but discovery is underway. The UK is in the window where the supervisory expectation is published and the first enforcement case has not yet happened. That window is where evidence architecture is cheap. After the first case, it is retrofit.</p>
+
+    <p>Banks deploying AI in credit decisions are already confronting this. My view is that insurance is next, not because the FCA has said so about AI specifically (it has not, and I am not claiming otherwise), but because "evidence, don't disclose" is not a conflicts-of-interest principle. It is a philosophy of supervision. Philosophies of supervision do not stay in one product line.</p>
+
+    <p>If your firm's AI-assisted decisions had to meet Knight's standard tomorrow, could they?</p>
+
+    <p>Source: Chris Knight, "Managing conflicts of interest in insurance," FCA blog, July 2026.</p>
+
+  </div>
+
+  <div class="author-card reveal">
+    <p>Ifat Noreen is the founder of ShiftAi Systems Ltd, a UK consultancy building deterministic AI governance for regulated finance, and the architect of ComplyAI, a four-layer compliance governance system built for exactly the evidence standard Chris Knight has now named: traced figures, tamper-evident records, and accountable sign-off. More at <a href="../complyai.html">shiftaiconsulting.co.uk/complyai.html</a>.</p>
+  </div>
+
+  <div class="article-footer-nav reveal">
+    <a href="../blog.html">&larr; Back to Blog</a>
   </div>
 </section>
 
@@ -178,7 +222,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></div>
+        <div class="footer-logo"><img src="../shiftai-logo.png" alt="ShiftAi Systems Ltd" /></div>
         <div class="footer-tagline">Agentic Architecture for Enterprise Finance</div>
       </div>
       <div class="footer-links">
@@ -194,7 +238,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       </div>
     </div>
     <div class="footer-bottom">
-      <p><a href="ai-for-good.html">AI for Good Programme</a></p>
+      <p><a href="../ai-for-good.html">AI for Good Programme</a></p>
       <p>Registered in England and Wales · Company No. 15487606</p>
       <p>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</p>
       <p style="margin-top:6px">&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
@@ -209,7 +253,7 @@ hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('ope
 function closeMenu(){mobileMenu.classList.remove('open');iconOpen.classList.remove('hidden');iconClose.classList.add('hidden');}
 
 // Reveal Animation Logic
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.05});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
