@@ -36,7 +36,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
 
 /* Nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2)}
-#problem,#layers,#proven,#deploy,#process,#faq{scroll-margin-top:84px}
+#assessment,#problem,#layers,#proven,#deploy,#process,#faq{scroll-margin-top:84px}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:36px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px}
@@ -75,6 +75,31 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .btn-primary:hover{background:var(--ink2);transform:translateY(-1px)}
 .btn-secondary{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
 .btn-secondary:hover{color:var(--brass);border-color:var(--brass)}
+
+/* Self-assessment tool */
+.assess-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:40px;max-width:720px}
+.assess-q{margin-bottom:22px}
+.assess-q label{display:block;font-family:'Syne',sans-serif;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:8px;line-height:1.4}
+.assess-q select{width:100%;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:14px;color:var(--ink);background:var(--bg2);border:1px solid var(--border2);border-radius:7px;padding:11px 14px;cursor:pointer;transition:border-color 0.15s}
+.assess-q select:focus{outline:none;border-color:var(--ink3)}
+#assess-calc-btn{width:100%}
+.assess-results{margin-top:8px;padding-top:28px;border-top:1px solid var(--border2)}
+.assess-score-row{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.assess-score{font-family:'Syne',sans-serif;font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-0.01em}
+.assess-score-label{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+.assess-headline{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:22px;max-width:560px}
+#assess-cat-results{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.assess-cat-row{display:flex;align-items:flex-start;gap:12px;border-radius:8px;padding:13px 14px}
+.assess-cat-row.gap{background:rgba(196,119,58,0.08);border:1px solid rgba(196,119,58,0.22)}
+.assess-cat-row.ok{background:rgba(45,53,97,0.05);border:1px solid rgba(45,53,97,0.14)}
+.assess-cat-icon{flex-shrink:0;width:18px;height:18px;margin-top:1px}
+.assess-cat-row.gap .assess-cat-icon{color:var(--brass)}
+.assess-cat-row.ok .assess-cat-icon{color:var(--ink2)}
+.assess-cat-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;margin:0}
+.assess-cat-row.gap .assess-cat-name{color:var(--brass)}
+.assess-cat-row.ok .assess-cat-name{color:var(--ink)}
+.assess-cat-msg{font-size:13px;color:var(--muted);margin:3px 0 0;line-height:1.55}
+@media(max-width:768px){.assess-card{padding:28px 22px}}
 
 /* Section shared */
 .section{padding:80px 32px}
@@ -258,6 +283,61 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     </div>
   </div>
 </header>
+
+<!-- Self-assessment -->
+<section id="assessment" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Two-minute self-check</p>
+      <h2 class="section-heading">Could your AI-assisted decisions survive being questioned?</h2>
+      <p class="section-sub">Four questions, one per governance layer below. Answer honestly, see your score out of 8, and exactly where the gaps sit.</p>
+    </div>
+    <form id="assess-form" class="assess-card reveal" novalidate>
+      <div class="assess-q" data-cat="0">
+        <label for="assess-q0">Can you trace every figure in an AI-assisted decision back to its source document?</label>
+        <select id="assess-q0">
+          <option value="2">Yes, verified automatically before the decision is used</option>
+          <option value="1">Partially, only if someone manually checks</option>
+          <option value="0">No, or not sure</option>
+        </select>
+      </div>
+      <div class="assess-q" data-cat="1">
+        <label for="assess-q1">If a decision record were challenged, could you prove it hasn't been altered since it was made?</label>
+        <select id="assess-q1">
+          <option value="2">Yes, tamper-evident and provable</option>
+          <option value="1">Partially, logs exist but aren't tamper-proof</option>
+          <option value="0">No, or not sure</option>
+        </select>
+      </div>
+      <div class="assess-q" data-cat="2">
+        <label for="assess-q2">Do your explanations honestly include what couldn't be verified, rather than omitting it?</label>
+        <select id="assess-q2">
+          <option value="2">Yes, limitations are built in, not optional</option>
+          <option value="1">Partially, depends on the case</option>
+          <option value="0">No, or not sure</option>
+        </select>
+      </div>
+      <div class="assess-q" data-cat="3">
+        <label for="assess-q3">Is a named individual required to sign off before a consequential decision proceeds?</label>
+        <select id="assess-q3">
+          <option value="2">Yes, with their identity tied to the record</option>
+          <option value="1">Partially, a team is accountable, not a named person</option>
+          <option value="0">No, or not sure</option>
+        </select>
+      </div>
+      <button id="assess-calc-btn" type="button" class="btn-primary">Score my evidence gaps</button>
+      <div id="assess-results" class="assess-results" hidden>
+        <div class="assess-score-row">
+          <span id="assess-score-out" class="assess-score">0/8</span>
+          <span class="assess-score-label">evidence-ready</span>
+        </div>
+        <p id="assess-headline" class="assess-headline"></p>
+        <div id="assess-cat-results"></div>
+        <a id="assess-cta-btn" href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Talk through these gaps &#8599;</a>
+      </div>
+    </form>
+  </div>
+</section>
 
 <!-- The problem -->
 <section id="problem" class="section">
@@ -561,6 +641,60 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
     }
   });
 });
+
+// Self-assessment tool
+(function(){
+  const ICON_CHECK='<svg class="assess-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
+  const ICON_ALERT='<svg class="assess-cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>';
+  const assessCats=[
+    {name:"Source Tracing",gap:"Figures in AI-assisted decisions aren't verified against source documents before use.",ok:"Every figure is traced to its source before the decision is used.",short:"figures not verified before use"},
+    {name:"Audit Trail",gap:"Decision records could be altered without it being detectable.",ok:"Records are tamper-evident and provably unaltered.",short:"records not tamper-evident"},
+    {name:"Explainability",gap:"Explanations may omit what couldn't be verified.",ok:"Limitations are disclosed as a matter of course, not hidden.",short:"limitations not built in"},
+    {name:"Accountability",gap:"No named individual is provably tied to sign-off.",ok:"A named individual signs off, with their identity tied to the record.",short:"no named sign-off"}
+  ];
+  const CALENDLY_BASE='https://calendly.com/ifat-noreen/free-45-minute-discovery-call';
+  function assessHeadline(score){
+    if(score>=7) return "You're closer than most organisations we talk to. These are the last gaps worth closing before scrutiny finds them.";
+    if(score>=4) return "You have real infrastructure in place. Here's where the gaps concentrate.";
+    return "This is where most AI-assisted decision workflows start. Here's exactly where the evidence trail breaks down.";
+  }
+  function buildCalendlyUrl(total,gaps){
+    const summary=gaps.length===0
+      ? `Score ${total}/8 — no gaps flagged; keen to discuss what's next.`
+      : `Score ${total}/8. Gaps: ${gaps.map(g=>`${g.name} (${g.short})`).join(', ')}.`;
+    return {url:CALENDLY_BASE+'?a1='+encodeURIComponent(summary),summary};
+  }
+  const calcBtn=document.getElementById('assess-calc-btn');
+  if(!calcBtn) return;
+  calcBtn.addEventListener('click',()=>{
+    const blocks=document.querySelectorAll('.assess-q');
+    const catEl=document.getElementById('assess-cat-results');
+    let total=0;
+    const layerScores={};
+    const gaps=[];
+    catEl.innerHTML='';
+    blocks.forEach(b=>{
+      const i=parseInt(b.dataset.cat,10);
+      const val=parseInt(b.querySelector('select').value,10);
+      total+=val;
+      const c=assessCats[i];
+      layerScores[c.name]=val;
+      const isGap=val<2;
+      if(isGap) gaps.push(c);
+      const row=document.createElement('div');
+      row.className='assess-cat-row '+(isGap?'gap':'ok');
+      row.innerHTML=(isGap?ICON_ALERT:ICON_CHECK)+
+        `<div><p class="assess-cat-name">${c.name}</p><p class="assess-cat-msg">${isGap?c.gap:c.ok}</p></div>`;
+      catEl.appendChild(row);
+    });
+    document.getElementById('assess-score-out').textContent=total+'/8';
+    document.getElementById('assess-headline').textContent=assessHeadline(total);
+    document.getElementById('assess-results').hidden=false;
+    const {url:calendlyUrl,summary:calendlySummary}=buildCalendlyUrl(total,gaps);
+    document.getElementById('assess-cta-btn').href=calendlyUrl;
+    console.log('[ComplyAI self-assessment] submitted',{score:total,outOf:8,layers:layerScores,calendlySummary,timestamp:new Date().toISOString()});
+  });
+})();
 </script>
 
 <!-- ============================================================
