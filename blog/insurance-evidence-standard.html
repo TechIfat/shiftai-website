@@ -79,8 +79,11 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .prose-col a{color:var(--brass);text-decoration:underline;text-decoration-color:var(--brass-border);text-underline-offset:2px;transition:text-decoration-color 0.15s}
 .prose-col a:hover{text-decoration-color:var(--brass)}
 .prose-col h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin:52px 0 22px}
-/* Source/citation line — metadata, not body copy. Shared treatment across the article series. */
+/* Source/citation line — metadata, not body copy. Shared treatment across the article series.
+   Each reference is its own block with a hanging indent, so a reference that wraps stays
+   visually distinct from the next one at any viewport width. */
 .prose-col p.article-sources{font-size:16px;font-style:italic;color:var(--muted);margin-top:34px}
+.prose-col p.article-sources span{display:block;padding-left:1.1em;text-indent:-1.1em}
 
 /* Author footer card */
 .author-card{max-width:68ch;margin:56px auto 0;background:var(--ink);border-radius:12px;padding:36px 40px}
