@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions | ShiftAi Systems</title>
-<meta name="description" content="The FCA's new insurance director just raised the evidence bar. AI-assisted underwriting and claims decisions are where it is hardest to clear.">
+<title>An Instructed Control Is Not a Control: What I Found Auditing My Own AI Systems | ShiftAi Systems</title>
+<meta name="description" content="Most AI governance is written for the model to read. If a control lives where the model can ignore it, it is a policy, not a control.">
 <meta name="author" content="Ifat Noreen, ShiftAi Systems Ltd">
-<link rel="canonical" href="https://shiftaiconsulting.co.uk/blog/insurance-evidence-standard.html">
+<link rel="canonical" href="https://shiftaiconsulting.co.uk/blog/instructed-control.html">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://shiftaiconsulting.co.uk/blog/insurance-evidence-standard.html">
-<meta property="og:title" content="Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions">
-<meta property="og:description" content="The FCA's new insurance director just raised the evidence bar. AI-assisted underwriting and claims decisions are where it is hardest to clear.">
-<meta property="og:image" content="https://shiftaiconsulting.co.uk/insurance-evidence-standard-card.png">
+<meta property="og:url" content="https://shiftaiconsulting.co.uk/blog/instructed-control.html">
+<meta property="og:title" content="An Instructed Control Is Not a Control: What I Found Auditing My Own AI Systems">
+<meta property="og:description" content="Most AI governance is written for the model to read. If a control lives where the model can ignore it, it is a policy, not a control.">
+<meta property="og:image" content="https://shiftaiconsulting.co.uk/instructed-control-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions">
-<meta name="twitter:description" content="The FCA's new insurance director just raised the evidence bar. AI-assisted underwriting and claims decisions are where it is hardest to clear.">
-<meta name="twitter:image" content="https://shiftaiconsulting.co.uk/insurance-evidence-standard-card.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions","author":{"@type":"Person","name":"Ifat Noreen"},"publisher":{"@type":"Organization","name":"ShiftAi Systems Ltd","logo":{"@type":"ImageObject","url":"https://shiftaiconsulting.co.uk/shiftai-logo.png"}},"datePublished":"2026-07-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://shiftaiconsulting.co.uk/blog/insurance-evidence-standard.html"}}</script>
+<meta name="twitter:title" content="An Instructed Control Is Not a Control: What I Found Auditing My Own AI Systems">
+<meta name="twitter:description" content="Most AI governance is written for the model to read. If a control lives where the model can ignore it, it is a policy, not a control.">
+<meta name="twitter:image" content="https://shiftaiconsulting.co.uk/instructed-control-card.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"An Instructed Control Is Not a Control: What I Found Auditing My Own AI Systems","author":{"@type":"Person","name":"Ifat Noreen"},"publisher":{"@type":"Organization","name":"ShiftAi Systems Ltd","logo":{"@type":"ImageObject","url":"https://shiftaiconsulting.co.uk/shiftai-logo.png"}},"datePublished":"2026-08-05","mainEntityOfPage":{"@type":"WebPage","@id":"https://shiftaiconsulting.co.uk/blog/instructed-control.html"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -160,11 +160,11 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div class="article-hero">
     <div class="hero-rule fu fu1"></div>
     <p class="hero-eyebrow fu fu1">Blog</p>
-    <h1 class="fu fu2">Disclosure alone is not enough: the FCA's new evidence standard and AI-assisted insurance decisions</h1>
+    <h1 class="fu fu2">An Instructed Control Is Not a Control: What I Found Auditing My Own AI Systems</h1>
     <div class="byline fu fu3">
       <span class="byline-name">Ifat Noreen</span>
       <span class="byline-role">Founder and Principal Agentic AI Architect, ShiftAi Systems Ltd</span>
-      <span class="byline-date">24 July 2026</span>
+      <span class="byline-date">5 August 2026</span>
     </div>
   </div>
 </header>
@@ -173,44 +173,112 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <section class="article-body">
   <div class="prose-col reveal">
 
-    <p>This week, Chris Knight published his first blog post as the FCA's Director of Insurance. It is about conflicts of interest in vertically integrated insurance models. It is not about AI. Not one mention of it.</p>
+    <p>A term I had not seen before started appearing on my timeline a few weeks ago. Graph engineering. Rakesh Gohel set out one of the clearer versions of it: agents that run for any length of time eventually have to decide what happens next, and if that decision lives inside the model's own reasoning, nobody can review it. So move it out. Name the stages in advance. Declare which transitions between them are legal. Lock the plan so the agent cannot quietly revise it mid-run. Keep planning, execution and recovery genuinely separate, so the layer producing the work is never the layer judging it. Write state to disk at every step instead of leaving it in a conversation that will eventually be compacted away.</p>
 
-    <p>Read it anyway, because the standard he sets applies to every consequential decision an insurer makes, however that decision is produced.</p>
+    <p>It is a good argument, and Gohel is careful to present it as a hypothesis worth testing rather than a settled result, which is the right posture. It is also, in substance, decades old. State machines, checkpointing, two-phase commit, tamper-evident logs: financial services has run on these for a very long time. What is new is applying them to systems whose central component is a language model.</p>
 
-    <p>Three lines stand out.</p>
+    <h2>For readers who do not spend their days in this</h2>
 
-    <p>First: firms must "actively identify, manage and evidence" conflicts. Not assess. Not disclose. Evidence.</p>
+    <p>If your interest here is regulatory rather than architectural, the distinction is worth two paragraphs, because it decides whether an AI system can be evidenced at all.</p>
 
-    <p>Second: "disclosure alone is not enough. Simply telling customers about a conflict doesn't remove your obligation to manage it properly."</p>
+    <p>The default way to build an AI agent is what people now call a loop. You give it a task and it runs: tries something, reads the result, decides what to try next, and keeps going until it stops. Every one of those decisions happens inside the model's own reasoning, in a single long context. You can see what it did afterwards. You cannot see the decision being made, and nothing structural stops it repeating a bad approach five times.</p>
 
-    <p>Third: firms need "controls that actually work in practice, not just on paper," with "clear senior management accountability," and should expect to "show us how your arrangements deliver good outcomes."</p>
+    <p>The alternative is to draw the steps out in advance. Named stages, declared rules for moving between them, and a record written outside the model of what happened at each one. That is the graph. It is the same instinct as a documented process with defined handoffs and checkpoints, applied to software that improvises.</p>
 
-    <p>Identify. Manage. Evidence. Show, don't assert. Named accountability. Controls proven in practice, not described in policy documents.</p>
+    <p>The reason this matters for regulated work: one of these produces something a supervisor can reconstruct after the fact, and one does not.</p>
 
-    <p>Now apply that standard to a different corner of the same industry.</p>
+    <p>I went to check whether I had already built it. I had two systems to check against: ComplyAI, the governance layer I build for AI-assisted credit decisions, and a smaller systematic trading system I run on my own account.</p>
 
-    <p>A growing share of underwriting, pricing and claims decisions are AI-assisted. Ask a firm running them three questions in Knight's own register. Can you evidence where every figure in this decision came from? Can you show that the record of the decision has not been quietly altered since it was made? Can you name the individual who signed it off, and prove it was them?</p>
+    <p>Both passed on structure. Named stages, declared transitions, state written to disk, human sign-off as a real step rather than a box ticked at the end. Neither was built from the framework, because the framework did not exist when they were built. Both arrived at the same shape because the domain does not offer an alternative.</p>
 
-    <p>For most firms the honest answers are: partially, no, and it depends who you ask.</p>
+    <p>Then I asked a harder question, and the two systems separated immediately.</p>
 
-    <p>That is not because insurers are careless. It is because AI systems produce fluent, confident output, and fluent, confident output is precisely the thing that is hardest to evidence after the fact. A model states that a claimant's declared income was £48,200. Where did that number come from? Was it in the source documents, or was it plausibly invented? By the time a regulator, an ombudsman or a complainant asks, the answer has to be reconstructed. Reconstruction is the paper-based control Knight is warning about: it exists in policy, and fails in practice.</p>
+    <h2>Every layer these frameworks define is read by the model</h2>
 
-    <p>The alternative is to <a href="../complyai.html">produce the evidence at the moment the decision is made</a>. Verify each cited figure against the source document before it passes. Write the decision into a record that proves it has not been tampered with. Generate the customer explanation from verified facts, so nothing adverse can be quietly left out. Require a named person to sign off, with their identity committed to the record in a way that cannot be rewritten later.</p>
+    <p>There are three related bodies of thinking here, and it is worth being fair to all of them before saying what they miss.</p>
 
-    <p>None of this is a new regulatory demand. It is the same Consumer Duty and the same senior management accountability that already apply. What Knight's post signals, in his first week in the role, is where the supervisory emphasis sits: the FCA does not want to hear that your governance exists. It wants you to be able to show it working, decision by decision.</p>
+    <p>The first is the Interpretable Context Methodology, published to arXiv in March by Jake Van Clief and David McDermott of Eduba and the University of Edinburgh, which replaces framework-level orchestration with filesystem structure: numbered folders as stages, plain markdown carrying the instructions, one agent playing a different role at each step. I have been running a version of it since April, so this was not an unfamiliar idea being evaluated from the outside. The second is graph engineering as described above, which adds declared state transitions, an immutable plan, and a fixed recovery protocol with an attempt limit. The third is the loop, which is what most agent tooling gives you out of the box.</p>
 
-    <p>Here is the detail worth sitting with: no UK insurer has yet been fined by the FCA for AI-assisted decisioning. Not one. In the US, the same questions are already in court, as ongoing lawsuits over claims and coverage algorithms, allegations rather than findings, but discovery is underway. The UK is in the window where the supervisory expectation is published and the first enforcement case has not yet happened. That window is where evidence architecture is cheap. After the first case, it is retrofit.</p>
+    <p>Each has genuine merit, and they compose well. The ICM paper is explicit that its own motivation is partly regulatory, citing the EU AI Act's requirements for human oversight of high-risk systems. Gohel's framework goes further than most in the right direction: it explicitly separates the layer that produces work from the layer that judges it, on the reasoning that collapsing the two erodes the point of checking at all. That principle is exactly right, and it is the one I later found broken in my own code.</p>
 
-    <p>Banks deploying AI in credit decisions are already confronting this. My view is that insurance is next, not because the FCA has said so about AI specifically (it has not, and I am not claiming otherwise), but because "evidence, don't disclose" is not a conflicts-of-interest principle. It is a philosophy of supervision. Philosophies of supervision do not stay in one product line.</p>
+    <p>But hold the three side by side and one property is common to all of them.</p>
 
-    <p>If your firm's AI-assisted decisions had to meet Knight's standard tomorrow, could they?</p>
+    <p>Every layer they define is read by the model it is meant to constrain.</p>
 
-    <p class="article-sources">Source: Chris Knight, "Managing conflicts of interest in insurance," FCA blog, July 2026.</p>
+    <p>The numbered folders are markdown the agent reads. The declared transitions are instructions the agent reads. The recovery protocol, the attempt limit, the immutable plan: all of it arrives through the same channel as everything else the model is told, and all of it depends on the model choosing to comply. The same is true of the pattern most often proposed for catching bad outputs mid-run, a checker node sitting between parallel work and the point where it converges. It is a node, in a structure the model reads and executes.</p>
+
+    <p>The structure is real. The enforcement is not.</p>
+
+    <p>That distinction does not matter much when the output is a research summary. It matters enormously when the last step in the sequence moves money, files a report, or serves a decision to a customer.</p>
+
+    <h2>The test that separated my two systems</h2>
+
+    <p>The question I put to both systems was blunt: what happens if the model simply does not follow the control?</p>
+
+    <p>In the trading system, every control is written in markdown and read by the agent at the start of each session. Verify the risk file's checksum before use. Never place an order without a signed, single-use approval. Halt immediately if the circuit breaker flag is set. The agent has honoured all of it across months of sessions, and the audit log shows it.</p>
+
+    <p>But it honours them. Nothing stops it.</p>
+
+    <p>And when I looked properly, I found something worse than a theoretical gap. In one automated mode, the agent updates its own risk parameters file as part of the run, then recomputes the checksum that is supposed to protect that file. The verification step still runs. It still passes. It is checking a file against a hash the same actor generated moments earlier.</p>
+
+    <p>A control that the controlled party can re-sign is not protecting anything. This is precisely the builder-and-judge collapse Gohel warns about, and I had built it into a system I considered careful, without noticing.</p>
+
+    <p>The history bears this out, and more usefully than a misbehaviour would have. One commit moved an actual risk constant rather than the ticker allowlist: a live order had been rejected by the broker for falling under its minimum size, the agent correctly identified which constant was the binding one, raised it by the smallest amount that cleared the floor, left the underlying risk-per-trade percentage untouched, and recorded the change as human-approved.</p>
+
+    <p>That is careful, well-reasoned work. It is also not evidence. Human-approved is a string the same actor wrote in the same commit that made the change. Nothing independently attests it. The change, the justification, and the approval all come from one source, and the checksum then certifies the result. Good behaviour with no proof of good behaviour is the distinction this piece is about, and it is more persuasive than a misbehaving system would have been, because there is nothing here to excuse.</p>
+
+    <p>I had built a genuinely careful system and left a door in it, and I found the door by auditing my own work against someone else's post.</p>
+
+    <p>ComplyAI answered the same question differently, and not because the code is more careful. It is because the model is never the thing running the pipeline.</p>
+
+    <p>In ComplyAI, Python orchestrates. It calls the model to <a href="../complyai.html">trace figures in a credit decision back to the source documents</a>, and to write a plain-language explanation. The model returns a structured result against a fixed schema, and that result is verified against the source text. It never decides what happens next, never chooses which layer runs, never touches the audit chain. There is nothing for it to route around, because it is not driving.</p>
+
+    <p>Underneath that, integrity verification is designed to run on a schedule outside the application entirely (cron, systemd, whatever the deployment already trusts), with the exit code as the alerting contract. A failed integrity check is an incident, not a log line. The anchor it verifies against is deliberately specified to be stored where the process that writes the log cannot reach it, because an anchor kept next to the log protects nothing. The mechanism and the command-line tooling exist; the scheduling and off-host anchoring are deployment work that happens with a client's own infrastructure.</p>
+
+    <h2>The enforcement floor</h2>
+
+    <p>This is the tier none of the three frameworks describes, and it is the one that decides whether the rest is real.</p>
+
+    <p>Call it the enforcement floor: the layer beneath every layer the model can read. It is not instructions. It is scheduled jobs, wrapper processes, exit codes, file permissions, and storage the application cannot write to. Its defining property is that the model cannot perceive it, cannot reason about it, and cannot be argued out of it, because it was never addressed to the model in the first place.</p>
+
+    <p>Everything above the floor is architecture. The floor is what makes the architecture load-bearing.</p>
+
+    <p>I wrote in an earlier piece about the FCA's recent enforcement pattern (Metro Bank, Starling, Monzo) and the thread running through all of it: the controls were not absent, they existed and ran, and the gap was between what a control actually did and what the institution assumed it did. Nobody was checking the checker.</p>
+
+    <p>The AI version of that failure is subtler and arrives faster. The control is not misconfigured. It is present, well written, and read aloud to the system it governs at the start of every run. It works, until the run where it does not, and there is no structural reason it should have worked in the first place.</p>
+
+    <p>Chris Knight, the FCA's Director of Insurance, set the standard in a line published this July that has nothing to do with AI and applies to all of it: firms need "controls that actually work in practice, not just on paper."</p>
+
+    <p>Most AI governance I am shown is on paper. Thoughtfully written, genuinely well intentioned, and read by the very system it is meant to restrain.</p>
+
+    <h2>What this does not fix</h2>
+
+    <p>Three honest limits, because a governance argument that claims too much is the thing it is arguing against.</p>
+
+    <p>An enforcement floor does not authenticate anyone. A gate can record with cryptographic certainty that a named individual approved a decision and that the record was never altered afterwards, and still be relying on the calling application to have established that the person was who they said they were. That boundary has to be closed separately, and firms should ask where it sits.</p>
+
+    <p>Nor does it force good composition. Layers that can each be deployed independently can also be deployed incompletely, and a system assembled with a gate but no tamper-evident record will fail closed if it is well built, but nothing at the architectural level obliges anyone to assemble it correctly.</p>
+
+    <p>And the central claim here should be treated as a hypothesis rather than a settled result, on exactly the terms Gohel applies to his own. The proposition is that moving enforcement below the model changes outcomes. The way to test that is to measure it: find out whether the floor ever actually catches something, or whether instruction-following was sufficient all along. Cheap insurance that never pays out is still worth holding. But you should know which one you have, rather than assume.</p>
+
+    <h2>The question worth asking</h2>
+
+    <p>You do not need a new framework to apply any of this. You need one question, put to every AI-assisted control in your firm.</p>
+
+    <p>What happens if the model simply does not follow it?</p>
+
+    <p>If the honest answer is it would follow it, because it always has, because the instruction is clear, because the system prompt is emphatic, then what you have is a policy.</p>
+
+    <p>If the answer is it cannot, because the control does not run inside anything the model orchestrates, and it fires whether the model cooperates or not, then you have a control.</p>
+
+    <p>Only one of those is evidence.</p>
+
+    <p class="article-sources">Sources: Interpretable Context Methodology, Van Clief and McDermott, arXiv:2603.16021. Rakesh Gohel, "The Loop Era Is Over: The Shift From Loop Engineering to Graph Engineering," 1 August 2026, x.com/rakeshgohel01. Chris Knight, "Managing conflicts of interest in insurance," FCA blog, July 2026.</p>
 
   </div>
 
   <div class="author-card reveal">
-    <p>Ifat Noreen is the founder of ShiftAi Systems Ltd, a UK consultancy building deterministic AI governance for regulated finance, and the architect of ComplyAI, a four-layer compliance governance system built for exactly the evidence standard Chris Knight has now named: traced figures, tamper-evident records, and accountable sign-off. More at <a href="../complyai.html">shiftaiconsulting.co.uk/complyai.html</a>.</p>
+    <p>Ifat Noreen is Founder and Principal Agentic AI Architect at ShiftAi Systems Ltd, which builds governance infrastructure for AI-assisted decisions in UK financial services.</p>
   </div>
 
   <div class="article-footer-nav reveal">
