@@ -183,6 +183,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .faq-section{background:var(--bg);padding:80px 32px}
 .faq-inner{max-width:760px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--border2)}
+.faq-category{font-family:'DM Mono',monospace;font-size:11px;color:var(--brass);letter-spacing:0.1em;text-transform:uppercase;margin:40px 0 16px;padding-top:8px;border-top:1px solid var(--border)}
+.faq-section .faq-category:first-of-type{margin-top:0;border-top:none;padding-top:0}
 .faq-question{width:100%;background:none;border:none;text-align:left;padding:22px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1.35}
 .faq-indicator{width:20px;height:20px;flex-shrink:0;color:var(--brass);transition:transform 0.25s ease}
 .faq-item.open .faq-indicator{transform:rotate(45deg)}
@@ -208,6 +210,9 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 .footer-links{display:flex;align-items:center;gap:20px}
 .footer-link{color:rgba(244,243,239,0.4);transition:color 0.15s;display:flex;align-items:center}
 .footer-link:hover{color:var(--bg)}
+.footer-program{text-align:center;margin-bottom:28px}
+.footer-program a{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--brass);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:gap 0.15s}
+.footer-program a:hover{gap:11px}
 .footer-bottom{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:rgba(244,243,239,0.3)}
 .footer-bottom a{color:rgba(244,243,239,0.5);text-decoration:none;transition:color 0.15s}
 .footer-bottom a:hover{color:var(--bg)}
@@ -242,12 +247,8 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="nav-links">
       <a href="complyai.html">ComplyAI</a>
       <a href="enablement.html">Enablement</a>
+      <a href="work.html">Our Work</a>
       <a href="index.html#about">About</a>
-      <a href="index.html#process">How We Work</a>
-      <a href="index.html#solutions">Solutions</a>
-      <a href="index.html#teardown">4 Hours to 4 Minutes</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="ai-for-good.html">AI for Good</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html" class="nav-cta">Contact us</a>
     </div>
@@ -260,12 +261,8 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="mobile-links">
       <a href="complyai.html" onclick="closeMenu()">ComplyAI</a>
       <a href="enablement.html" onclick="closeMenu()">Enablement</a>
+      <a href="work.html" onclick="closeMenu()">Our Work</a>
       <a href="index.html#about" onclick="closeMenu()">About</a>
-      <a href="index.html#process" onclick="closeMenu()">How We Work</a>
-      <a href="index.html#solutions" onclick="closeMenu()">Solutions</a>
-      <a href="index.html#teardown" onclick="closeMenu()">4 Hours to 4 Minutes</a>
-      <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
-      <a href="ai-for-good.html" onclick="closeMenu()">AI for Good</a>
       <a href="blog.html" onclick="closeMenu()">Blog</a>
       <a href="contact.html" onclick="closeMenu()">Contact us</a>
     </div>
@@ -512,6 +509,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       <h2 class="section-heading">Straight answers on how this actually works.</h2>
     </div>
 
+    <p class="faq-category">How ComplyAI works</p>
     <div class="faq-item reveal rd1">
       <button class="faq-question" aria-expanded="false">
         What does the reconstruction drill actually measure?
@@ -571,6 +569,88 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         <div class="faq-answer-inner">The current build is a tested, audited reference architecture, not yet a production deployment. Before any client goes live, a production database backend, scheduled off-host anchoring for the audit chain, and a reviewer-facing interface are built as part of the Tier 2 deployment sprint, scoped to that specific engagement.</div>
       </div>
     </div>
+
+    <div class="faq-item reveal rd3">
+      <button class="faq-question" aria-expanded="false">
+        How is ComplyAI different from just adding logging to our existing AI system?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Logging records that something happened. ComplyAI verifies what happened. Source Tracing checks every figure against source documents and rejects fabricated citations, not just logs them. The Immutable Audit Log is hash-chained, so tampering with a historical entry is cryptographically detectable, not just discouraged by access controls. Standard logging cannot make either claim.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd4">
+      <button class="faq-question" aria-expanded="false">
+        Who is accountable for a ComplyAI-reviewed decision if something goes wrong?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">A named individual, not a department. The SMCR Accountability Gate requires a specific person to review and sign off before a consequential decision is finalised, and once signed off, that decision cannot be silently overwritten by a second reviewer. This is designed specifically to answer the SMCR accountability question regulators are asking UK banks directly.</div>
+      </div>
+    </div>
+
+    <p class="faq-category">Security, architecture and data</p>
+    <div class="faq-item reveal rd1">
+      <button class="faq-question" aria-expanded="false">
+        Will Anthropic or ShiftAi train their models on our bank's proprietary data?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">No. The system runs on your own Anthropic API account and your own infrastructure, not ours, so ShiftAi never holds your data at all. Under Anthropic's standard commercial terms, API inputs and outputs are not used to train its models. Where your organisation requires a Zero Data Retention agreement with Anthropic directly, we can build to that requirement and confirm it as part of the ComplyAI Governance Readiness Assessment.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd2">
+      <button class="faq-question" aria-expanded="false">
+        How do you prevent the AI from executing dangerous actions?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">We use a strict DevSecAI architecture. The AI operates in a sandboxed environment where read and write permissions are physically separated. Any action that alters a database, sends an email to a client, or approves a credit line requires a deterministic Human-in-the-Loop (HITL) interrupt. The AI can draft the decision, but a human must click approve.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd3">
+      <button class="faq-question" aria-expanded="false">
+        What happens if Anthropic deprecates the Claude model we are using?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Because we build using abstracted frameworks like the Model Context Protocol (MCP), your system architecture is completely decoupled from the underlying LLM. If a model is deprecated, we update the API pointer, run your automated evaluation suite (LLM-as-a-judge) to ensure output quality remains identical, and push the update seamlessly.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd4">
+      <button class="faq-question" aria-expanded="false">
+        Can you work with our existing technology stack?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Yes. Our reference architectures are built on the Anthropic API and Model Context Protocol (MCP), documented on our <a href="work.html" style="color:var(--brass);text-decoration:underline">Our Work</a> page. The patterns are stack-agnostic, including MCP adapters for legacy core banking APIs. If your systems expose an API, we can build a governed, auditable agentic layer on top of them.</div>
+      </div>
+    </div>
+
+    <p class="faq-category">Engagement and ownership</p>
+    <div class="faq-item reveal rd1">
+      <button class="faq-question" aria-expanded="false">
+        ShiftAi is founder-led. What happens if you are unavailable during our engagement?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">The ComplyAI Governance Readiness Assessment is a written report, so it does not depend on ongoing availability once delivered. For a ComplyAI Deployment Sprint, all code, architecture decisions, and documentation live in a shared GitHub repository from week one, with your engineering team given read access immediately, not just at handover. Every Friday you receive a written progress update. The project is never dependent on information that exists only in one person's head.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal rd2">
+      <button class="faq-question" aria-expanded="false">
+        Do you hand over the code, and who owns it?
+        <svg class="faq-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer" role="region">
+        <div class="faq-answer-inner">Yes. Every build engagement ends with a complete handover: the GitHub repository transferred to your organisation, production-ready code, Architecture Decision Records for every design choice, an operating runbook, and a knowledge transfer session with your engineering team. You own the code, the architecture, and the IP outright. We do not operate a SaaS model and there is no ongoing licence fee for the system itself.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -606,8 +686,11 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         </a>
       </div>
     </div>
+    <div class="footer-program">
+      <a href="ai-for-good.html">AI for Good Programme &rarr;</a>
+    </div>
+
     <div class="footer-bottom">
-      <p><a href="ai-for-good.html">AI for Good Programme</a></p>
       <p>Registered in England and Wales · Company No. 15487606</p>
       <p>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</p>
       <p style="margin-top:6px">&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
