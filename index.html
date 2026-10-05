@@ -110,14 +110,19 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .sectors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .sector-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:32px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start}
 .sector-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
-.sector-card.ink{background:rgba(45,53,97,0.05);border-color:rgba(45,53,97,0.18)}
+.sector-card.ink{background:var(--ink);border-color:var(--ink)}
 .sector-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
 .sector-card.ink::before{background:var(--ink)}
 .sector-card.brass-card::before{background:var(--brass)}
 .sector-card:hover{transform:translateY(-3px)}
 .sector-card:hover::before{opacity:1}
 .sector-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-.sector-card.ink .sector-label{color:var(--ink2)}
+.sector-card.ink .sector-label{color:#e8b080}
+.sector-card.ink h3{color:var(--bg)}
+.sector-card.ink p{color:rgba(244,243,239,0.8)}
+.sector-card.ink .btn-secondary{color:var(--bg);border-color:rgba(244,243,239,0.4)}
+.sector-card.ink .btn-secondary:hover{color:#e8b080;border-color:#e8b080}
+.sector-card.ink::before{background:#e8b080}
 .sector-card.brass-card .sector-label{color:#8a4a14}
 .sector-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
 .sector-card p{font-size:14px;color:#55546a;line-height:1.72;margin-bottom:20px}
@@ -195,6 +200,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   .credentials-grid{grid-template-columns:1fr}
 }
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}.fu{animation:none}</style></noscript>
 </head>
 <body>
 
@@ -233,7 +239,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
 <header>
   <div class="hero">
     <div class="hero-rule fu fu1"></div>
-    <p class="hero-eyebrow fu fu1">ComplyAI &middot; Enablement &middot; ShiftAi Systems Ltd</p>
+    <p class="hero-eyebrow fu fu1">ComplyAI &middot; Healthcare &middot; Enablement &middot; ShiftAi Systems Ltd</p>
     <h1 class="fu fu2">Two gaps in enterprise AI.<br>One team that closes <em>both.</em></h1>
     <p class="hero-sub fu fu3">ComplyAI adds four compliance layers to AI-assisted decisions in UK financial services, so they are traceable, explainable, and accountable. The Claude Code in Production workshop teaches technical teams who already have Claude Code to configure, govern, and get compounding value from it. Different problems, same standard of evidence.</p>
     <div class="hero-actions fu fu4">

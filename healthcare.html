@@ -98,6 +98,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .layer-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;margin-bottom:16px}
 .layer-card.layer-ink .layer-num{color:var(--brass-on-ink)}
 .layer-card.layer-brass .layer-num{color:var(--brass-text)}
+.layer-card h3.layer-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:400;line-height:normal;letter-spacing:0.06em;text-transform:none;margin-bottom:16px}
 .layer-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;line-height:1.3;margin-bottom:10px}
 .layer-card.layer-ink h3{color:var(--bg)}
 .layer-card.layer-brass h3{color:var(--ink)}
@@ -114,7 +115,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .deploy-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:32px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
 .deploy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
 .deploy-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
-.deploy-card.ink{background:rgba(45,53,97,0.05);border-color:rgba(45,53,97,0.18)}
+.deploy-card.ink{background:var(--ink);border-color:var(--ink)}
 .deploy-card.brass-card::before{background:var(--brass)}
 .deploy-card.ink::before{background:var(--ink)}
 .deploy-card:hover{transform:translateY(-3px)}
@@ -123,10 +124,20 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .deploy-card:hover::before{opacity:1}
 .deploy-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
 .deploy-card.brass-card .deploy-label{color:var(--brass-text)}
-.deploy-card.ink .deploy-label{color:var(--ink2)}
+.deploy-card.ink .deploy-label{color:var(--brass-on-ink)}
+.deploy-card.ink h3{color:var(--bg)}
+.deploy-card.ink .step-list li{color:var(--on-ink)}
+.deploy-card.ink .step-list li::before{color:var(--brass-on-ink)}
+.deploy-card.ink::before{background:var(--brass-on-ink)}
 .deploy-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
 .deploy-card p{font-size:14px;color:var(--text);line-height:1.72}
 @media(prefers-reduced-motion:reduce){.deploy-card:hover{transform:none}}
+
+.interest{margin-top:20px;border:1px solid var(--border2);border-radius:10px;padding:28px 30px;background:#fff}
+.interest h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.interest p{font-size:14px;color:var(--text);line-height:1.72;margin-bottom:14px;max-width:680px}
+.interest .status{font-family:'DM Mono',monospace;font-size:12px;color:var(--brass-text)}
+@media(max-width:768px){.interest{padding:22px 20px}}
 
 /* Research box */
 .process-start{border:1.5px solid var(--brass);border-radius:10px;padding:32px 30px;background:var(--bg)}
@@ -199,6 +210,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
   footer{padding:40px 20px 32px}
 }
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}.fu{animation:none}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -289,23 +301,19 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
     </div>
     <div class="layers-grid reveal">
       <div class="layer-card layer-ink">
-        <p class="layer-num">01 /</p>
-        <h3>Verified evidence</h3>
+        <h3 class="layer-num">01 / Verified evidence</h3>
         <p>Every claim is traced to a source you can inspect, and every quotation is checked against that source.</p>
       </div>
       <div class="layer-card layer-brass">
-        <p class="layer-num">02 /</p>
-        <h3>Human review</h3>
+        <h3 class="layer-num">02 / Human review</h3>
         <p>A person reviews each record before it is relied on.</p>
       </div>
       <div class="layer-card layer-ink">
-        <p class="layer-num">03 /</p>
-        <h3>Fail-closed checks</h3>
+        <h3 class="layer-num">03 / Fail-closed checks</h3>
         <p>If a check cannot confirm something, the answer is no, not &ldquo;probably&rdquo;.</p>
       </div>
       <div class="layer-card layer-brass">
-        <p class="layer-num">04 /</p>
-        <h3>Audit trails</h3>
+        <h3 class="layer-num">04 / Audit trails</h3>
         <p>A record of who decided what, when and why.</p>
       </div>
     </div>
@@ -332,6 +340,17 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
       </ul>
       <p class="disclaimer">An independent project, not affiliated with or endorsed by the NHS.</p>
       <a href="research-crawler.html" class="btn-secondary">How the crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+    <div class="interest reveal">
+      <h3>Register your interest in the index</h3>
+      <p>We are planning the following. None of it is available yet, and the details may change.</p>
+      <ul class="step-list">
+        <li><strong>Free tracker.</strong> <span class="status">Planned, not yet available.</span></li>
+        <li><strong>Pro, from &pound;149 to &pound;249 a year.</strong> <span class="status">Planned, not yet available.</span> Indicative price only.</li>
+        <li><strong>Annual report.</strong> <span class="status">Planned, not yet available.</span></li>
+        <li><strong>Trust dossiers.</strong> <span class="status">Planned, not yet available.</span></li>
+      </ul>
+      <p class="status">Registration is not open yet.</p>
     </div>
   </div>
 </section>
