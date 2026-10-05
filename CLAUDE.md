@@ -21,7 +21,10 @@ Other tokens: page background parchment `#f4f3ef`; ink-on-parchment is 10.55:1.
 Notes:
 - Minimum for any text is 4.5:1 (WCAG AA). Check the pair before adding a new one.
 - Borders and card edges are non-text, so they are not held to 4.5:1. A white button on warm brass is 2.15:1, which is why those buttons get a 2px ink border.
-- The brass outline card (`1.5px solid #c4773a` on parchment) is being retired. It is gone from healthcare.html; do not add new ones. Older pages still carry it until they are brought into line.
+- The brass outline card (`1.5px solid #c4773a` on parchment) is retired: information uses ink or the light tint, actions use warm brass. Do not add new ones.
+- **Exception: closing CTA bands.** The full-width grey (`--bg2`) closing bands ("Start here" / contact) with an ink button on index, complyai, enablement, ai-for-good and healthcare stay as they are. They are bands, not cards, and are deliberately exempt from the warm-brass action rule.
+- Small text on the light tint must be `#55546a` (6.10:1) or `#8a4a14` (5.68:1); `--muted` `#6b6a80` (4.36:1 on the 8% tint) and `--brass` `#c4773a` (2.89:1) fail 4.5:1 there.
+- The contact page's "Ask the Discovery Agent" card is hidden unless `chat-widget.js` has injected the widget, so it returns by itself when `CHAT_ENABLED` is set to true.
 - Specificity trap: a generic `.card p{color:...}` rule beats a pill's colour. Write pill selectors as `.card p.pill`. This has caused invisible pill text twice.
 
 ## Content rules
