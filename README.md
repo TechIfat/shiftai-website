@@ -4,7 +4,7 @@
 ## 🏢 About
 This repository houses the static frontend for **ShiftAi Systems Ltd**, an AI architecture consultancy based in London, UK. 
 
-Built using lightweight HTML5 and Tailwind CSS, this site serves as the portfolio storefront for our enterprise-grade Agentic AI solutions, emphasizing fast load times, zero-dependency deployment via GitHub Pages, and a secure, tracker-free footprint.
+Built as hand-written static HTML with inline CSS (no framework and no build step), this site serves as the portfolio storefront for our enterprise-grade Agentic AI solutions, emphasizing fast load times, zero-dependency deployment via GitHub Pages, and a secure, tracker-free footprint.
 
 ---
 

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Governance for Healthcare | ShiftAi Systems Ltd</title>
+<meta name="description" content="ShiftAi is a UK AI governance consultancy bringing its regulated-industry approach to NHS trusts, ICBs and suppliers: controls you can evidence.">
+<meta name="author" content="Ifat Noreen, ShiftAi Systems Ltd">
+<link rel="canonical" href="https://shiftaiconsulting.co.uk/healthcare.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shiftaiconsulting.co.uk/healthcare.html">
+<meta property="og:title" content="AI Governance for Healthcare | ShiftAi Systems Ltd">
+<meta property="og:description" content="ShiftAi is a UK AI governance consultancy bringing its regulated-industry approach to NHS trusts, ICBs and suppliers: controls you can evidence.">
+<meta property="og:image" content="https://shiftaiconsulting.co.uk/complyai-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Governance for Healthcare | ShiftAi Systems Ltd">
+<meta name="twitter:description" content="ShiftAi is a UK AI governance consultancy bringing its regulated-industry approach to NHS trusts, ICBs and suppliers: controls you can evidence.">
+<meta name="twitter:image" content="https://shiftaiconsulting.co.uk/complyai-card.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f4f3ef;--bg2:#eeecea;--bg3:#e6e4df;--bg4:#dddbd5;
+  --ink:#2d3561;--ink2:#3d4a7a;--ink3:#4a5a8a;
+  --brass:#c4773a;--brass-bg:rgba(196,119,58,0.08);--brass-border:rgba(196,119,58,0.25);
+  --muted:#6b6a80;--muted2:#9a99a8;
+  --border:rgba(45,53,97,0.1);--border2:rgba(45,53,97,0.16);--border3:rgba(45,53,97,0.22);
+  /* Accessible tones for small text (WCAG AA 4.5:1) on this page */
+  --brass-text:#8a4a14;--brass-on-ink:#e8b080;--text:#55546a;--on-ink:rgba(244,243,239,0.8);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
+.hidden{display:none}
+.skip-link{position:absolute;left:-9999px;top:8px;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:6px;z-index:100;font-size:14px}
+.skip-link:focus{left:8px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+footer a:focus-visible{outline-color:var(--bg)}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;transition:color 0.15s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--ink);transition:width 0.2s}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{width:100%}
+.nav-cta{font-size:13px;font-weight:600;color:var(--ink);border:1.5px solid var(--border3);border-radius:6px;padding:7px 18px;text-decoration:none;transition:all 0.15s;font-family:'Syne',sans-serif}
+.nav-links a.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--ink)}
+#mobile-menu{max-height:0;overflow:hidden;transition:max-height 0.3s ease,opacity 0.3s;opacity:0;border-top:1px solid var(--border);visibility:hidden}
+#mobile-menu.open{max-height:400px;opacity:1;visibility:visible}
+.mobile-links{padding:20px 32px;display:flex;flex-direction:column;gap:18px}
+.mobile-links a{font-size:15px;font-weight:500;color:var(--text);text-decoration:none;transition:color 0.15s}
+.mobile-links a:hover{color:var(--ink)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+.rd1{transition-delay:0.08s}.rd2{transition-delay:0.16s}.rd3{transition-delay:0.24s}.rd4{transition-delay:0.32s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.fu{animation:fadeUp 0.7s ease both}
+.fu1{animation-delay:0.05s}.fu2{animation-delay:0.18s}.fu3{animation-delay:0.32s}.fu4{animation-delay:0.46s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.fu{animation:none}html{scroll-behavior:auto}}
+
+/* Hero */
+.hero{padding:96px 32px 80px;max-width:1200px;margin:0 auto;position:relative}
+.hero-rule{width:40px;height:3px;background:var(--brass);border-radius:2px;margin-bottom:28px}
+.hero-eyebrow,.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--brass-text);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:24px;max-width:780px}
+.hero h1 em,.section-heading em,.about-content h2 em,.cta-inner h2 em{font-style:italic;font-family:'Instrument Serif',serif;color:var(--ink2)}
+.hero-sub{font-size:1.15rem;color:var(--text);max-width:620px;line-height:1.7;margin-bottom:40px}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--ink);color:var(--bg);font-family:'Syne',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;border-radius:6px;text-decoration:none;transition:background 0.15s,transform 0.15s;display:inline-block;letter-spacing:0.01em;cursor:pointer;border:none}
+.btn-primary:hover{background:var(--ink2);transform:translateY(-1px)}
+.btn-secondary{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
+.btn-secondary:hover{color:var(--brass-text);border-color:var(--brass-text)}
+
+/* Section shared */
+.section{padding:80px 32px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-eyebrow{margin-bottom:14px}
+.section-heading{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:16px}
+.section-sub{font-size:1rem;color:var(--text);max-width:600px;line-height:1.7;margin-bottom:48px}
+.fine{font-size:13px;color:var(--text);line-height:1.65;max-width:760px;margin-top:20px}
+.fine a,.prose a,.process-start a.inline,.deploy-card a.inline{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.fine a:hover,.prose a:hover{color:var(--brass-text)}
+
+/* Layer cards (credentials-card treatment) */
+.layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.layers-grid.three{grid-template-columns:repeat(3,1fr)}
+.layer-card{padding:32px 26px}
+.layer-card.layer-ink{background:var(--ink)}
+.layer-card.layer-brass{background-color:var(--bg);background-image:linear-gradient(rgba(196,119,58,0.08),rgba(196,119,58,0.08))}
+.layer-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;margin-bottom:16px}
+.layer-card.layer-ink .layer-num{color:var(--brass-on-ink)}
+.layer-card.layer-brass .layer-num{color:var(--brass-text)}
+.layer-card h3.layer-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:400;line-height:normal;letter-spacing:0.06em;text-transform:none;margin-bottom:16px}
+.layer-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;line-height:1.3;margin-bottom:10px}
+.layer-card.layer-ink h3{color:var(--bg)}
+.layer-card.layer-brass h3{color:var(--ink)}
+.layer-card p{font-size:13.5px;line-height:1.65}
+.layer-card p+p{margin-top:12px}
+.layer-card.layer-ink p{color:var(--on-ink)}
+.layer-card.layer-brass p{color:var(--text)}
+.layer-card .sector{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;display:block;margin-bottom:3px}
+.layer-card.layer-ink .sector{color:var(--brass-on-ink)}
+.layer-card.layer-brass .sector{color:var(--brass-text)}
+
+/* Deploy cards */
+.deploy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.deploy-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:32px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
+.deploy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
+.deploy-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
+.deploy-card.ink{background:var(--ink);border-color:var(--ink)}
+.deploy-card.brass-card::before{background:var(--brass)}
+.deploy-card.ink::before{background:var(--ink)}
+.deploy-card:hover{transform:translateY(-3px)}
+.deploy-card.brass-card:hover{border-color:rgba(196,119,58,0.4)}
+.deploy-card.ink:hover{border-color:rgba(45,53,97,0.4)}
+.deploy-card:hover::before{opacity:1}
+.deploy-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+.deploy-card.brass-card .deploy-label{color:var(--brass-text)}
+.deploy-card.ink .deploy-label{color:var(--brass-on-ink)}
+.deploy-card.ink h3{color:var(--bg)}
+.deploy-card.ink .step-list li{color:var(--on-ink)}
+.deploy-card.ink .step-list li::before{color:var(--brass-on-ink)}
+.deploy-card.ink::before{background:var(--brass-on-ink)}
+.deploy-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
+.deploy-card p{font-size:14px;color:var(--text);line-height:1.72}
+@media(prefers-reduced-motion:reduce){.deploy-card:hover{transform:none}}
+
+.interest{margin-top:20px;border:1px solid var(--border2);border-radius:10px;padding:28px 30px;background:#fff}
+.interest h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.interest p{font-size:14px;color:var(--text);line-height:1.72;margin-bottom:14px;max-width:680px}
+.interest a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.interest .status{font-family:'DM Mono',monospace;font-size:12px;color:var(--brass-text)}
+@media(max-width:768px){.interest{padding:22px 20px}}
+
+/* Research box */
+.process-start{border:1.5px solid var(--brass);border-radius:10px;padding:32px 30px;background:var(--bg)}
+.process-start-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--brass-text);background:rgba(196,119,58,0.1);border-radius:20px;padding:4px 12px;margin-bottom:14px}
+.process-start h3{font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.process-start p{font-size:14px;color:var(--text);line-height:1.72;margin-bottom:16px;max-width:680px}
+.step-list{list-style:none;margin-bottom:20px;padding:0}
+.step-list li{position:relative;padding-left:14px;font-size:14px;color:var(--text);line-height:1.6;margin-bottom:6px}
+.step-list li::before{content:'\2022';position:absolute;left:0;color:var(--brass-text)}
+.step-list li strong,.prose strong{color:var(--ink);font-weight:600}
+.disclaimer{font-family:'DM Mono',monospace;font-size:12px;color:var(--text);border-top:1px solid var(--border2);padding-top:14px;margin-top:4px;margin-bottom:18px;max-width:none}
+
+/* Prose (crawler page) */
+.prose{max-width:760px}
+.prose h2{font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;margin:44px 0 12px}
+.prose p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:14px}
+.prose code,.code-block{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);background:var(--bg2);border:1px solid var(--border2);border-radius:6px}
+.prose code{padding:1px 6px;overflow-wrap:anywhere}
+.code-block{display:block;padding:14px 16px;margin:6px 0 16px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}
+.prose .step-list{margin-bottom:16px}
+.prose .step-list li{font-size:15px;margin-bottom:8px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start}
+.about-photo{position:relative}
+.about-photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--border)}
+.about-photo-frame{position:absolute;inset:-6px;border:1px solid var(--brass-border);border-radius:14px;pointer-events:none}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.badge{font-family:'DM Mono',monospace;font-size:11px;color:var(--brass-text);background:var(--brass-bg);border:1px solid var(--brass-border);padding:4px 12px;border-radius:20px;letter-spacing:0.03em}
+.about-content h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px}
+.about-content p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:18px}
+
+/* CTA */
+.cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-inner{max-width:720px;margin:0 auto;text-align:center;padding:80px 32px}
+.cta-inner .section-eyebrow{display:block}
+.cta-inner h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:18px}
+.cta-inner p{font-size:1rem;color:var(--text);line-height:1.7;margin-bottom:28px}
+.cta-actions{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
+.cta-email{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);margin-top:20px;display:block}
+.cta-email a{color:var(--ink)}
+.cta-email a:hover{color:var(--brass-text)}
+
+/* Footer */
+footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
+.footer-logo{margin-bottom:6px;display:flex;align-items:center}.footer-logo img{height:32px;width:auto}
+.footer-tagline{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(244,243,239,0.7)}
+.footer-links{display:flex;align-items:center;gap:20px}
+.footer-link{color:rgba(244,243,239,0.75);transition:color 0.15s;display:flex;align-items:center}
+.footer-link:hover{color:var(--bg)}
+.footer-bottom{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:rgba(244,243,239,0.7)}
+.footer-bottom a{color:rgba(244,243,239,0.85);text-decoration:underline;text-underline-offset:2px}
+.footer-bottom a:hover{color:var(--bg)}
+
+/* Responsive */
+@media(max-width:1024px) and (min-width:769px){.layers-grid{grid-template-columns:repeat(2,1fr)}.layers-grid.three{grid-template-columns:1fr}}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-inner{padding:0 20px}
+  .hamburger{display:block}
+  .hero{padding:60px 20px 56px}
+  .section{padding:56px 20px}
+  .layers-grid,.layers-grid.three{grid-template-columns:1fr}
+  .deploy-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .cta-inner{padding:56px 20px}
+  .process-start{padding:26px 22px}
+  footer{padding:40px 20px 32px}
+}
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}.fu{animation:none}</style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Nav -->
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
+    <div class="nav-links">
+      <a href="complyai.html">ComplyAI</a>
+      <a href="healthcare.html" aria-current="page">Healthcare</a>
+      <a href="enablement.html">Enablement</a>
+      <a href="work.html">Our Work</a>
+      <a href="index.html#about">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="nav-cta">Contact us</a>
+    </div>
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="hidden" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <div class="mobile-links">
+      <a href="complyai.html" onclick="closeMenu()">ComplyAI</a>
+      <a href="healthcare.html" aria-current="page" onclick="closeMenu()">Healthcare</a>
+      <a href="enablement.html" onclick="closeMenu()">Enablement</a>
+      <a href="work.html" onclick="closeMenu()">Our Work</a>
+      <a href="index.html#about" onclick="closeMenu()">About</a>
+      <a href="blog.html" onclick="closeMenu()">Blog</a>
+      <a href="contact.html" onclick="closeMenu()">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header>
+  <div class="hero">
+    <div class="hero-rule fu fu1"></div>
+    <p class="hero-eyebrow fu fu1">Healthcare &middot; AI governance</p>
+    <h1 class="fu fu2">AI governance for healthcare: <em>controls you can evidence.</em></h1>
+    <p class="hero-sub fu fu3">ShiftAi is a UK AI governance consultancy. We bring the approach we use in regulated financial services to NHS trusts, integrated care boards (ICBs) and their suppliers.</p>
+    <div class="hero-actions fu fu4">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#how-we-work" class="btn-secondary">See how we work <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Shared challenge -->
+<section id="challenge" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">The shared challenge</p>
+      <h2 class="section-heading">Regulated AI asks the same <em>three questions.</em></h2>
+      <p class="section-sub">Financial services and healthcare differ in their rules, not in what a reviewer wants to see.</p>
+    </div>
+    <div class="layers-grid three reveal">
+      <div class="layer-card layer-ink">
+        <p class="layer-num">01 / Accountability</p>
+        <p><span class="sector">Financial services</span>Named senior individuals are accountable for AI-assisted decisions.</p>
+        <p><span class="sector">Healthcare</span>DCB0129 (for manufacturers) and DCB0160 (for deploying organisations) set clinical risk management expectations for health IT.</p>
+      </div>
+      <div class="layer-card layer-brass">
+        <p class="layer-num">02 / Evidence trails</p>
+        <p><span class="sector">Financial services</span>A regulator can ask how one decision was made.</p>
+        <p><span class="sector">Healthcare</span>Clinical safety documentation, data protection impact assessments (DPIAs) and, for suppliers, DTAC all depend on clear records of what a system does and why.</p>
+      </div>
+      <div class="layer-card layer-ink">
+        <p class="layer-num">03 / Human oversight</p>
+        <p><span class="sector">Both sectors</span>A person should be able to review, challenge and override an AI-assisted output, and you should be able to show that they did.</p>
+      </div>
+    </div>
+    <p class="fine">For public-sector transparency, the Algorithmic Transparency Recording Standard (ATRS) is the UK government&rsquo;s standard for publishing information about algorithmic tools. It is mandatory for central government departments and certain arm&rsquo;s-length bodies, and recommended more widely across the public sector.</p>
+    <p class="fine">Sources: <a href="https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems" target="_blank" rel="noopener">DCB0129</a> and <a href="https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems" target="_blank" rel="noopener">DCB0160</a> (NHS England); <a href="https://digitalregulations.innovation.nhs.uk/regulations-and-guidance-for-developers/all-developers-guidance/using-the-digital-technology-assessment-criteria-dtac/" target="_blank" rel="noopener">DTAC</a> (NHS AI and Digital Regulations Service); <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/" target="_blank" rel="noopener">DPIAs</a> (Information Commissioner&rsquo;s Office); <a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener">ATRS</a> (GOV.UK). This is a comparison of approaches, not legal advice. Standards change, so check the current version of each.</p>
+  </div>
+</section>
+
+<!-- How we work -->
+<section id="how-we-work" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">How we work</p>
+      <h2 class="section-heading">Controls built into systems,<br><em>not only written in policy.</em></h2>
+      <p class="section-sub">A policy says what should happen. A control makes it happen, and leaves a record. It is the approach behind <a href="complyai.html" style="color:var(--ink);text-decoration:underline;text-underline-offset:2px">ComplyAI</a>, our financial services system.</p>
+    </div>
+    <div class="layers-grid reveal">
+      <div class="layer-card layer-ink">
+        <h3 class="layer-num">01 / Verified evidence</h3>
+        <p>Every claim is traced to a source you can inspect, and every quotation is checked against that source.</p>
+      </div>
+      <div class="layer-card layer-brass">
+        <h3 class="layer-num">02 / Human review</h3>
+        <p>A person reviews each record before it is relied on.</p>
+      </div>
+      <div class="layer-card layer-ink">
+        <h3 class="layer-num">03 / Fail-closed checks</h3>
+        <p>If a check cannot confirm something, the answer is no, not &ldquo;probably&rdquo;.</p>
+      </div>
+      <div class="layer-card layer-brass">
+        <h3 class="layer-num">04 / Audit trails</h3>
+        <p>A record of who decided what, when and why.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research -->
+<section id="research" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Research</p>
+      <h2 class="section-heading">Evidence, gathered carefully.</h2>
+    </div>
+    <div class="process-start reveal">
+      <div class="process-start-badge">IN DEVELOPMENT</div>
+      <h3>Health AI Governance Evidence Index (working title)</h3>
+      <p>We are building a way to gather public evidence of how health organisations govern AI, and to keep that evidence accurate. We have not published any findings.</p>
+      <ul class="step-list">
+        <li><strong>Public sources only.</strong> robots.txt is respected.</li>
+        <li><strong>Every quotation is checked</strong> against its source.</li>
+        <li><strong>A person reviews every record</strong> before it is used.</li>
+        <li><strong>Organisations, not people.</strong> The index does not record individuals.</li>
+        <li><strong>Corrections are welcome.</strong></li>
+      </ul>
+      <p class="disclaimer">An independent project, not affiliated with or endorsed by the NHS.</p>
+      <a href="research-crawler.html" class="btn-secondary">How the crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+    <div class="interest reveal">
+      <h3>Register your interest in the index</h3>
+      <p>We are planning the following. None of it is available yet, and the details may change.</p>
+      <ul class="step-list">
+        <li><strong>Free tracker.</strong> <span class="status">Planned, not yet available.</span></li>
+        <li><strong>Pro, from &pound;149 to &pound;249 a year.</strong> <span class="status">Planned, not yet available.</span> Indicative price only.</li>
+        <li><strong>Annual report.</strong> <span class="status">Planned, not yet available.</span></li>
+        <li><strong>Trust dossiers.</strong> <span class="status">Planned, not yet available.</span></li>
+      </ul>
+      <p>To be told when the index opens, email <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Evidence%20Index%20interest&amp;body=Name%3A%0AOrganisation%3A%0AInterested%20in%3A%20(free%20tracker%2C%20Pro%2C%20annual%20report%2C%20trust%20dossiers)%0A%0AI%20consent%20to%20ShiftAi%20Systems%20Ltd%20using%20my%20name%2C%20organisation%20and%20email%20address%20to%20tell%20me%20about%20the%20Evidence%20Index.">hello@shiftaiconsulting.co.uk</a> with your name, organisation and the options you are interested in.</p>
+      <p class="fine" style="margin-top:0">By emailing us you consent to ShiftAi Systems Ltd using your name, organisation and email address to tell you about the Evidence Index. You can withdraw consent at any time by emailing us. See our <a href="privacy.html">privacy notice</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- How we can help -->
+<section id="help" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">How we can help</p>
+      <h2 class="section-heading">Support for the people<br>who hold the accountability.</h2>
+    </div>
+    <div class="deploy-grid">
+      <div class="deploy-card brass-card reveal rd1">
+        <p class="deploy-label">Trusts and ICBs</p>
+        <h3>Governance you can show to a reviewer</h3>
+        <ul class="step-list" style="margin-bottom:0">
+          <li>An AI governance review.</li>
+          <li>AI policy and oversight design.</li>
+          <li>Support to help you prepare evidence for clinical safety and DPIA processes.</li>
+        </ul>
+      </div>
+      <div class="deploy-card ink reveal rd2">
+        <p class="deploy-label">Suppliers</p>
+        <h3>Governance that stands up to scrutiny</h3>
+        <ul class="step-list" style="margin-bottom:0">
+          <li>AI governance support for your product and your team.</li>
+          <li>Help preparing for DTAC (the Digital Technology Assessment Criteria).</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">We support your teams. We do not certify or approve anything. Clinical safety cases, DPIAs and DTAC submissions stay with your accountable people.</p>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="about-photo-frame"></div>
+        <img src="headshot.png" alt="Ifat Noreen, founder of ShiftAi Systems Ltd">
+        <div class="badges">
+          <span class="badge">9 yrs computational science research</span>
+          <span class="badge">Anthropic Partner Network, Registered tier</span>
+        </div>
+      </div>
+      <div class="about-content reveal rd2">
+        <p class="section-eyebrow">About</p>
+        <h2>Built by an engineer. <em>Held to a research standard.</em></h2>
+        <p>Ifat Noreen founded ShiftAi Systems Ltd after nine years of computational science research at the University of Southampton. In that world, a result nobody can reproduce does not count.</p>
+        <p>We hold AI governance to the same standard: if a decision cannot be reconstructed and evidenced, it is not governed. ShiftAi is an independent company and is not affiliated with or endorsed by the NHS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Contact -->
+<section id="contact" class="cta-section" aria-labelledby="contact-heading">
+  <div class="cta-inner reveal">
+    <p class="section-eyebrow">Contact</p>
+    <h2 id="contact-heading">Talk to us about AI governance <em>in healthcare.</em></h2>
+    <p>A conversation to find out whether we can help. If there is no fit, we will say so.</p>
+    <div class="cta-actions">
+      <a href="mailto:hello@shiftaiconsulting.co.uk" class="btn-primary">Email us</a>
+      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-secondary">Book a call (opens in a new tab) <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+    <span class="cta-email"><a href="mailto:hello@shiftaiconsulting.co.uk">hello@shiftaiconsulting.co.uk</a></span>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></div>
+        <div class="footer-tagline">Agentic Architecture for Regulated Sectors</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)" class="footer-link">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/TechIfat" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)" class="footer-link">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Registered in England and Wales &middot; Company No. 15487606</p>
+      <p>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</p>
+            <p><a href="research-crawler.html">Research crawler</a> &middot; <a href="privacy.html">Privacy notice</a></p>
+      <p style="margin-top:6px">&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile Menu Logic
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobile-menu'),iconOpen=document.getElementById('icon-open'),iconClose=document.getElementById('icon-close');
+hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('open');iconOpen.classList.toggle('hidden',o);iconClose.classList.toggle('hidden',!o);hamburger.setAttribute('aria-expanded',o);});
+function closeMenu(){mobileMenu.classList.remove('open');iconOpen.classList.remove('hidden');iconClose.classList.add('hidden');hamburger.setAttribute('aria-expanded','false');}
+
+// Reveal Animation Logic
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

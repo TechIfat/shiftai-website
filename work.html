@@ -15,9 +15,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Our Work | Reference Architectures on GitHub">
 <meta name="twitter:description" content="Five open-source reference architectures proving ShiftAi's engineering approach. Prior work evidencing the method, not a current service menu.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
+.hidden{display:none}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#f4f3ef;--bg2:#eeecea;--bg3:#e6e4df;--bg4:#dddbd5;
@@ -176,6 +176,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   .arch-arrow{transform:rotate(90deg);text-align:center}
 }
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}.fu{animation:none}</style></noscript>
 </head>
 <body>
 
@@ -185,6 +186,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <a href="index.html" class="nav-logo"><img src="shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
     <div class="nav-links">
       <a href="complyai.html">ComplyAI</a>
+      <a href="healthcare.html">Healthcare</a>
       <a href="enablement.html">Enablement</a>
       <a href="work.html">Our Work</a>
       <a href="index.html#about">About</a>
@@ -199,6 +201,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
   <div id="mobile-menu">
     <div class="mobile-links">
       <a href="complyai.html" onclick="closeMenu()">ComplyAI</a>
+      <a href="healthcare.html" onclick="closeMenu()">Healthcare</a>
       <a href="enablement.html" onclick="closeMenu()">Enablement</a>
       <a href="work.html" onclick="closeMenu()">Our Work</a>
       <a href="index.html#about" onclick="closeMenu()">About</a>
@@ -365,6 +368,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="footer-bottom">
       <p>Registered in England and Wales &middot; Company No. 15487606</p>
       <p>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</p>
+      <p><a href="privacy.html" style="color:rgba(244,243,239,0.85);text-decoration:underline;text-underline-offset:2px">Privacy notice</a></p>
       <p style="margin-top:6px">&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
     </div>
   </div>
@@ -381,7 +385,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 <!-- ShiftAi Discovery Agent: Chat Widget (shared include, see chat-widget.js) -->
 <script>window.SA_CHAT_CONFIG={placeholder:'Ask about these reference architectures or our approach…',welcome:'Hello, I\'m the ShiftAi Discovery Agent. I can answer questions about these reference architectures, ComplyAI, or the enablement workshop. What would you like to know?'};</script>
-<script src="chat-widget.js"></script>
+<script src="chat-widget.js?v=2"></script>
 
 </body>
 </html>
