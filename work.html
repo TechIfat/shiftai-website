@@ -84,28 +84,28 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .sol-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:28px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
 .sol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
 .sol-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
-.sol-card.ink{background:rgba(45,53,97,0.05);border-color:rgba(45,53,97,0.18)}
-.sol-card.rose{background:rgba(192,70,58,0.05);border-color:rgba(192,70,58,0.18)}
+.sol-card.ink{background:#2d3561;border-color:#2d3561}
 .sol-card.brass-card::before{background:var(--brass)}
 .sol-card.ink::before{background:var(--ink)}
-.sol-card.rose::before{background:#c0463a}
 .sol-card:hover{transform:translateY(-3px);border-color:var(--border3)}
 .sol-card.brass-card:hover{border-color:rgba(196,119,58,0.4)}
-.sol-card.ink:hover{border-color:rgba(45,53,97,0.4)}
-.sol-card.rose:hover{border-color:rgba(192,70,58,0.4)}
+.sol-card.ink:hover{border-color:#3d4a7a}
 .sol-card:hover::before{opacity:1}
 .sol-card.span2{grid-column:1/-1}
 .sol-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);margin-bottom:20px;letter-spacing:0.06em}
 .sol-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0}
 .sol-icon.brass-icon{background:var(--brass-bg);color:var(--brass)}
-.sol-icon.ink{background:rgba(45,53,97,0.08);color:var(--ink)}
-.sol-icon.rose{background:rgba(192,70,58,0.08);color:#c0463a}
+.sol-icon.ink{background:#dba67a;color:var(--ink)}
 .sol-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em}
 .sol-card p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:20px}
+.sol-card.ink h3{color:#f4f3ef}
+.sol-card.ink p{color:rgba(244,243,239,0.85)}
+.sol-card.ink .sol-num{color:#b8bac4}
+.sol-card.brass-card p{color:#55546a}
+.sol-card.brass-card .sol-num{color:#55546a}
 .sol-link{font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap 0.15s}
-.sol-link.brass-link{color:var(--brass)}
-.sol-link.ink{color:var(--ink2)}
-.sol-link.rose{color:#c0463a}
+.sol-link.brass-link{color:#8a4a14}
+.sol-link.ink{color:#e8b080}
 .sol-link:hover{gap:9px}
 
 /* Architecture Teardown - Visual Flow */
@@ -255,12 +255,12 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
         <a href="https://github.com/TechIfat/regulatory-gap-analyzer" target="_blank" class="sol-link ink">View codebase &amp; ADRs <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
 
-      <div class="sol-card rose reveal rd4">
+      <div class="sol-card brass-card reveal rd4">
         <div class="sol-num">04 /</div>
-        <div class="sol-icon rose"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <div class="sol-icon brass-icon"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
         <h3>Legal Redliner</h3>
         <p>Reduces commercial loan covenant review cycles from days to minutes. Two AI agents review each clause against a lending policy, challenge each other's reasoning, and only output a final draft when every clause meets the standard. Lawyers review the output, not the raw documents.</p>
-        <a href="https://github.com/TechIfat/legal-redliner-ai" target="_blank" class="sol-link rose">View codebase &amp; ADRs <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+        <a href="https://github.com/TechIfat/legal-redliner-ai" target="_blank" class="sol-link brass-link">View codebase &amp; ADRs <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
 
       <div class="sol-card brass-card span2 reveal">

@@ -92,18 +92,20 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .deploy-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:32px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
 .deploy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
 .deploy-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
-.deploy-card.ink{background:rgba(45,53,97,0.05);border-color:rgba(45,53,97,0.18)}
+.deploy-card.ink{background:#2d3561;border-color:#2d3561}
 .deploy-card.brass-card::before{background:var(--brass)}
 .deploy-card.ink::before{background:var(--ink)}
 .deploy-card:hover{transform:translateY(-3px)}
 .deploy-card.brass-card:hover{border-color:rgba(196,119,58,0.4)}
-.deploy-card.ink:hover{border-color:rgba(45,53,97,0.4)}
+.deploy-card.ink:hover{border-color:#3d4a7a}
 .deploy-card:hover::before{opacity:1}
 .deploy-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-.deploy-card.brass-card .deploy-label{color:var(--brass)}
-.deploy-card.ink .deploy-label{color:var(--ink2)}
+.deploy-card.brass-card .deploy-label{color:#8a4a14}
+.deploy-card.ink .deploy-label{color:#e8b080}
 .deploy-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
 .deploy-card p{font-size:14px;color:var(--muted);line-height:1.72}
+.deploy-card.ink h3{color:#f4f3ef}
+.deploy-card.ink p,.deploy-card.ink li{color:rgba(244,243,239,0.85)}
 .deploy-card ul{margin:0;padding-left:18px}
 .deploy-card li{font-size:14px;color:var(--muted);line-height:1.9}
 
@@ -120,12 +122,12 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-b
 .deliverables-list li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:2px;background:var(--brass)}
 
 /* Honest scope card */
-.proven-open{border:1.5px solid var(--brass);border-radius:10px;padding:32px 30px;background:var(--bg)}
-.proven-open-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--brass);background:rgba(196,119,58,0.1);border-radius:20px;padding:4px 12px;margin-bottom:14px}
+.proven-open{background:rgba(196,119,58,0.08);border:1px solid rgba(196,119,58,0.18);border-radius:10px;padding:32px 30px}
+.proven-open-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#f4f3ef;background:#2d3561;border-radius:20px;padding:4px 12px;margin-bottom:14px}
 .proven-open h3{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:10px}
-.proven-open p{font-size:14px;color:var(--muted);line-height:1.72;max-width:680px}
+.proven-open p{font-size:14px;color:#55546a;line-height:1.72;max-width:680px}
 .credentials-list{list-style:none;margin-top:16px;padding:0}
-.credentials-list li{position:relative;padding-left:16px;font-size:14px;color:var(--muted);line-height:1.75}
+.credentials-list li{position:relative;padding-left:16px;font-size:14px;color:#55546a;line-height:1.75}
 .credentials-list li::before{content:'\2013';position:absolute;left:0;color:var(--brass)}
 
 /* Pricing table */
