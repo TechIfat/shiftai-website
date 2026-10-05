@@ -13,6 +13,12 @@
    --border3, --muted, --muted2) — true of every page on this site.
    ============================================================ */
 (function(){
+  /* MASTER SWITCH: set to true to re-enable the chat widget on every page.
+     Before you do, re-add the chat sections to privacy.html (see the HTML
+     comment there) and check the Render backend's logging and retention. */
+  const CHAT_ENABLED = false;
+  if (!CHAT_ENABLED) return;
+
   const CONFIG = Object.assign({
     placeholder: "Ask about ComplyAI or our architecture…",
     welcome: "Hello, I'm the ShiftAi Discovery Agent. I can answer questions about ComplyAI, our governance architecture for UK banks, or how an engagement works. What would you like to know?"
