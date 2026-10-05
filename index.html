@@ -108,26 +108,16 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 
 /* Sectors */
 .sectors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.sector-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:32px 30px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start}
-.sector-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;opacity:0;transition:opacity 0.2s}
-.sector-card.ink{background:var(--ink);border-color:var(--ink)}
-.sector-card.brass-card{background:rgba(196,119,58,0.05);border-color:rgba(196,119,58,0.18)}
-.sector-card.ink::before{background:var(--ink)}
-.sector-card.brass-card::before{background:var(--brass)}
+.sector-card{background:#dba67a;border:1px solid #c4773a;border-radius:10px;padding:32px 30px;transition:transform 0.2s;display:flex;flex-direction:column;align-items:flex-start}
 .sector-card:hover{transform:translateY(-3px)}
-.sector-card:hover::before{opacity:1}
-.sector-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-.sector-card.ink .sector-label{color:#e8b080}
-.sector-card.ink h3{color:var(--bg)}
-.sector-card.ink p{color:rgba(244,243,239,0.8)}
-.sector-card.ink .btn-secondary{color:var(--bg);border-color:rgba(244,243,239,0.4)}
-.sector-card.ink .btn-secondary:hover{color:#e8b080;border-color:#e8b080}
-.sector-card.ink::before{background:#e8b080}
-.sector-card.brass-card .sector-label{color:#8a4a14}
-.sector-card h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em}
-.sector-card p{font-size:14px;color:#55546a;line-height:1.72;margin-bottom:20px}
-.sector-card .btn-secondary{margin-top:auto}
-.sector-card .btn-secondary:hover{color:#8a4a14;border-color:#8a4a14}
+.sector-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sector-card p.sector-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:#2d3561;color:#f4f3ef;padding:5px 14px;border-radius:20px;margin:0}
+.sector-new{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:#fff;color:#2d3561;padding:5px 12px;border-radius:20px}
+.sector-card h3{font-size:1.1rem;font-weight:700;color:#2d3561;margin-bottom:12px;letter-spacing:-0.01em}
+.sector-card p{font-size:14px;color:#2d3561;line-height:1.72;margin-bottom:20px}
+.sector-btn{margin-top:auto;display:inline-flex;align-items:center;gap:6px;background:#fff;color:#2d3561;font-size:14px;font-weight:600;text-decoration:none;padding:10px 18px;border-radius:6px;transition:background 0.15s}
+.sector-btn:hover{background:#f4f3ef}
+.sector-btn:focus-visible{outline:2px solid #2d3561;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.sector-card:hover{transform:none}}
 
 /* Section shared */
@@ -241,10 +231,11 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <div class="hero-rule fu fu1"></div>
     <p class="hero-eyebrow fu fu1">ComplyAI &middot; Healthcare &middot; Enablement &middot; ShiftAi Systems Ltd</p>
     <h1 class="fu fu2">Two gaps in enterprise AI.<br>One team that closes <em>both.</em></h1>
-    <p class="hero-sub fu fu3">ComplyAI adds four compliance layers to AI-assisted decisions in UK financial services, so they are traceable, explainable, and accountable. The Claude Code in Production workshop teaches technical teams who already have Claude Code to configure, govern, and get compounding value from it. Different problems, same standard of evidence.</p>
+    <p class="hero-sub fu fu3">ComplyAI adds four compliance layers to AI-assisted decisions in UK financial services. Our healthcare work brings AI governance to NHS organisations and their suppliers. The Claude Code in Production workshop helps technical teams get governed, compounding value from Claude Code. Different problems, same standard of evidence.</p>
     <div class="hero-actions fu fu4">
       <a href="contact.html" class="btn-primary">Get in touch</a>
       <a href="complyai.html" class="btn-secondary">See how ComplyAI works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      <a href="healthcare.html" class="btn-secondary">AI governance for healthcare <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       <a href="enablement.html" class="btn-secondary">See the enablement workshop <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
   </div>
@@ -258,17 +249,17 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       <h2 class="section-heading">Two regulated sectors.<br>One standard of evidence.</h2>
     </div>
     <div class="sectors-grid">
-      <div class="sector-card ink reveal rd1">
-        <p class="sector-label">Financial services</p>
+      <div class="sector-card reveal rd1">
+        <div class="sector-head"><p class="sector-label" style="margin:0">Financial services</p></div>
         <h3>AI-assisted decisions you can trace and explain</h3>
         <p>ComplyAI adds four compliance layers to AI-assisted decisions in UK financial services, with a named person accountable for each one.</p>
-        <a href="complyai.html" class="btn-secondary">See ComplyAI <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+        <a href="complyai.html" class="sector-btn">See ComplyAI <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
-      <div class="sector-card brass-card reveal rd2">
-        <p class="sector-label">Healthcare</p>
+      <div class="sector-card reveal rd2">
+        <div class="sector-head"><p class="sector-label" style="margin:0">Healthcare</p><span class="sector-new">New</span></div>
         <h3>Controls you can evidence</h3>
         <p>AI governance for NHS trusts, integrated care boards and their suppliers, with human review and audit trails built into the system.</p>
-        <a href="healthcare.html" class="btn-secondary">Explore healthcare <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+        <a href="healthcare.html" class="sector-btn">Explore healthcare <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
     </div>
   </div>
@@ -290,6 +281,27 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     </ul>
     <div class="reveal" style="margin-top:24px">
       <a href="complyai.html" class="btn-secondary">Read how each layer works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- Healthcare Introduction -->
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Healthcare</p>
+      <h2 class="section-heading">AI governance NHS organisations<br>can evidence.</h2>
+      <p class="section-sub" style="margin-bottom:24px">Governance controls for NHS trusts, integrated care boards and their suppliers. They are built into systems, not only written in policy.</p>
+    </div>
+    <ul class="layer-chips reveal">
+      <li class="layer-chip"><span class="chip-num">01 /</span>Verified evidence</li>
+      <li class="layer-chip"><span class="chip-num">02 /</span>Human review</li>
+      <li class="layer-chip"><span class="chip-num">03 /</span>Fail-closed checks</li>
+      <li class="layer-chip"><span class="chip-num">04 /</span>Audit trails</li>
+    </ul>
+    <div class="reveal" style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 28px">
+      <a href="healthcare.html" class="btn-secondary">Explore healthcare <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      <a href="research-crawler.html" class="btn-secondary">How our research crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
   </div>
 </section>
@@ -376,7 +388,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
       <div class="about-content reveal rd2">
         <p class="section-eyebrow">About the founder</p>
         <h2>Built by an engineer.<br><em>Designed for compliance.</em></h2>
-        <p>I am Ifat Noreen, founder of ShiftAi Systems Ltd. Before building AI governance systems I spent nine years in computational science research at the University of Southampton, on an AMD-sponsored project developing molecular simulation algorithms for drug discovery, running on high-performance computing clusters as far away as Japan. In that world, a result nobody can reproduce does not count. I hold AI-assisted decisions in banks to the same standard: if it cannot be reconstructed and evidenced, it is not governed.</p>
+        <p>I am Ifat Noreen, founder of ShiftAi Systems Ltd. Before building AI governance systems I spent nine years in computational science research at the University of Southampton, on an AMD-sponsored project developing molecular simulation algorithms for drug discovery, running on high-performance computing clusters as far away as Japan. In that world, a result nobody can reproduce does not count. I hold AI-assisted decisions in banks and in healthcare to the same standard: if it cannot be reconstructed and evidenced, it is not governed.</p>
         <p>We do not sell software licences or retainer contracts. Engagements start with a fixed-scope readiness assessment, and builds are handed over completely: your compliance team gets a system they can explain to the FCA, and your engineering team gets code they understand and can maintain.</p>
         <div class="about-links">
           <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" class="about-link primary">
@@ -401,7 +413,7 @@ footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px
     <p>45 minutes on Zoom or Teams with your risk and engineering leads. We map your current document workflows, flag where AI errors would cause the most regulatory damage, and tell you honestly whether an AI Readiness Assessment is the right next step. If there is no fit, we will say so.</p>
     <ul class="cta-checklist">
       <li>High-level workflow mapped on the call</li>
-      <li>FCA/PRA risk points identified</li>
+      <li>Regulatory risk points identified (FCA/PRA, or NHS clinical safety and data protection)</li>
       <li>Clear recommendation, no obligation</li>
     </ul>
     <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book your free call</a>
