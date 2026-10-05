@@ -125,6 +125,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .deploy-card.brass-card .deploy-label{color:var(--brass-text)}
 .deploy-card.ink .deploy-label{color:var(--brass-on-ink)}
 .deploy-card.ink h3{color:var(--bg)}
+.deploy-card.ink p{color:var(--on-ink)}
 .deploy-card.ink .step-list li{color:var(--on-ink)}
 .deploy-card.ink .step-list li::before{color:var(--brass-on-ink)}
 .deploy-card.ink::before{background:var(--brass-on-ink)}
@@ -160,15 +161,22 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .prose .step-list{margin-bottom:16px}
 .prose .step-list li{font-size:15px;margin-bottom:8px}
 
-/* About */
-.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start}
-.about-photo{position:relative}
-.about-photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--border)}
-.about-photo-frame{position:absolute;inset:-6px;border:1px solid var(--brass-border);border-radius:14px;pointer-events:none}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.badge{font-family:'DM Mono',monospace;font-size:11px;color:var(--brass-text);background:var(--brass-bg);border:1px solid var(--brass-border);padding:4px 12px;border-radius:20px;letter-spacing:0.03em}
-.about-content h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px}
-.about-content p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:18px}
+.help-build{font-size:15px;color:var(--ink);line-height:1.7;max-width:760px;margin-top:24px}
+
+/* FAQ */
+.faq-inner{max-width:1200px;margin:0 auto}
+.faq-item{max-width:760px}
+.faq-inner .section-heading{margin-bottom:28px}
+.faq-item{border-bottom:1px solid var(--border2)}
+.faq-item:first-of-type{border-top:1px solid var(--border2)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1.35}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-indicator{flex-shrink:0;color:var(--brass-text);transition:transform 0.25s ease}
+.faq-item[open] .faq-indicator{transform:rotate(45deg)}
+.faq-answer{padding:0 0 22px;font-size:15px;color:var(--text);line-height:1.75;max-width:680px}
+.faq-answer a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.layer-card a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.deploy-card p+p{margin-top:12px}
 
 /* CTA */
 .cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -180,6 +188,12 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .cta-email{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);margin-top:20px;display:block}
 .cta-email a{color:var(--ink)}
 .cta-email a:hover{color:var(--brass-text)}
+
+/* Who you'll work with */
+.who{display:flex;align-items:center;justify-content:center;gap:14px;text-align:left;margin-top:36px;padding-top:28px;border-top:1px solid var(--border2)}
+.who img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:1px solid var(--border2);flex-shrink:0}
+.who p{font-size:14px;color:var(--text);line-height:1.5;margin:0;max-width:440px}
+.who a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
 
 /* Footer */
 footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
@@ -204,13 +218,77 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
   .section{padding:56px 20px}
   .layers-grid,.layers-grid.three{grid-template-columns:1fr}
   .deploy-grid{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr;gap:40px}
   .cta-inner{padding:56px 20px}
+  .who{text-align:left;align-items:flex-start}
   .process-start{padding:26px 22px}
   footer{padding:40px 20px 32px}
 }
 </style>
 <noscript><style>.reveal{opacity:1;transform:none}.fu{animation:none}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are you NHS-approved or affiliated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. ShiftAi Systems Ltd is an independent company. We are not approved by, endorsed by or affiliated with the NHS, NHS England or any NHS organisation, and we do not certify or approve anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need access to patient data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We work from your policies, system documentation and process descriptions, and we will not ask for patient data. If an example would help, we will use one that contains no patient information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you act as our Clinical Safety Officer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. DCB0129 and DCB0160 require a Clinical Safety Officer to be a suitably qualified and experienced clinician with current registration with an appropriate professional body, nominated by your top management. We support your Clinical Safety Officer by helping you prepare evidence and governance records. We do not sign off clinical safety cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with suppliers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We support suppliers with AI governance for their product and their team, including preparation for DTAC. The submission, and every claim in it, stays with you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an engagement start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With a free 45-minute call. If a readiness review looks worthwhile, we agree a fixed scope in writing before any work begins. If it does not, we will say so."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What will the index publish, and when?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing yet. We have not published any findings and have no publication date. Nothing will be published until each record has been checked against its source and reviewed by a person. Corrections and opt-out are covered on the research crawler page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We work remotely across the UK by video call, and can meet in person by arrangement."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -254,7 +332,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
     <h1 class="fu fu2">AI governance for healthcare: <em>controls you can evidence.</em></h1>
     <p class="hero-sub fu fu3">ShiftAi is a UK AI governance consultancy. We bring the approach we use in regulated financial services to NHS trusts, integrated care boards (ICBs) and their suppliers.</p>
     <div class="hero-actions fu fu4">
-      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary" aria-label="Book a free call (opens in a new tab)">Book a free call</a>
       <a href="#how-we-work" class="btn-secondary">See how we work <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
   </div>
@@ -320,42 +398,6 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
   </div>
 </section>
 
-<!-- Research -->
-<section id="research" class="section" style="padding-top:0">
-  <div class="section-inner">
-    <div class="reveal">
-      <p class="section-eyebrow">Research</p>
-      <h2 class="section-heading">Evidence, gathered carefully.</h2>
-    </div>
-    <div class="process-start reveal">
-      <div class="process-start-badge">IN DEVELOPMENT</div>
-      <h3>Health AI Governance Evidence Index (working title)</h3>
-      <p>We are building a way to gather public evidence of how health organisations govern AI, and to keep that evidence accurate. We have not published any findings.</p>
-      <ul class="step-list">
-        <li><strong>Public sources only.</strong> robots.txt is respected.</li>
-        <li><strong>Every quotation is checked</strong> against its source.</li>
-        <li><strong>A person reviews every record</strong> before it is used.</li>
-        <li><strong>Organisations, not people.</strong> The index does not record individuals.</li>
-        <li><strong>Corrections are welcome.</strong></li>
-      </ul>
-      <p class="disclaimer">An independent project, not affiliated with or endorsed by the NHS.</p>
-      <a href="research-crawler.html" class="btn-secondary">How the crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
-    </div>
-    <div class="interest reveal">
-      <h3>Register your interest in the index</h3>
-      <p>We are planning the following. None of it is available yet, and the details may change.</p>
-      <ul class="step-list">
-        <li><strong>Free tracker.</strong> <span class="status">Planned, not yet available.</span></li>
-        <li><strong>Pro, from &pound;149 to &pound;249 a year.</strong> <span class="status">Planned, not yet available.</span> Indicative price only.</li>
-        <li><strong>Annual report.</strong> <span class="status">Planned, not yet available.</span></li>
-        <li><strong>Trust dossiers.</strong> <span class="status">Planned, not yet available.</span></li>
-      </ul>
-      <p>To be told when the index opens, email <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Evidence%20Index%20interest&amp;body=Name%3A%0AOrganisation%3A%0AInterested%20in%3A%20(free%20tracker%2C%20Pro%2C%20annual%20report%2C%20trust%20dossiers)%0A%0AI%20consent%20to%20ShiftAi%20Systems%20Ltd%20using%20my%20name%2C%20organisation%20and%20email%20address%20to%20tell%20me%20about%20the%20Evidence%20Index.">hello@shiftaiconsulting.co.uk</a> with your name, organisation and the options you are interested in.</p>
-      <p class="fine" style="margin-top:0">By emailing us you consent to ShiftAi Systems Ltd using your name, organisation and email address to tell you about the Evidence Index. You can withdraw consent at any time by emailing us. See our <a href="privacy.html">privacy notice</a>.</p>
-    </div>
-  </div>
-</section>
-
 <!-- How we can help -->
 <section id="help" class="section" style="padding-top:0">
   <div class="section-inner">
@@ -382,29 +424,151 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
         </ul>
       </div>
     </div>
+    <p class="help-build">We can also design and build the governance controls we recommend, such as audit trails, evidence capture and review workflows, working alongside your clinical safety officer.</p>
     <p class="fine">We support your teams. We do not certify or approve anything. Clinical safety cases, DPIAs and DTAC submissions stay with your accountable people.</p>
   </div>
 </section>
 
-<!-- About -->
-<section id="about" class="section" style="padding-top:0">
+<!-- Engagement model -->
+<section id="engagement" class="section" style="padding-top:0">
   <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-photo reveal">
-        <div class="about-photo-frame"></div>
-        <img src="headshot.png" alt="Ifat Noreen, founder of ShiftAi Systems Ltd">
-        <div class="badges">
-          <span class="badge">9 yrs computational science research</span>
-          <span class="badge">Anthropic Partner Network, Registered tier</span>
-        </div>
+    <div class="reveal">
+      <p class="section-eyebrow">How an engagement works</p>
+      <h2 class="section-heading">A free call, then a fixed scope.<br><em>You keep everything.</em></h2>
+      <p class="section-sub">No licences, no retainers and no lock-in. You can stop after the call, or after the review.</p>
+    </div>
+    <div class="process-start reveal">
+      <div class="process-start-badge">FREE &middot; 45 MINUTES</div>
+      <h3>Discovery call</h3>
+      <p>A video call on Zoom or Teams with the people who hold accountability for AI in your organisation or product. We talk through where AI is used, or about to be, and tell you honestly whether a readiness review would help.</p>
+      <ul class="step-list">
+        <li>Your current AI governance mapped at a high level.</li>
+        <li>Where clinical safety, data protection and, for suppliers, DTAC expectations are likely to apply.</li>
+        <li>A clear recommendation on next steps. If there is no fit, we will say so.</li>
+        <li>No patient data needed, and please do not share any.</li>
+      </ul>
+      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book your free call (opens in a new tab)</a>
+    </div>
+    <div class="deploy-grid" style="margin-top:20px">
+      <div class="deploy-card brass-card reveal rd1">
+        <p class="deploy-label">Fixed-scope review</p>
+        <h3>AI governance readiness review</h3>
+        <p>A review with the scope and price agreed in writing before work starts. It looks at how AI-assisted outputs are controlled and evidenced, against the clinical safety, data protection and (for suppliers) DTAC processes you already have to meet.</p>
+        <ul class="step-list" style="margin:14px 0 0">
+          <li>A gap register of where evidence is missing or hard to produce.</li>
+          <li>A map of where a person reviews AI-assisted outputs, and how that is recorded.</li>
+          <li>A prioritised action plan for your accountable people.</li>
+        </ul>
       </div>
-      <div class="about-content reveal rd2">
-        <p class="section-eyebrow">About</p>
-        <h2>Built by an engineer. <em>Held to a research standard.</em></h2>
-        <p>Ifat Noreen founded ShiftAi Systems Ltd after nine years of computational science research at the University of Southampton. In that world, a result nobody can reproduce does not count.</p>
-        <p>We hold AI governance to the same standard: if a decision cannot be reconstructed and evidenced, it is not governed. ShiftAi is an independent company and is not affiliated with or endorsed by the NHS.</p>
+      <div class="deploy-card ink reveal rd2">
+        <p class="deploy-label">Ownership</p>
+        <h3>Handed over completely</h3>
+        <p>Everything we produce for you transfers to you at the end: documents, templates and working files. There is no licence to renew, no retainer and nothing that only we can maintain.</p>
+        <p style="margin-top:12px">Clinical safety cases, DPIAs and DTAC submissions stay with your accountable people. We support them. We do not certify or approve anything.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Credibility -->
+<section id="credibility" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Why work with us</p>
+      <h2 class="section-heading">What stands behind the approach.</h2>
+    </div>
+    <div class="layers-grid reveal">
+      <div class="layer-card layer-ink">
+        <h3 class="layer-num">01 / Research background</h3>
+        <p>Nine years of computational science research at the University of Southampton, where a result nobody can reproduce does not count.</p>
+      </div>
+      <div class="layer-card layer-brass">
+        <h3 class="layer-num">02 / We apply it to ourselves</h3>
+        <p>Our research pipeline, in development, checks every quotation against its source, has a person review every record, and stops when a check fails.</p>
+      </div>
+      <div class="layer-card layer-ink">
+        <h3 class="layer-num">03 / Same approach elsewhere</h3>
+        <p>ComplyAI, our financial services system, is built on the same controls. <a href="complyai.html#proven">See how it was tested</a>.</p>
+      </div>
+      <div class="layer-card layer-brass">
+        <h3 class="layer-num">04 / Independent</h3>
+        <p>Registered in England and Wales (Company No. 15487606) and in the Anthropic Partner Network, Registered tier. Not affiliated with or endorsed by the NHS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research -->
+<section id="research" class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Research</p>
+      <h2 class="section-heading">Evidence, gathered carefully.</h2>
+    </div>
+    <div class="process-start reveal">
+      <div class="process-start-badge">IN DEVELOPMENT</div>
+      <h3>Health AI Governance Evidence Index (working title)</h3>
+      <p>We are building a way to gather public evidence of how health organisations govern AI, and to keep that evidence accurate. We have not published any findings.</p>
+      <ul class="step-list">
+        <li><strong>Public sources only.</strong> robots.txt is respected.</li>
+        <li><strong>Every quotation is checked</strong> against its source.</li>
+        <li><strong>A person reviews every record</strong> before it is used.</li>
+        <li><strong>Organisations, not people.</strong> The index never publishes personal details.</li>
+        <li><strong>Corrections are welcome.</strong></li>
+      </ul>
+      <p class="disclaimer">An independent project, not affiliated with or endorsed by the NHS.</p>
+      <a href="research-crawler.html" class="btn-secondary">How the crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+    <div class="interest reveal">
+      <h3>Register your interest in the index</h3>
+      <p>We are planning the following. None of it is available yet, and the details may change.</p>
+      <ul class="step-list">
+        <li><strong>Free tracker.</strong> <span class="status">Planned, not yet available.</span></li>
+        <li><strong>Pro, from &pound;149 to &pound;249 a year.</strong> <span class="status">Planned, not yet available.</span> Indicative price only.</li>
+        <li><strong>Annual report.</strong> <span class="status">Planned, not yet available.</span></li>
+        <li><strong>Trust dossiers.</strong> <span class="status">Planned, not yet available.</span></li>
+      </ul>
+      <p>To be told when the index opens, email <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Evidence%20Index%20interest&amp;body=Name%3A%0AOrganisation%3A%0AInterested%20in%3A%20(free%20tracker%2C%20Pro%2C%20annual%20report%2C%20trust%20dossiers)%0A%0AI%20consent%20to%20ShiftAi%20Systems%20Ltd%20using%20my%20name%2C%20organisation%20and%20email%20address%20to%20tell%20me%20about%20the%20Evidence%20Index.">hello@shiftaiconsulting.co.uk</a> with your name, organisation and the options you are interested in.</p>
+      <p class="fine" style="margin-top:0">By emailing us you consent to ShiftAi Systems Ltd using your name, organisation and email address to tell you about the Evidence Index. You can withdraw consent at any time by emailing us. See our <a href="privacy.html">privacy notice</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section" style="padding-top:0">
+  <div class="faq-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Common questions</p>
+      <h2 class="section-heading">Straight answers.</h2>
+    </div>
+    <details class="faq-item reveal">
+      <summary>Are you NHS-approved or affiliated?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">No. ShiftAi Systems Ltd is an independent company. We are not approved by, endorsed by or affiliated with the NHS, NHS England or any NHS organisation, and we do not certify or approve anything.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Do you need access to patient data?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">No. We work from your policies, system documentation and process descriptions, and we will not ask for patient data. If an example would help, we will use one that contains no patient information.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Can you act as our Clinical Safety Officer?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">No. DCB0129 and DCB0160 require a Clinical Safety Officer to be a suitably qualified and experienced clinician with current registration with an appropriate professional body, nominated by your top management. We support your Clinical Safety Officer by helping you prepare evidence and governance records. We do not sign off clinical safety cases.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Do you work with suppliers?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">Yes. We support suppliers with AI governance for their product and their team, including preparation for DTAC. The submission, and every claim in it, stays with you.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>How does an engagement start?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">With a free 45-minute call. If a readiness review looks worthwhile, we agree a fixed scope in writing before any work begins. If it does not, we will say so.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>What will the index publish, and when?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">Nothing yet. We have not published any findings and have no publication date. Nothing will be published until each record has been checked against its source and reviewed by a person. Corrections and opt-out are covered on the <a href="research-crawler.html">research crawler page</a>.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Do you work remotely?<svg class="faq-indicator" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-answer">Yes. We work remotely across the UK by video call, and can meet in person by arrangement.</div>
+    </details>
   </div>
 </section>
 
@@ -421,6 +585,10 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
       <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-secondary">Book a call (opens in a new tab) <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
     <span class="cta-email"><a href="mailto:hello@shiftaiconsulting.co.uk">hello@shiftaiconsulting.co.uk</a></span>
+    <div class="who">
+      <img src="headshot.png" width="56" height="56" alt="Ifat Noreen, founder of ShiftAi Systems Ltd">
+      <p><strong>Who you&rsquo;ll work with:</strong> Ifat Noreen, founder: AI governance consultant and agentic AI architect. Nine years in computational science research. <a href="index.html#about">About us</a></p>
+    </div>
   </div>
 </section>
 
