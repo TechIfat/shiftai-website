@@ -85,7 +85,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .section-heading{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:16px}
 .section-sub{font-size:1rem;color:var(--text);max-width:600px;line-height:1.7;margin-bottom:48px}
 .fine{font-size:13px;color:var(--text);line-height:1.65;max-width:760px;margin-top:20px}
-.fine a,.prose a,.process-start a.inline,.deploy-card a.inline{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.fine a,.prose a,.deploy-card a.inline{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 .fine a:hover,.prose a:hover{color:var(--brass-text)}
 
 /* Layer cards (credentials-card treatment) */
@@ -133,18 +133,45 @@ nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);backdrop-
 .deploy-card p{font-size:14px;color:var(--text);line-height:1.72}
 @media(prefers-reduced-motion:reduce){.deploy-card:hover{transform:none}}
 
-.interest{margin-top:20px;border:1px solid var(--border2);border-radius:10px;padding:28px 30px;background:#fff}
-.interest h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px}
-.interest p{font-size:14px;color:var(--text);line-height:1.72;margin-bottom:14px;max-width:680px}
-.interest a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
-.interest .status{font-family:'DM Mono',monospace;font-size:12px;color:var(--brass-text)}
-@media(max-width:768px){.interest{padding:22px 20px}}
+/* Index card: joined ink + brass halves */
+.index-card{border-radius:10px;overflow:hidden;border:1px solid var(--ink)}
+.index-top{background:var(--ink);color:#f4f3ef;padding:36px 32px}
+.index-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;background:#dba67a;color:#2d3561;border-radius:20px;padding:5px 14px;margin-bottom:16px}
+.index-top h3{font-size:1.25rem;font-weight:700;color:#f4f3ef;margin-bottom:10px}
+.index-top h3 .wt{color:#dba67a}
+.index-top p{font-size:14px;color:#f4f3ef;line-height:1.72;margin-bottom:16px;max-width:680px}
+.index-list{list-style:none;margin:0 0 20px;padding:0}
+.index-list li{position:relative;padding-left:14px;font-size:14px;line-height:1.6;margin-bottom:6px;color:#f4f3ef}
+.index-list li::before{content:'\2022';position:absolute;left:0;color:#dba67a}
+.index-list strong{font-weight:600;color:#f4f3ef}
+.index-top p.index-indep{font-family:'DM Mono',monospace;font-size:12px;border-top:1px solid rgba(244,243,239,0.25);padding-top:14px;margin:4px 0 18px;max-width:none}
+.index-link{font-size:14px;font-weight:500;color:#f4f3ef;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;gap:6px}
+.index-link:hover{color:#dba67a}
+.index-link:focus-visible{outline:2px solid #f4f3ef;outline-offset:3px}
+.index-bottom{background:#dba67a;color:var(--ink);padding:36px 32px}
+.interest-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:#2d3561;color:#f4f3ef;padding:5px 14px;border-radius:20px;margin-bottom:18px}
+.index-bottom h3{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em}
+.interest-lead{font-size:16px;color:var(--ink);line-height:1.65;max-width:640px;margin-bottom:24px}
+.interest-options{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px;padding:0}
+.interest-options li{background:#fff;border-radius:8px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px}
+.interest-options strong{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.25}
+.interest-options span{font-size:13px;line-height:1.5;color:var(--ink)}
+.interest-btn{display:inline-block;background:var(--ink);color:#f4f3ef;font-family:'Syne',sans-serif;font-size:14px;font-weight:600;padding:14px 26px;border-radius:6px;text-decoration:none;transition:background 0.15s}
+.interest-btn:hover{background:var(--ink2)}
+.interest-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.interest-consent{font-size:12.5px;line-height:1.6;color:var(--ink);margin-top:18px;max-width:680px}
+.interest-consent a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+@media(max-width:768px){.index-top,.index-bottom{padding:26px 20px}.interest-options{grid-template-columns:repeat(2,1fr)}.interest-btn{display:block;text-align:center}}
 
 /* Research box */
-.process-start{border:1.5px solid var(--brass);border-radius:10px;padding:32px 30px;background:var(--bg)}
-.process-start-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--brass-text);background:rgba(196,119,58,0.1);border-radius:20px;padding:4px 12px;margin-bottom:14px}
-.process-start h3{font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:10px}
-.process-start p{font-size:14px;color:var(--text);line-height:1.72;margin-bottom:16px;max-width:680px}
+/* Action block: warm brass, ink text */
+.action-card{background:#dba67a;border:1px solid #c4773a;border-radius:10px;padding:32px 30px;color:var(--ink)}
+.action-card p.action-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;background:#2d3561;color:#f4f3ef;border-radius:20px;padding:5px 14px;margin-bottom:16px;max-width:none}
+.action-card h3{font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.action-card p{font-size:14px;color:var(--ink);line-height:1.72;margin-bottom:16px;max-width:680px}
+.action-list{list-style:none;margin:0 0 22px;padding:0}
+.action-list li{position:relative;padding-left:14px;font-size:14px;color:var(--ink);line-height:1.6;margin-bottom:6px}
+.action-list li::before{content:'\2022';position:absolute;left:0;color:var(--ink)}
 .step-list{list-style:none;margin-bottom:20px;padding:0}
 .step-list li{position:relative;padding-left:14px;font-size:14px;color:var(--text);line-height:1.6;margin-bottom:6px}
 .step-list li::before{content:'\2022';position:absolute;left:0;color:var(--brass-text)}
@@ -220,7 +247,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
   .deploy-grid{grid-template-columns:1fr}
   .cta-inner{padding:56px 20px}
   .who{text-align:left;align-items:flex-start}
-  .process-start{padding:26px 22px}
+  .action-card{padding:26px 22px}
   footer{padding:40px 20px 32px}
 }
 </style>
@@ -437,17 +464,17 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
       <h2 class="section-heading">A free call, then a fixed scope.<br><em>You keep everything.</em></h2>
       <p class="section-sub">No licences, no retainers and no lock-in. You can stop after the call, or after the review.</p>
     </div>
-    <div class="process-start reveal">
-      <div class="process-start-badge">FREE &middot; 45 MINUTES</div>
+    <div class="action-card reveal">
+      <p class="action-badge">FREE &middot; 45 MINUTES</p>
       <h3>Discovery call</h3>
       <p>A video call on Zoom or Teams with the people who hold accountability for AI in your organisation or product. We talk through where AI is used, or about to be, and tell you honestly whether a readiness review would help.</p>
-      <ul class="step-list">
+      <ul class="action-list">
         <li>Your current AI governance mapped at a high level.</li>
         <li>Where clinical safety, data protection and, for suppliers, DTAC expectations are likely to apply.</li>
         <li>A clear recommendation on next steps. If there is no fit, we will say so.</li>
         <li>No patient data needed, and please do not share any.</li>
       </ul>
-      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book your free call (opens in a new tab)</a>
+      <a href="https://calendly.com/ifat-noreen/free-45-minute-discovery-call" target="_blank" rel="noopener" class="btn-primary" aria-label="Book your free call (opens in a new tab)">Book your free call</a>
     </div>
     <div class="deploy-grid" style="margin-top:20px">
       <div class="deploy-card brass-card reveal rd1">
@@ -505,31 +532,34 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
       <p class="section-eyebrow">Research</p>
       <h2 class="section-heading">Evidence, gathered carefully.</h2>
     </div>
-    <div class="process-start reveal">
-      <div class="process-start-badge">IN DEVELOPMENT</div>
-      <h3>Health AI Governance Evidence Index (working title)</h3>
+    <div class="index-card reveal">
+    <div class="index-top">
+      <p class="index-badge">IN DEVELOPMENT</p>
+      <h3>Health AI Governance Evidence Index <span class="wt">(working title)</span></h3>
       <p>We are building a way to gather public evidence of how health organisations govern AI, and to keep that evidence accurate. We have not published any findings.</p>
-      <ul class="step-list">
+      <ul class="index-list">
         <li><strong>Public sources only.</strong> robots.txt is respected.</li>
         <li><strong>Every quotation is checked</strong> against its source.</li>
         <li><strong>A person reviews every record</strong> before it is used.</li>
         <li><strong>Organisations, not people.</strong> The index never publishes personal details.</li>
         <li><strong>Corrections are welcome.</strong></li>
       </ul>
-      <p class="disclaimer">An independent project, not affiliated with or endorsed by the NHS.</p>
-      <a href="research-crawler.html" class="btn-secondary">How the crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      <p class="index-indep">An independent project, not affiliated with or endorsed by the NHS.</p>
+      <a href="research-crawler.html" class="index-link">How the crawler works <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
-    <div class="interest reveal">
-      <h3>Register your interest in the index</h3>
-      <p>We are planning the following. None of it is available yet, and the details may change.</p>
-      <ul class="step-list">
-        <li><strong>Free tracker.</strong> <span class="status">Planned, not yet available.</span></li>
-        <li><strong>Pro, from &pound;149 to &pound;249 a year.</strong> <span class="status">Planned, not yet available.</span> Indicative price only.</li>
-        <li><strong>Annual report.</strong> <span class="status">Planned, not yet available.</span></li>
-        <li><strong>Trust dossiers.</strong> <span class="status">Planned, not yet available.</span></li>
+    <div class="index-bottom">
+      <p class="interest-badge">PLANNED &middot; NOT YET AVAILABLE</p>
+      <h3>Be first to see the index</h3>
+      <p class="interest-lead">We&rsquo;re building a verified, comparable record of how NHS organisations adopt and govern AI. Register your interest and we&rsquo;ll tell you when it opens.</p>
+      <ul class="interest-options">
+        <li><strong>Free tracker</strong><span>A headline view of each trust.</span></li>
+        <li><strong>Pro</strong><span>From &pound;149&ndash;&pound;249 a year (indicative).</span></li>
+        <li><strong>Annual report</strong><span>The state of AI governance.</span></li>
+        <li><strong>Trust dossiers</strong><span>All the evidence for one trust.</span></li>
       </ul>
-      <p>To be told when the index opens, email <a href="mailto:hello@shiftaiconsulting.co.uk?subject=Evidence%20Index%20interest&amp;body=Name%3A%0AOrganisation%3A%0AInterested%20in%3A%20(free%20tracker%2C%20Pro%2C%20annual%20report%2C%20trust%20dossiers)%0A%0AI%20consent%20to%20ShiftAi%20Systems%20Ltd%20using%20my%20name%2C%20organisation%20and%20email%20address%20to%20tell%20me%20about%20the%20Evidence%20Index.">hello@shiftaiconsulting.co.uk</a> with your name, organisation and the options you are interested in.</p>
-      <p class="fine" style="margin-top:0">By emailing us you consent to ShiftAi Systems Ltd using your name, organisation and email address to tell you about the Evidence Index. You can withdraw consent at any time by emailing us. See our <a href="privacy.html">privacy notice</a>.</p>
+      <a class="interest-btn" href="mailto:hello@shiftaiconsulting.co.uk?subject=Evidence%20Index%20interest&amp;body=Name%3A%0AOrganisation%3A%0AInterested%20in%3A%20(free%20tracker%2C%20Pro%2C%20annual%20report%2C%20trust%20dossiers)%0A%0AI%20consent%20to%20ShiftAi%20Systems%20Ltd%20using%20my%20name%2C%20organisation%20and%20email%20address%20to%20tell%20me%20about%20the%20Evidence%20Index.">Register interest by email <span aria-hidden="true">&rarr;</span></a>
+      <p class="interest-consent">By emailing us you consent to ShiftAi Systems Ltd using your name, organisation and email address to tell you about the Evidence Index. You can withdraw consent at any time by emailing us. See our <a href="privacy.html">privacy notice</a>.</p>
+    </div>
     </div>
   </div>
 </section>
