@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Same Question, a Different Sector: Can You Reconstruct One AI-Drafted Clinical Letter? | ShiftAi Systems</title>
+<meta name="description" content="Device status changes the registration question for AI scribes. It does not remove the clinical safety question or the evidence question. A four-part scored test for whether a single AI-drafted clinical letter can actually be evidenced.">
+<meta name="author" content="Ifat Noreen, ShiftAi Systems Ltd">
+<link rel="canonical" href="https://shiftaiconsulting.co.uk/blog/reconstruct-ai-clinical-letter.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shiftaiconsulting.co.uk/blog/reconstruct-ai-clinical-letter.html">
+<meta property="og:title" content="The Same Question, a Different Sector: Can You Reconstruct One AI-Drafted Clinical Letter?">
+<meta property="og:description" content="Device status changes the registration question for AI scribes. It does not remove the clinical safety question or the evidence question. A four-part scored test for whether a single AI-drafted clinical letter can actually be evidenced.">
+<meta property="og:image" content="https://shiftaiconsulting.co.uk/reconstruct-clinical-letter-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Same Question, a Different Sector: Can You Reconstruct One AI-Drafted Clinical Letter?">
+<meta name="twitter:description" content="Device status changes the registration question for AI scribes. It does not remove the clinical safety question or the evidence question. A four-part scored test for whether a single AI-drafted clinical letter can actually be evidenced.">
+<meta name="twitter:image" content="https://shiftaiconsulting.co.uk/reconstruct-clinical-letter-card.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Same Question, a Different Sector: Can You Reconstruct One AI-Drafted Clinical Letter?","author":{"@type":"Person","name":"Ifat Noreen"},"publisher":{"@type":"Organization","name":"ShiftAi Systems Ltd","logo":{"@type":"ImageObject","url":"https://shiftaiconsulting.co.uk/shiftai-logo.png"}},"datePublished":"2026-10-07","mainEntityOfPage":{"@type":"WebPage","@id":"https://shiftaiconsulting.co.uk/blog/reconstruct-ai-clinical-letter.html"}}</script>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+.hidden{display:none}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f4f3ef;--bg2:#eeecea;--bg3:#e6e4df;--bg4:#dddbd5;
+  --ink:#2d3561;--ink2:#3d4a7a;--ink3:#4a5a8a;
+  --brass:#c4773a;--brass-bg:rgba(196,119,58,0.08);--brass-border:rgba(196,119,58,0.25);
+  --muted:#6b6a80;--muted2:#9a99a8;
+  --border:rgba(45,53,97,0.1);--border2:rgba(45,53,97,0.16);--border3:rgba(45,53,97,0.22);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
+.mono{font-family:'DM Mono',monospace}
+.serif{font-family:'Instrument Serif',serif}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.15s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--ink);transition:width 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:13px;font-weight:600;color:var(--ink);border:1.5px solid var(--border3);border-radius:6px;padding:7px 18px;text-decoration:none;transition:all 0.15s;font-family:'Syne',sans-serif}
+.nav-cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--ink)}
+#mobile-menu{max-height:0;overflow:hidden;transition:max-height 0.3s ease,opacity 0.3s;opacity:0;border-top:1px solid var(--border)}
+#mobile-menu.open{max-height:400px;opacity:1}
+.mobile-links{padding:20px 32px;display:flex;flex-direction:column;gap:18px}
+.mobile-links a{font-size:15px;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.15s}
+.mobile-links a:hover{color:var(--ink)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Fade-up on load */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.fu{animation:fadeUp 0.7s ease both}
+.fu1{animation-delay:0.05s}.fu2{animation-delay:0.18s}.fu3{animation-delay:0.32s}
+
+/* Article hero */
+.article-hero{padding:72px 32px 40px;max-width:1200px;margin:0 auto}
+.hero-rule{width:40px;height:3px;background:var(--brass);border-radius:2px;margin-bottom:28px}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:#8a4a14;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+.article-hero h1{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:28px;max-width:900px}
+.byline{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted);border-top:1px solid var(--border2);padding-top:20px;max-width:68ch}
+.byline .byline-name{font-family:'Syne',sans-serif;font-weight:700;color:var(--ink);font-size:15px}
+.byline .byline-role{color:var(--muted)}
+.byline .byline-date{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px;letter-spacing:0.02em}
+
+/* Article body */
+.article-body{padding:8px 32px 24px}
+.prose-col{max-width:68ch;margin:0 auto}
+.prose-col p{font-size:18px;color:var(--ink3);line-height:1.8;margin-bottom:22px}
+.prose-col p strong{color:var(--ink);font-weight:700}
+.prose-col a{color:#8a4a14;text-decoration:underline;text-decoration-color:var(--brass-border);text-underline-offset:2px;transition:text-decoration-color 0.15s}
+.prose-col a:hover{text-decoration-color:#8a4a14}
+.prose-col h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin:52px 0 22px}
+.prose-col h3{font-size:1.28rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;margin:38px 0 16px}
+/* Source/citation line — metadata, not body copy. Shared treatment across the article series.
+   Each reference is its own block, all flush left. A reference that wraps is kept distinct
+   from the next one by the gap between blocks rather than by a hanging indent. */
+.prose-col p.article-sources{font-size:16px;font-style:italic;color:var(--muted);margin-top:34px}
+.prose-col p.article-sources span{display:block}
+.prose-col p.article-sources span+span{margin-top:9px}
+
+/* Rubric tables — same visual language as the pricing table on enablement.html:
+   mono uppercase header row on a tinted background, brass mono figure in the key column. */
+.table-wrap{margin:24px 0 30px;border:1px solid var(--border2);border-radius:10px;overflow:hidden}
+.rubric-table{width:100%;border-collapse:collapse}
+.rubric-table th{text-align:left;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#55546a;padding:14px 20px;background:var(--bg2);border-bottom:1px solid var(--border2)}
+.rubric-table td{padding:16px 20px;border-bottom:1px solid var(--border);font-size:15px;color:var(--ink3);vertical-align:top;line-height:1.65}
+.rubric-table tr:last-child td{border-bottom:none}
+.rubric-table td:first-child{font-family:'DM Mono',monospace;font-weight:700;color:#8a4a14;white-space:nowrap;width:1%}
+.rubric-table td strong{color:var(--ink)}
+
+/* Author footer card */
+.author-card{max-width:68ch;margin:56px auto 0;background:var(--ink);border-radius:12px;padding:36px 40px}
+.author-card p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:rgba(244,243,239,0.82);line-height:1.7}
+.author-card a{color:#e8b080;text-decoration-color:rgba(232,176,128,0.6)}
+.author-card a:hover{text-decoration-color:#e8b080}
+
+.article-footer-nav{max-width:68ch;margin:40px auto 0;padding-bottom:8px}
+.article-footer-nav a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--border3);padding-bottom:2px;transition:border-color 0.15s,color 0.15s}
+.article-footer-nav a:hover{color:var(--brass);border-color:var(--brass)}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(244,243,239,0.55);padding:48px 32px 36px;margin-top:64px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
+.footer-logo{margin-bottom:6px;display:flex;align-items:center}.footer-logo img{height:32px;width:auto}
+.footer-tagline{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(244,243,239,0.35)}
+.footer-links{display:flex;align-items:center;gap:20px}
+.footer-link{color:rgba(244,243,239,0.4);transition:color 0.15s;display:flex;align-items:center}
+.footer-link:hover{color:var(--bg)}
+.footer-program{text-align:center;margin-bottom:28px}
+.footer-program a{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--brass);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:gap 0.15s}
+.footer-program a:hover{gap:11px}
+.footer-bottom{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:rgba(244,243,239,0.3)}
+.footer-bottom a{color:rgba(244,243,239,0.5);text-decoration:none;transition:color 0.15s}
+.footer-bottom a:hover{color:var(--bg)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .article-hero{padding:48px 20px 32px}
+  .article-body{padding:8px 20px 24px}
+  .prose-col p{font-size:16.5px}
+  .prose-col p.article-sources{font-size:15px}
+  .rubric-table th,.rubric-table td{padding:12px 14px;font-size:13.5px}
+  .author-card{padding:28px 26px}
+  .author-card p{font-size:1.05rem}
+}
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}.fu{animation:none}</style></noscript>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../shiftai-logo.png" alt="ShiftAi Systems Ltd" /></a>
+    <div class="nav-links">
+      <a href="../complyai.html">ComplyAI</a>
+      <a href="../healthcare.html">Healthcare</a>
+      <a href="../enablement.html">Enablement</a>
+      <a href="../work.html">Our Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html" class="nav-cta">Contact us</a>
+    </div>
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+      <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="hidden" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <div class="mobile-links">
+      <a href="../complyai.html" onclick="closeMenu()">ComplyAI</a>
+      <a href="../healthcare.html" onclick="closeMenu()">Healthcare</a>
+      <a href="../enablement.html" onclick="closeMenu()">Enablement</a>
+      <a href="../work.html" onclick="closeMenu()">Our Work</a>
+      <a href="../index.html#about" onclick="closeMenu()">About</a>
+      <a href="../blog.html" onclick="closeMenu()">Blog</a>
+      <a href="../contact.html" onclick="closeMenu()">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Article hero -->
+<header>
+  <div class="article-hero">
+    <div class="hero-rule fu fu1"></div>
+    <p class="hero-eyebrow fu fu1">Blog</p>
+    <h1 class="fu fu2">The Same Question, a Different Sector: Can You Reconstruct One AI-Drafted Clinical Letter?</h1>
+    <div class="byline fu fu3">
+      <span class="byline-name">Ifat Noreen</span>
+      <span class="byline-role">Founder and Principal Agentic AI Architect, ShiftAi Systems Ltd</span>
+      <span class="byline-date">7 October 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- Article body -->
+<section class="article-body">
+  <div class="prose-col reveal">
+
+    <p>On 29 July 2026 the MHRA published guidance on ambient voice technology, the AI scribes that listen to a consultation and draft the notes and letters that follow it. On the same day NHS England updated its own guidance on ambient scribing.</p>
+    <p>Much of the commentary read the MHRA guidance as relief. Scribes solely intended to transcribe, summarise or draft documentation for a clinician to review are not regulated as medical devices. For many suppliers, the registration question got simpler overnight.</p>
+    <p>I would read the other half of that day's publications before treating it as good news.</p>
+    <p>NHS England's guidance still tells deploying organisations to assign a Clinical Safety Officer, to complete their DCB0160 clinical safety documentation, including the safety case, hazard log and monitoring, and to complete a data protection impact assessment. Device status changes the registration question. It does not remove the clinical safety question, and it does not remove the evidence question underneath it.</p>
+    <p><a href="reconstruct-ai-lending-decision.html">In August I wrote about the question that eventually gets asked of every AI system in financial services</a>: can you reconstruct one AI-assisted decision? Healthcare asks the same question in a different shape. Not one lending decision. One letter.</p>
+    <h2>Frameworks describe the organisation. Complaints are about one patient.</h2>
+    <p>Most AI governance work in healthcare starts in the right place. A clinical safety officer is named. A hazard log is opened. A DPIA is written, often from NHS England's own template. The supplier has completed DTAC. The work is real and the intent is serious.</p>
+    <p>Then a patient, a GP or a coroner asks about one letter. A specific one. A named patient, a date, a sentence that turned out to matter. What did the tool hear, what did it draft, what did the clinician change, and who signed it?</p>
+    <p>The conversation changes shape immediately, because the safety case describes how the deployment manages risk in general, and the question is about one record in particular.</p>
+    <h2>For readers who do not spend their days in this</h2>
+    <p>If your interest here is clinical or managerial rather than technical, two paragraphs will do.</p>
+    <p>When an AI scribe helps write a clinical letter, four things need to be recoverable afterwards. What the tool worked from, and which version of the tool it was. Proof that the signed letter has not changed since, and what the clinician changed between the AI's draft and the signed version. Where each clinical statement in the letter came from. And which person reviewed it, under whose clinical safety oversight.</p>
+    <p>The reason all four are needed together is that each one props up the others. A signed letter without the draft cannot show what the clinician actually checked. A draft without the version of the tool cannot be tied to a known behaviour. And a careful review is of limited use as evidence if nothing records that it happened as a step of its own, separate from the act of signing.</p>
+    <h2>The test</h2>
+    <p>Take one AI-drafted letter from six months ago. Not a representative one. A specific one, preferably one where something was later questioned, because those are the ones that get examined.</p>
+    <p>Then time how long the organisation takes to produce four things: the product and version that drafted it, the AI draft and the signed letter side by side, the source of each clinical statement in it, and the names of the reviewing clinician and the clinical safety officer for the deployment.</p>
+    <p>I call this <a href="../complyai.html#process">the reconstruction drill</a>. I use it in preference to a maturity assessment for one reason. It produces a fact rather than an opinion. Nobody argues with a stopwatch.</p>
+    <h2>Where healthcare is different</h2>
+    <p>The drill carries over from finance, with one important difference. In financial services, keeping more evidence is almost always safer. In healthcare it is not.</p>
+    <p>A consultation recording is some of the most sensitive data an organisation can hold. Retaining audio or full transcripts to make reconstruction easier creates its own data protection risk, and the DPIA may rightly decide to keep them only briefly, or not at all.</p>
+    <p>That changes what good looks like. The aim is not to keep everything. The aim is to keep the right things, for a period the DPIA has deliberately set, and to record that decision. Which is exactly why the draft, the differences and the review step matter so much: they can be kept when the audio cannot.</p>
+    <h2>The rubric</h2>
+    <p>Score each dimension from 0 to 3. The criteria are written to be specific enough that two people applying them to the same letter reach the same score.</p>
+    <h3>Provenance: can you show what the tool worked from?</h3>
+    <div class="table-wrap"><table class="rubric-table">
+      <thead><tr><th>Score</th><th>Criteria</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Only the signed letter exists. Nothing records that AI was involved.</td></tr>
+        <tr><td>1</td><td>The product is named in the deployment record, but not the version used for this letter.</td></tr>
+        <tr><td>2</td><td>Product, version and configuration are recorded, but the AI draft was not retained.</td></tr>
+        <tr><td>3</td><td>Product, version and configuration are recorded against the letter. The AI draft is retained for a period set in the DPIA. Whether the transcript is kept, and for how long, is a recorded decision rather than a default.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Auditability: can you show what changed, and prove it has not changed since?</h3>
+    <div class="table-wrap"><table class="rubric-table">
+      <thead><tr><th>Score</th><th>Criteria</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>The record does not show that the letter was AI-drafted.</td></tr>
+        <tr><td>1</td><td>The record shows the letter was edited, but not that the first version came from an AI tool.</td></tr>
+        <tr><td>2</td><td>AI involvement is flagged, but the differences between draft and signed letter cannot be recovered.</td></tr>
+        <tr><td>3</td><td>AI involvement is flagged. Draft and signed versions are both retained with timestamps, the differences are recoverable, and the record cannot be silently altered after signing.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Explainability: can each clinical statement be traced to its source?</h3>
+    <div class="table-wrap"><table class="rubric-table">
+      <thead><tr><th>Score</th><th>Criteria</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>The letter alone. No way to tell where any statement came from.</td></tr>
+        <tr><td>1</td><td>Clinician review is assumed, because the letter was signed.</td></tr>
+        <tr><td>2</td><td>Review is recorded, but not at the level of individual statements.</td></tr>
+        <tr><td>3</td><td>During review, statements can be traced to the part of the consultation they came from. High-risk statements, such as medications, doses, allergies and anything phrased as a negative, are highlighted for checking before signing.</td></tr>
+      </tbody>
+    </table></div>
+    <p>That last criterion deserves a sentence of its own. "Patient denies chest pain" and "patient reports chest pain" differ by one word. A draft that reads fluently is not a draft that has been checked, and negatives are where a fluent summary is most likely to be confidently wrong.</p>
+    <h3>Accountability: can you name the people who owned it?</h3>
+    <div class="table-wrap"><table class="rubric-table">
+      <thead><tr><th>Score</th><th>Criteria</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>No named individual. The letter is attributed to a system or a service.</td></tr>
+        <tr><td>1</td><td>A team owns the deployment. No individual is identified for this letter.</td></tr>
+        <tr><td>2</td><td>A named clinician signed the letter, but nothing distinguishes their review of the AI draft from the act of signing.</td></tr>
+        <tr><td>3</td><td>The clinician's review is recorded as a distinct step. The clinical safety officer for the deployment is named, and the hazard log contains an entry for AI drafting errors that is reviewed.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Scoring</h3>
+    <div class="table-wrap"><table class="rubric-table">
+      <thead><tr><th>Total</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>10 to 12</td><td>A question about one letter can be answered from your records within hours.</td></tr>
+        <tr><td>8 to 9</td><td>Reconstruction is possible but manual, and depends on particular people being available.</td></tr>
+        <tr><td>5 to 7</td><td>You can describe what happened. You cannot evidence it.</td></tr>
+        <tr><td>0 to 4</td><td>A specific letter cannot currently be reconstructed.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Score each deployment separately. Averages hide the one that will be examined.</p>
+    <h2>A worked example</h2>
+    <p>The example below is constructed rather than drawn from any organisation. The patient, the clinic and the details are invented. The failure mode is the one this rubric was built to catch.</p>
+    <p>An outpatient clinic uses an AI scribe. After a follow-up appointment, the scribe drafts a letter to the patient's GP. The clinician reviews it at the end of a busy list and signs it. The letter says the patient is not currently taking their anticoagulant.</p>
+    <p>In the consultation, the patient had said they stopped it for a while because of bruising, and their GP restarted it last week.</p>
+    <p>Three months later, the GP practice raises a concern. The organisation can produce the signed letter, the name of the clinician who signed it, and the system audit trail showing when it was signed. It cannot produce the AI draft, because drafts were not kept. The transcript was deleted after a short period, as the DPIA required. The product version in use that day was not recorded against the letter.</p>
+    <p>Against the rubric: provenance scores 1, because the product is known but not the version. Auditability scores 1, because the record shows edits but not AI involvement. Explainability scores 1, because review is assumed from the signature. Accountability scores 2, because a named clinician signed, but review and signing were the same act.</p>
+    <p>Five out of twelve. A careful clinician, a sound deployment process, and a letter nobody can explain.</p>
+    <p>At level 3, the same concern is answered quickly, even though the transcript is still gone. The draft is retained and shows the scribe wrote "not currently taking". The recorded differences show the clinician did not change that sentence. The review step shows the medication statement was not one of those highlighted for checking, which is now a hazard log finding rather than a mystery. The concern can be answered on its merits, and the deployment can be fixed.</p>
+    <p>The transcript was deleted under the organisation's own rules, and rightly so. The evidence survived anyway, because the right things were kept.</p>
+    <h2>What a passing record contains</h2>
+    <p><strong>AI involvement.</strong> A flag on the letter showing it was AI-drafted.</p>
+    <p><strong>Product and configuration.</strong> The product, its version as used that day, and any template or setting that shapes the draft.</p>
+    <p><strong>Draft and final.</strong> The AI draft and the signed letter, both retained for a period the DPIA sets, with the differences recoverable.</p>
+    <p><strong>Review.</strong> Who reviewed, when, and which high-risk statements were checked, recorded as a step separate from signing.</p>
+    <p><strong>Oversight.</strong> The clinical safety officer for the deployment, and the hazard log entry that covers AI drafting errors.</p>
+    <p><strong>Retention decisions.</strong> What was deliberately not kept, such as audio, and for how long the rest is kept, as recorded decisions.</p>
+    <p>None of this is exotic. What makes it rare is that every field has to be captured at the moment the letter is written. None of it can be reconstructed afterwards.</p>
+    <h2>What this does not fix</h2>
+    <p>Three honest limits, because a governance argument that claims too much becomes the thing it is arguing against.</p>
+    <p>This rubric measures whether a letter can be reconstructed. It does not measure whether the scribe is clinically accurate. A deployment could score twelve out of twelve and still produce poor drafts, with excellent records of having produced them. Evaluation and monitoring are separate work.</p>
+    <p>Nor does it replace DCB0160, the DPIA or DTAC. It sits underneath them. The safety case says how risk is managed. This is the evidence that the management happened, one letter at a time.</p>
+    <p>And it does not settle the tension between evidence and privacy. It only insists that the tension is resolved deliberately, in the DPIA, rather than by whatever the product happens to keep by default.</p>
+    <h2>The question worth asking</h2>
+    <p>You do not need a new framework for any of this. You need one question, put to every AI deployment that touches what goes into a patient's record.</p>
+    <p>If a patient asked you today why one specific sentence is in their letter, what could you actually produce?</p>
+    <p>If the answer is a safety case, a DPIA and a description of the review process, you have described your deployment.</p>
+    <p>If the answer is the draft, what the clinician changed, the statements that were checked, and the names of the people who owned it, you have evidence.</p>
+    <p>Only one of those survives being asked twice.</p>
+
+    <p class="article-sources">
+      <span>Sources: Medicines and Healthcare products Regulatory Agency, <a href="https://www.gov.uk/government/publications/ambient-voice-technology-enabled-products" target="_blank" rel="noopener">Ambient voice technology-enabled products</a>, 29 July 2026.</span>
+      <span>NHS England, <a href="https://www.england.nhs.uk/publication/medical-device-regulation-for-ambient-voice-technology-products/" target="_blank" rel="noopener">Medical device regulation for ambient voice technology products</a>, letter to NHS trusts, 29 July 2026.</span>
+      <span>NHS England, <a href="https://www.england.nhs.uk/long-read/guidance-on-the-use-of-ai-enabled-ambient-scribing-products-in-health-and-care-settings/" target="_blank" rel="noopener">Guidance on the use of AI-enabled ambient scribing products in health and care settings</a> (Version 3, updated 29 July 2026).</span>
+      <span>NHS England Digital, <a href="https://digital.nhs.uk/data-and-information/information-governance/guidance/using-ai-enabled-ambient-scribing-products-in-health-and-care-settings/guidance-for-ig-professionals" target="_blank" rel="noopener">Using AI-enabled ambient scribing products in health and care settings guidance for IG professionals</a>, including the template DPIA (March 2026).</span>
+      <span>NHS England Digital, <a href="https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems" target="_blank" rel="noopener">DCB0129: Clinical Risk Management: its Application in the Manufacture of Health IT Systems</a>; <a href="https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems" target="_blank" rel="noopener">DCB0160: Clinical Risk Management: its Application in the Deployment and Use of Health IT Systems</a>.</span>
+      <span>NHS England Digital, <a href="https://digital.nhs.uk/services/digital-technology-assessment-criteria-dtac" target="_blank" rel="noopener">Digital Technology Assessment Criteria (DTAC) guidance for buyers and suppliers</a>.</span>
+    </p>
+
+  </div>
+
+  <div class="author-card reveal">
+    <p>Ifat Noreen is Founder and Principal Agentic AI Architect at ShiftAi Systems Ltd, a UK AI governance consultancy working across regulated financial services and <a href="../healthcare.html">healthcare</a>. ShiftAi is independent and is not affiliated with or endorsed by the NHS.</p>
+  </div>
+
+  <div class="article-footer-nav reveal">
+    <a href="../blog.html">&larr; Back to Blog</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="../shiftai-logo.png" alt="ShiftAi Systems Ltd" /></div>
+        <div class="footer-tagline">Agentic Architecture for Regulated Sectors</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/ifat-noreen" target="_blank" aria-label="LinkedIn" class="footer-link">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/TechIfat" target="_blank" aria-label="GitHub" class="footer-link">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-program">
+      <a href="../ai-for-good.html">AI for Good Programme &rarr;</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Registered in England and Wales · Company No. 15487606</p>
+      <p>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</p>
+      <p><a href="../research-crawler.html" style="color:rgba(244,243,239,0.85);text-decoration:underline;text-underline-offset:2px">Research crawler</a> &middot; <a href="../privacy.html" style="color:rgba(244,243,239,0.85);text-decoration:underline;text-underline-offset:2px">Privacy notice</a></p>
+      <p style="margin-top:6px">&copy; 2026 ShiftAi Systems Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile Menu Logic
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobile-menu'),iconOpen=document.getElementById('icon-open'),iconClose=document.getElementById('icon-close');
+hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('open');iconOpen.classList.toggle('hidden',o);iconClose.classList.toggle('hidden',!o);});
+function closeMenu(){mobileMenu.classList.remove('open');iconOpen.classList.remove('hidden');iconClose.classList.add('hidden');}
+
+// Reveal Animation Logic
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+
+<!-- ShiftAi Discovery Agent: Chat Widget (shared include, see chat-widget.js) -->
+<script>window.SA_CHAT_CONFIG={placeholder:'Ask about ComplyAI or our architecture…',welcome:'Hello, I\'m the ShiftAi Discovery Agent. I can answer questions about ComplyAI, our governance architecture for UK banks, or how an engagement works. What would you like to know?'};</script>
+<script src="../chat-widget.js?v=2"></script>
+
+</body>
+</html>
