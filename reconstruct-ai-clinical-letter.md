@@ -8,7 +8,7 @@ Founder and Principal Agentic AI Architect, ShiftAi Systems Ltd
 
 On 29 July 2026 the MHRA published guidance on ambient voice technology, the AI scribes that listen to a consultation and draft the notes and letters that follow it. On the same day NHS England updated its own guidance on ambient scribing.
 
-Much of the commentary read the MHRA guidance as relief. A scribe that only transcribes, summarises or drafts documentation for a clinician to review is generally not a medical device. For many suppliers, the registration question got simpler overnight.
+Much of the commentary read the MHRA guidance as relief. Scribes solely intended to transcribe, summarise or draft documentation for a clinician to review are not regulated as medical devices. For many suppliers, the registration question got simpler overnight.
 
 I would read the other half of that day's publications before treating it as good news.
 
