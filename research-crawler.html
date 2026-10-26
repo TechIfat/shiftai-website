@@ -264,7 +264,7 @@ footer{background:var(--ink);color:var(--on-ink);padding:48px 32px 36px}
         <li>It reads a site&rsquo;s <code>robots.txt</code> before fetching, and respects it.</li>
         <li>If it cannot read or confidently interpret <code>robots.txt</code>, it does not fetch.</li>
         <li>It makes no more than one request per second to any one host.</li>
-        <li>If a site&rsquo;s <code>robots.txt</code> sets a Crawl-delay, it waits at least that long between requests. If the delay is longer than 60 seconds, it does not crawl that site.</li>
+        <li>If a site&rsquo;s <code>robots.txt</code> sets a Crawl-delay, it waits at least that long between requests. If the delay is longer than 60 seconds, it does not crawl that site unless the site owner has given us written permission, and even then it waits the full delay.</li>
         <li>It follows redirects only within the same site, and applies the same checks at every step.</li>
       </ul>
       <p>We make two exceptions to <code>robots.txt</code>, and no others. One is where a site owner has given us written permission. The other is official open-data files that their publisher documents for public reuse.</p>
